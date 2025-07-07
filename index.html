@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ===== BASE STYLES ===== */
         * {
             margin: 0;
             padding: 0;
@@ -23,21 +24,11 @@
             overflow-x: hidden;
             position: relative;
             color: #333;
-            background: #f8f9fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
             line-height: 1.6;
             font-size: 1rem;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-        }
-        
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7f1 100%);
         }
         
         .container {
@@ -53,6 +44,7 @@
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
         }
         
+        /* ===== HEADER & LOGO ===== */
         .logo-container {
             position: relative;
             width: 140px;
@@ -88,32 +80,12 @@
             pointer-events: none;
         }
         
-        @keyframes pulseRing {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.7;
-            }
-            50% {
-                transform: scale(1.15);
-                opacity: 0.4;
-            }
-        }
-        
-        .logo:hover {
-            transform: scale(1.05) rotate(5deg);
-            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.25);
-        }
-        
         .logo i {
             font-size: 60px;
             color: #fff;
             z-index: 2;
             text-shadow: 0 2px 12px rgba(0,0,0,0.1);
             transition: transform 0.5s ease;
-        }
-        
-        .logo:hover i {
-            transform: scale(1.1) rotate(-10deg);
         }
         
         header {
@@ -134,11 +106,6 @@
             animation: fadeInUp 1s ease-out;
         }
         
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
         .tagline {
             font-size: 1.25rem;
             font-weight: 300;
@@ -149,6 +116,7 @@
             line-height: 1.7;
         }
         
+        /* ===== SECTION TITLES ===== */
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 1.8rem;
@@ -175,10 +143,12 @@
             border-radius: 3px;
         }
         
+        /* ===== CONTENT AREA ===== */
         .content {
             padding: 0 22px 18px;
         }
         
+        /* ===== LINK CARDS GRID ===== */
         .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -199,13 +169,6 @@
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-        }
-        
-        .link-card:hover {
-            background: #f9f9f9;
-            border-color: #f1c40f;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-            transform: translateY(-5px);
         }
         
         .link-icon {
@@ -232,57 +195,6 @@
             transition: transform 0.4s ease;
         }
         
-        @keyframes gentlePulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-        }
-        
-        .link-card:hover .link-icon {
-            transform: scale(1.1);
-            box-shadow: 0 0 25px rgba(230, 230, 255, 0.1);
-        }
-        
-        .link-card:hover .link-icon i {
-            transform: scale(1.1);
-            animation: none;
-        }
-        
-        .stardust-icon {
-            background: linear-gradient(135deg, #e67e22, #f1c40f) !important;
-        }
-        
-        .letsbailar-icon {
-            background: linear-gradient(135deg, #5d54a4, #3a0066) !important;
-        }
-        
-        .estilo-icon {
-            background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important;
-        }
-        
-        .contact-icon {
-            background: linear-gradient(135deg, #2ac7c2, #3498db) !important;
-        }
-        
-        .venmo .link-icon {
-            background: linear-gradient(135deg, #3d95ce, #008cff) !important;
-        }
-        
-        .cash .link-icon {
-            background: linear-gradient(135deg, #27ae60, #2ecc71) !important;
-        }
-        
-        .sensual-icon {
-            background: linear-gradient(135deg, #9b59b6, #8e44ad) !important;
-        }
-        
-        .daniel-icon {
-            background: linear-gradient(135deg, #e67e22, #f1c40f) !important;
-        }
-        
-        .rebecca-icon {
-            background: linear-gradient(135deg, #9b59b6, #8e44ad) !important;
-        }
-        
         .link-text {
             flex: 1;
         }
@@ -301,6 +213,18 @@
             line-height: 1.5;
         }
         
+        /* Color schemes for icons */
+        .stardust-icon { background: linear-gradient(135deg, #e67e22, #f1c40f) !important; }
+        .letsbailar-icon { background: linear-gradient(135deg, #5d54a4, #3a0066) !important; }
+        .estilo-icon { background: linear-gradient(135deg, #2ac7c2, #1a8d88) !important; }
+        .contact-icon { background: linear-gradient(135deg, #2ac7c2, #3498db) !important; }
+        .venmo .link-icon { background: linear-gradient(135deg, #3d95ce, #008cff) !important; }
+        .cash .link-icon { background: linear-gradient(135deg, #27ae60, #2ecc71) !important; }
+        .sensual-icon { background: linear-gradient(135deg, #9b59b6, #8e44ad) !important; }
+        .daniel-icon { background: linear-gradient(135deg, #e67e22, #f1c40f) !important; }
+        .rebecca-icon { background: linear-gradient(135deg, #9b59b6, #8e44ad) !important; }
+        
+        /* ===== SCHEDULE STYLES ===== */
         .schedule-detail {
             display: block;
             margin-top: 6px;
@@ -335,6 +259,7 @@
             font-size: 1.05rem;
         }
         
+        /* ===== REGISTRATION FORM ===== */
         .registration-form {
             background: #fff;
             border-radius: 18px;
@@ -387,7 +312,7 @@
             position: relative;
         }
         
-        .form-input {
+        .form-input, .form-select {
             width: 100%;
             padding: 16px 18px;
             border-radius: 14px;
@@ -400,40 +325,11 @@
             appearance: none;
         }
         
-        .form-input:focus {
-            outline: none;
-            border-color: #f1c40f;
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
-        }
-        
-        .form-input::placeholder {
-            color: #95a5a6;
-            font-size: 1.05rem;
-        }
-        
         .form-select {
-            width: 100%;
-            padding: 16px 18px;
-            border-radius: 14px;
-            border: 1px solid #e0e0e0;
-            background: #f9f9f9;
-            color: #333;
-            font-size: 1.1rem;
-            appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e67e22'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 18px center;
             background-size: 20px;
-            transition: all 0.3s ease;
-            -webkit-appearance: none;
-        }
-        
-        .form-select:focus {
-            outline: none;
-            border-color: #f1c40f;
-            background: #fff;
-            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
         }
         
         .submit-btn {
@@ -456,16 +352,6 @@
             box-shadow: 0 8px 25px rgba(230, 126, 34, 0.3);
         }
         
-        .submit-btn:hover {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, #d46c1a, #e0b30e);
-            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.4);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(2px);
-        }
-        
         .thank-you-message {
             display: none;
             text-align: center;
@@ -478,58 +364,7 @@
             animation: fadeIn 0.8s ease-out;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        .thank-you-message h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #2c3e50;
-            margin-bottom: 22px;
-            position: relative;
-            padding-bottom: 14px;
-        }
-        
-        .thank-you-message h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, #e67e22, #f1c40f);
-            border-radius: 2px;
-        }
-        
-        .thank-you-message p {
-            font-size: 1.15rem;
-            margin-bottom: 26px;
-            color: #7f8c8d;
-            line-height: 1.7;
-        }
-        
-        .non-link-card {
-            cursor: default;
-        }
-        
-        .non-link-card:hover {
-            transform: none;
-            background: #fff;
-            border-color: #eee;
-        }
-        
-        .non-link-card:hover .link-icon {
-            transform: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .non-link-card:hover .link-icon i {
-            transform: none;
-        }
-        
+        /* ===== FOOTER ===== */
         footer {
             margin-top: 36px;
             padding: 26px;
@@ -559,21 +394,6 @@
             transition: all 0.4s ease;
         }
         
-        .signature-line::before {
-            content: '';
-            position: absolute;
-            top: -3px;
-            left: 0;
-            width: 100%;
-            height: 8px;
-            cursor: pointer;
-        }
-        
-        .signature-line:hover {
-            height: 3px;
-            background: linear-gradient(to right, transparent, #f1c40f, #e67e22, transparent);
-        }
-        
         .note-instruction {
             position: absolute;
             bottom: 20px;
@@ -590,203 +410,143 @@
             animation: fadePulse 4s infinite;
         }
         
+        /* ===== INTERACTIVE STATES ===== */
+        .logo:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 15px 40px rgba(230, 126, 34, 0.25);
+        }
+        
+        .logo:hover i {
+            transform: scale(1.1) rotate(-10deg);
+        }
+        
+        .link-card:hover {
+            background: #f9f9f9;
+            border-color: #f1c40f;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+        
+        .link-card:hover .link-icon {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(230, 230, 255, 0.1);
+        }
+        
+        .link-card:hover .link-icon i {
+            transform: scale(1.1);
+            animation: none;
+        }
+        
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: #f1c40f;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #d46c1a, #e0b30e);
+            box-shadow: 0 12px 30px rgba(230, 126, 34, 0.4);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(2px);
+        }
+        
+        .signature-line:hover {
+            height: 3px;
+            background: linear-gradient(to right, transparent, #f1c40f, #e67e22, transparent);
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes pulseRing {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         @keyframes fadePulse {
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; }
         }
         
+        /* ===== MEDIA QUERIES ===== */
         @media (max-width: 768px) {
-            body {
-                padding: 12px;
-            }
-            
-            .links-grid {
-                grid-template-columns: 1fr;
-                gap: 18px;
-            }
-            
-            .logo-container {
-                width: 120px;
-                height: 120px;
-            }
-            
-            .logo i {
-                font-size: 48px;
-            }
-            
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .tagline {
-                font-size: 1.15rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-                margin: 28px 0 22px;
-            }
-            
-            .link-card {
-                padding: 18px;
-                min-height: 105px;
-            }
-            
-            .link-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.6rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-                margin: 28px 0 22px;
-            }
-            
-            .registration-form {
-                padding: 22px;
-                margin: 28px 0;
-            }
-            
-            .form-title {
-                font-size: 1.6rem;
-            }
-            
-            .schedule-day {
-                min-width: 85px;
-            }
-            
-            .signature-container {
-                width: 260px;
-            }
-            
-            .note-instruction {
-                bottom: 15px;
-                width: 220px;
-                font-size: 0.8rem;
-            }
+            .logo-container { width: 120px; height: 120px; }
+            .logo i { font-size: 48px; }
+            h1 { font-size: 2.2rem; }
+            .tagline { font-size: 1.15rem; }
+            .section-title { font-size: 1.6rem; margin: 28px 0 22px; }
+            .links-grid { grid-template-columns: 1fr; gap: 18px; }
+            .link-card { padding: 18px; min-height: 105px; }
+            .link-icon { width: 50px; height: 50px; font-size: 1.6rem; }
+            .registration-form { padding: 22px; margin: 28px 0; }
+            .form-title { font-size: 1.6rem; }
+            .schedule-day { min-width: 85px; }
+            .signature-container { width: 260px; }
+            .note-instruction { width: 220px; font-size: 0.8rem; }
         }
         
         @media (max-width: 480px) {
-            body {
-                padding: 10px;
-                display: block;
-                font-size: 0.95rem;
-            }
-            
-            .container {
-                border-radius: 18px;
-                margin: 10px 0;
-                padding: 20px 16px;
-            }
-            
-            header {
-                padding: 22px 15px 10px;
-            }
-            
-            .content {
-                padding: 0 16px 16px;
-            }
-            
-            .logo-container {
-                width: 110px;
-                height: 110px;
-            }
-            
-            h1 {
-                font-size: 1.9rem;
-            }
-            
-            .tagline {
-                font-size: 1.05rem;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-                margin: 26px 0 18px;
-                padding-bottom: 10px;
-            }
-            
-            .link-card {
-                padding: 16px;
-                min-height: 100px;
-            }
-            
-            .link-icon {
-                width: 46px;
-                height: 46px;
-                margin-right: 14px;
-                font-size: 1.5rem;
-                border-radius: 12px;
-            }
-            
-            .link-title {
-                font-size: 1.15rem;
-            }
-            
-            .link-subtitle {
-                font-size: 1.0rem;
-            }
-            
-            .registration-form {
-                padding: 20px;
-                margin: 26px 0;
-            }
-            
-            .form-input, .form-select {
-                padding: 14px 16px;
-                font-size: 1.05rem;
-            }
-            
-            .submit-btn {
-                padding: 15px;
-                font-size: 1.15rem;
-            }
-            
-            footer {
-                padding: 22px;
-                font-size: 1.0rem;
-            }
-            
-            .schedule-day {
-                min-width: 80px;
-                font-size: 1.0rem;
-            }
-            
-            .schedule-info {
-                font-size: 1.0rem;
-            }
-            
-            .signature-container {
-                width: 220px;
-            }
-            
-            .note-instruction {
-                bottom: 10px;
-                width: 200px;
-                font-size: 0.75rem;
-            }
+            body { padding: 10px; display: block; font-size: 0.95rem; }
+            .container { border-radius: 18px; margin: 10px 0; padding: 20px 16px; }
+            header { padding: 22px 15px 10px; }
+            .content { padding: 0 16px 16px; }
+            .logo-container { width: 110px; height: 110px; }
+            h1 { font-size: 1.9rem; }
+            .tagline { font-size: 1.05rem; }
+            .section-title { font-size: 1.4rem; margin: 26px 0 18px; padding-bottom: 10px; }
+            .link-card { padding: 16px; min-height: 100px; }
+            .link-icon { width: 46px; height: 46px; margin-right: 14px; font-size: 1.5rem; border-radius: 12px; }
+            .link-title { font-size: 1.15rem; }
+            .link-subtitle { font-size: 1.0rem; }
+            .registration-form { padding: 20px; margin: 26px 0; }
+            .form-input, .form-select { padding: 14px 16px; font-size: 1.05rem; }
+            .submit-btn { padding: 15px; font-size: 1.15rem; }
+            footer { padding: 22px; font-size: 1.0rem; }
+            .schedule-day { min-width: 80px; font-size: 1.0rem; }
+            .schedule-info { font-size: 1.0rem; }
+            .signature-container { width: 220px; }
+            .note-instruction { width: 200px; font-size: 0.75rem; bottom: 10px; }
         }
     </style>
 </head>
 <body>
-  <div class="background"></div>
-  
   <div class="container">
+    <!-- Header Section -->
     <div class="logo-container">
         <div class="logo-ring"></div>
         <div class="logo">
           <i class="fas fa-music"></i>
         </div>
-      </div>
+    </div>
+    
     <header>
       <h1>Dance First Step Hub</h1>
       <p class="tagline">Professional Dance Instruction | Express Yourself Through Movement</p>
     </header>
     
+    <!-- Main Content -->
     <div class="content">
+      <!-- Class Schedule -->
       <h2 class="section-title">Class Schedule</h2>
       <div class="links-grid">
+        <!-- Stardust Ballroom -->
         <div class="link-card clickable" data-url="https://www.facebook.com/share/1TVjMczGK3/?mibextid=wwXIfr">
           <div class="link-icon stardust-icon">
             <i class="fas fa-star"></i>
@@ -807,6 +567,7 @@
           </div>
         </div>
         
+        <!-- Let's Bailar -->
         <div class="link-card clickable" data-url="https://www.facebook.com/share/1QfGefKoK5/?mibextid=wwXIfr">
           <div class="link-icon letsbailar-icon">
             <i class="fas fa-city"></i>
@@ -823,6 +584,7 @@
           </div>
         </div>
         
+        <!-- Estilo Dance Studio -->
         <div class="link-card">
           <div class="link-icon estilo-icon">
             <i class="fas fa-building"></i>
@@ -839,6 +601,7 @@
           </div>
         </div>
         
+        <!-- Sensual City -->
         <div class="link-card">
           <div class="link-icon sensual-icon">
             <i class="fas fa-building"></i>
@@ -856,6 +619,7 @@
         </div>
       </div>
       
+      <!-- Registration Form -->
       <div class="registration-form">
         <div class="form-title">Class Registration</div>
         <div class="partner-notice">No partner needed - everyone is welcome to join!</div>
@@ -890,6 +654,7 @@
         </div>
       </div>
       
+      <!-- Payment Options -->
       <h2 class="section-title">Payment Options</h2>
       <div class="links-grid">
         <div class="link-card clickable venmo" data-url="https://venmo.com/code?user_id=2575920015605760344&created=1750346816">
@@ -913,6 +678,7 @@
         </div>
       </div>
       
+      <!-- Instructors -->
       <h2 class="section-title">Our Instructors</h2>
       <div class="links-grid">
         <div class="link-card clickable daniel" data-url="https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr">
@@ -936,6 +702,7 @@
         </div>
       </div>
       
+      <!-- Contact -->
       <h2 class="section-title">Contact Us</h2>
       <div class="links-grid">
         <div class="link-card clickable contact" data-url="mailto:contact@dancefirststep.com">
@@ -950,6 +717,7 @@
       </div>
     </div>
     
+    <!-- Footer -->
     <footer>
       <p>© 2025 Dance First Step | Professional Instruction</p>
       <p>Dance is the poetry of the foot</p>
@@ -963,7 +731,7 @@
   <div class="note-instruction">Triple-click the orange line to access the student portal</div>
 
   <script>
-    // Signature line access functionality
+    // ===== SIGNATURE LINE ACCESS =====
     const signatureLine = document.getElementById('signature-line');
     const portalUrl = "https://dancefirststep.github.io/Member-portal-access/";
     
@@ -974,12 +742,11 @@
       clickCount++;
       
       if (clickCount === 1) {
-        // First click - start timer
+        // Start timer for triple click
         clickTimer = setTimeout(() => {
           clickCount = 0;
         }, 1500);
       } else if (clickCount === 3) {
-        // Triple click detected
         clearTimeout(clickTimer);
         clickCount = 0;
         
@@ -990,7 +757,9 @@
       }
     });
 
+    // ===== PAGE INITIALIZATION =====
     document.addEventListener('DOMContentLoaded', function() {
+      // ===== CLICKABLE ELEMENTS =====
       const clickableElements = document.querySelectorAll('.clickable');
       
       clickableElements.forEach(el => {
@@ -998,30 +767,29 @@
           const url = this.getAttribute('data-url');
           
           if (this.classList.contains('cash')) {
+            // Show cash notification
+            const cashMsg = document.createElement('div');
+            cashMsg.textContent = '💵 Cash accepted at all locations!';
+            cashMsg.style.position = 'fixed';
+            cashMsg.style.bottom = '20px';
+            cashMsg.style.left = '50%';
+            cashMsg.style.transform = 'translateX(-50%)';
+            cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
+            cashMsg.style.color = 'white';
+            cashMsg.style.padding = '12px 24px';
+            cashMsg.style.borderRadius = '25px';
+            cashMsg.style.zIndex = '10000';
+            cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+            cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
+            document.body.appendChild(cashMsg);
+            
             setTimeout(() => {
-              // Enhanced cash notification
-              const cashMsg = document.createElement('div');
-              cashMsg.textContent = '💵 Cash accepted at all locations!';
-              cashMsg.style.position = 'fixed';
-              cashMsg.style.bottom = '20px';
-              cashMsg.style.left = '50%';
-              cashMsg.style.transform = 'translateX(-50%)';
-              cashMsg.style.backgroundColor = 'rgba(39, 174, 96, 0.9)';
-              cashMsg.style.color = 'white';
-              cashMsg.style.padding = '12px 24px';
-              cashMsg.style.borderRadius = '25px';
-              cashMsg.style.zIndex = '10000';
-              cashMsg.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
-              cashMsg.style.animation = 'fadeInUp 0.4s ease-out';
-              document.body.appendChild(cashMsg);
-              
-              setTimeout(() => {
-                cashMsg.style.animation = 'fadeOut 0.4s ease-out';
-                setTimeout(() => cashMsg.remove(), 400);
-              }, 2000);
-            }, 150);
+              cashMsg.style.animation = 'fadeOut 0.4s ease-out';
+              setTimeout(() => cashMsg.remove(), 400);
+            }, 2000);
           } 
           else if (url) {
+            // Open link in new tab
             setTimeout(() => {
               window.open(url, '_blank');
             }, 300);
@@ -1029,24 +797,29 @@
         });
       });
       
+      // ===== REGISTRATION FORM =====
       const registrationForm = document.getElementById('dance-registration');
       const thankYouMessage = document.getElementById('thank-you-message');
       const submitBtn = registrationForm.querySelector('button[type="submit"]');
       const registerAgainBtn = document.getElementById('register-again-btn');
       
+      // Reset form function
       function resetForm() {
         registrationForm.reset();
         thankYouMessage.style.display = 'none';
         registrationForm.style.display = 'block';
       }
       
+      // Register again button
       registerAgainBtn.addEventListener('click', function() {
         resetForm();
       });
       
+      // Form submission
       registrationForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Validate form fields
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const location = document.getElementById('location').value;
@@ -1072,19 +845,24 @@
           return;
         }
         
+        // Show processing state
         submitBtn.textContent = 'Processing...';
         submitBtn.disabled = true;
         
+        // Simulate form processing
         setTimeout(function() {
+          // Show thank you message
           registrationForm.style.display = 'none';
           thankYouMessage.style.display = 'block';
           thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Reset button state
           submitBtn.textContent = 'Complete Registration';
           submitBtn.disabled = false;
         }, 1000);
       });
       
-      // Initial animations
+      // ===== INITIAL ANIMATIONS =====
       setTimeout(() => {
         document.querySelector('h1').style.animation = 'fadeInUp 1s ease-out forwards';
       }, 300);
