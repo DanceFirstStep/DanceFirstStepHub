@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dance First Step | Modern Dance Classes</title>
+    <title>Dance First Step | Salsa & Bachata Classes</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
@@ -117,6 +117,31 @@
         .next-class strong {
             color: var(--highlight);
             font-weight: 600;
+        }
+        
+        .style-indicator {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+        
+        .salsa-indicator {
+            background-color: var(--salsa);
+            color: white;
+        }
+        
+        .bachata-indicator {
+            background-color: var(--bachata);
+            color: white;
+        }
+        
+        .both-indicator {
+            background: linear-gradient(90deg, var(--salsa) 0%, var(--bachata) 100%);
+            color: white;
         }
         
         .callout {
@@ -408,6 +433,24 @@
             animation: fadeIn 0.6s ease-out forwards;
         }
         
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        
+        .update-notice {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 margin: 10px;
@@ -499,11 +542,13 @@
                 <i class="fas fa-music"></i>
             </div>
             <h1 class="fade-in">Dance First Step</h1>
-            <div class="tagline fade-in">Modern Dance Classes for Everyone</div>
+            <div class="tagline fade-in">Salsa & Bachata Classes for Everyone</div>
             
-            <div class="next-class fade-in">
-                Next Class: <strong>Thursday at 6:30pm</strong><br>
-                Stardust Ballroom, Bellmawr, New Jersey
+            <div class="next-class fade-in" id="next-class-display">
+                <!-- Dynamically updated based on schedule -->
+                Next Class: <strong>Tuesday at 8pm</strong><br>
+                Sensual City, W Girard Ave, Philadelphia<br>
+                Style: <strong>Intro Bachata</strong>
             </div>
             
             <div class="callout fade-in">
@@ -534,71 +579,10 @@
                 </div>
             </div>
             
-            <div class="locations-grid">
-                <div class="location-card">
-                    <div class="location-title">Stardust Ballroom</div>
-                    <div class="location-subtitle">Bellmawr, New Jersey</div>
-                    <div class="schedule-list">
-                        <div class="schedule-item">
-                            <span class="schedule-day">Monday:</span>
-                            <span class="schedule-info">
-                                Bachata at 6:30pm
-                                <span class="dance-tag bachata-tag">Bachata</span>
-                            </span>
-                        </div>
-                        <div class="schedule-item">
-                            <span class="schedule-day">Thursday:</span>
-                            <span class="schedule-info">
-                                Salsa at 6:30pm
-                                <span class="dance-tag salsa-tag">Salsa</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location-card">
-                    <div class="location-title">Let's Bailar</div>
-                    <div class="location-subtitle">Philadelphia</div>
-                    <div class="schedule-list">
-                        <div class="schedule-item">
-                            <span class="schedule-day">Friday:</span>
-                            <span class="schedule-info">
-                                7pm Salsa & Bachata
-                                <span class="dance-tag salsa-tag">Salsa</span>
-                                <span class="dance-tag bachata-tag">Bachata</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location-card">
-                    <div class="location-title">Estilo Dance</div>
-                    <div class="location-subtitle">Fishtown, Philadelphia</div>
-                    <div class="schedule-list">
-                        <div class="schedule-item">
-                            <span class="schedule-day">Saturday:</span>
-                            <span class="schedule-info">
-                                4pm Salsa & Bachata
-                                <span class="dance-tag salsa-tag">Salsa</span>
-                                <span class="dance-tag bachata-tag">Bachata</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location-card">
-                    <div class="location-title">Sensual City</div>
-                    <div class="location-subtitle">W Girard Ave, Philadelphia</div>
-                    <div class="schedule-list">
-                        <div class="schedule-item">
-                            <span class="schedule-day">Tuesday:</span>
-                            <span class="schedule-info">
-                                8:30pm Bachata
-                                <span class="dance-tag bachata-tag">Bachata</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+            <p class="update-notice">Schedule updates automatically based on current day and time</p>
+            
+            <div class="locations-grid" id="locations-container">
+                <!-- Locations will be dynamically populated -->
             </div>
             
             <div class="registration-form">
@@ -650,6 +634,229 @@
     </div>
 
     <script>
+        // Centralized class schedule data
+        const classSchedule = [
+            {
+                id: "stardust",
+                title: "Stardust Ballroom",
+                subtitle: "Bellmawr, New Jersey",
+                schedule: [
+                    { 
+                        day: "Monday", 
+                        time: "6:30pm", 
+                        style: "Bachata", 
+                        tags: ["bachata"],
+                        dayIndex: 1 // Monday
+                    },
+                    { 
+                        day: "Thursday", 
+                        time: "6:30pm", 
+                        style: "Salsa", 
+                        tags: ["salsa"],
+                        dayIndex: 4 // Thursday
+                    }
+                ]
+            },
+            {
+                id: "letsbailar",
+                title: "Let's Bailar",
+                subtitle: "Philadelphia",
+                schedule: [
+                    { 
+                        day: "Friday", 
+                        time: "7pm", 
+                        style: "Salsa & Bachata", 
+                        tags: ["salsa", "bachata"],
+                        dayIndex: 5 // Friday
+                    }
+                ]
+            },
+            {
+                id: "estilo",
+                title: "Estilo Dance",
+                subtitle: "Fishtown, Philadelphia",
+                schedule: [
+                    { 
+                        day: "Saturday", 
+                        time: "4pm", 
+                        style: "Salsa & Bachata", 
+                        tags: ["salsa", "bachata"],
+                        dayIndex: 6 // Saturday
+                    }
+                ]
+            },
+            {
+                id: "sensual",
+                title: "Sensual City",
+                subtitle: "W Girard Ave, Philadelphia",
+                schedule: [
+                    { 
+                        day: "Tuesday", 
+                        time: "8pm", 
+                        style: "Intro Bachata", 
+                        tags: ["bachata"],
+                        dayIndex: 2 // Tuesday
+                    },
+                    { 
+                        day: "Tuesday", 
+                        time: "9pm", 
+                        style: "Sensual Fundamentals", 
+                        tags: ["bachata"],
+                        dayIndex: 2 // Tuesday
+                    },
+                    { 
+                        day: "Tuesday", 
+                        time: "10pm", 
+                        style: "Practica", 
+                        tags: ["bachata"],
+                        dayIndex: 2 // Tuesday
+                    }
+                ]
+            }
+        ];
+
+        // Function to parse time string to minutes
+        function parseTime(timeStr) {
+            const match = timeStr.match(/(\d+):?(\d*)\s*(am|pm)?/i);
+            if (!match) return 0;
+            
+            let hours = parseInt(match[1]);
+            let minutes = match[2] ? parseInt(match[2]) : 0;
+            const period = match[3] ? match[3].toLowerCase() : '';
+            
+            // Convert to 24-hour format
+            if (period === 'pm' && hours < 12) hours += 12;
+            if (period === 'am' && hours === 12) hours = 0;
+            
+            return hours * 60 + minutes;
+        }
+
+        // Function to determine the next class
+        function getNextClass() {
+            const now = new Date();
+            const currentDay = now.getDay(); // Sunday = 0, Monday = 1, ... Saturday = 6
+            const currentTotalMinutes = now.getHours() * 60 + now.getMinutes();
+            
+            let upcomingClasses = [];
+            
+            // Find all upcoming classes
+            classSchedule.forEach(location => {
+                location.schedule.forEach(classInfo => {
+                    // Calculate days until next class
+                    let daysUntil = classInfo.dayIndex - currentDay;
+                    if (daysUntil < 0) {
+                        daysUntil += 7; // Next week
+                    } else if (daysUntil === 0) {
+                        // Check if class time has passed today
+                        const classTotalMinutes = parseTime(classInfo.time);
+                        
+                        if (classTotalMinutes < currentTotalMinutes) {
+                            daysUntil = 7; // Next week
+                        }
+                    }
+                    
+                    // Calculate date for this class
+                    const classDate = new Date(now);
+                    classDate.setDate(now.getDate() + daysUntil);
+                    
+                    upcomingClasses.push({
+                        location: location.title,
+                        subtitle: location.subtitle,
+                        day: classInfo.day,
+                        time: classInfo.time,
+                        style: classInfo.style,
+                        tags: classInfo.tags,
+                        date: classDate,
+                        daysUntil: daysUntil
+                    });
+                });
+            });
+            
+            // Sort by soonest class
+            upcomingClasses.sort((a, b) => a.daysUntil - b.daysUntil);
+            
+            return upcomingClasses.length > 0 ? upcomingClasses[0] : null;
+        }
+
+        // Function to get style indicator HTML
+        function getStyleIndicator(tags) {
+            if (tags.includes("salsa") && tags.includes("bachata")) {
+                return '<span class="style-indicator both-indicator">Salsa & Bachata</span>';
+            } else if (tags.includes("salsa")) {
+                return '<span class="style-indicator salsa-indicator">Salsa</span>';
+            } else if (tags.includes("bachata")) {
+                return '<span class="style-indicator bachata-indicator">Bachata</span>';
+            }
+            return '';
+        }
+
+        // Function to update the next class display
+        function updateNextClassDisplay() {
+            const nextClass = getNextClass();
+            const nextClassElement = document.getElementById('next-class-display');
+            
+            if (nextClass) {
+                const styleIndicator = getStyleIndicator(nextClass.tags);
+                nextClassElement.innerHTML = `
+                    Next Class: <strong>${nextClass.day} at ${nextClass.time}</strong><br>
+                    ${nextClass.location}, ${nextClass.subtitle}<br>
+                    Style: <strong>${nextClass.style}</strong> ${styleIndicator}
+                `;
+            } else {
+                nextClassElement.innerHTML = `
+                    Next Class: <strong>Check schedule below</strong><br>
+                    We have classes throughout the week<br>
+                    Style: <strong>Salsa & Bachata</strong>
+                `;
+            }
+        }
+
+        // Function to render locations schedule
+        function renderLocationsSchedule() {
+            const container = document.getElementById('locations-container');
+            container.innerHTML = '';
+            
+            classSchedule.forEach(location => {
+                const locationCard = document.createElement('div');
+                locationCard.className = 'location-card';
+                
+                let scheduleHTML = '';
+                location.schedule.forEach(classInfo => {
+                    let tagsHTML = '';
+                    classInfo.tags.forEach(tag => {
+                        tagsHTML += `<span class="dance-tag ${tag}-tag">${tag.charAt(0).toUpperCase() + tag.slice(1)}</span>`;
+                    });
+                    
+                    scheduleHTML += `
+                        <div class="schedule-item">
+                            <span class="schedule-day">${classInfo.day}:</span>
+                            <span class="schedule-info">
+                                ${classInfo.time} ${classInfo.style}
+                                ${tagsHTML}
+                            </span>
+                        </div>
+                    `;
+                });
+                
+                locationCard.innerHTML = `
+                    <div class="location-title">${location.title}</div>
+                    <div class="location-subtitle">${location.subtitle}</div>
+                    <div class="schedule-list">${scheduleHTML}</div>
+                `;
+                
+                container.appendChild(locationCard);
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNextClassDisplay();
+            renderLocationsSchedule();
+            
+            // Update every hour to keep next class current
+            setInterval(updateNextClassDisplay, 3600000); // 1 hour
+        });
+
         // Form submission
         document.getElementById('dance-registration').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -666,7 +873,8 @@
             }
             
             // Show success message
-            const successMsg = `Thank you ${name}! Your spot at ${location} is reserved.<br>We can't wait to dance with you!`;
+            const locationName = document.querySelector(`#location option[value="${location}"]`).textContent;
+            const successMsg = `Thank you ${name}! Your spot at ${locationName} is reserved.<br>We can't wait to dance with you!`;
             
             // Create custom alert
             const alertBox = document.createElement('div');
