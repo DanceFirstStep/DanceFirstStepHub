@@ -2,75 +2,407 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rebecca Bachata Events</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Daniel Palacios | Professional Dance Instruction</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* ENHANCED PROFESSIONAL DANCE SCHOOL COLOR PALETTE */
         :root {
-            --primary: #d35400;
-            --primary-light: #e67e22;
-            --primary-lighter: #f39c12;
-            --primary-gradient: linear-gradient(135deg, var(--primary), var(--primary-light), var(--primary-lighter));
-            --dark-bg: #1a1a2e;
-            --darker-bg: #16213e;
-            --text-dark: #222;
-            --text-medium: #444;
-            --text-light: #777;
-            --light-bg: #f9fbfd;
-            --lighter-bg: #f1f5fa;
+            --primary: #1e3a8a; /* Deep professional blue */
+            --primary-light: #3b82f6;
+            --primary-lighter: #60a5fa;
+            --primary-dark: #1e40af;
+            --primary-darker: #1e3a8a;
+            --primary-gradient: linear-gradient(135deg, var(--primary-darker), var(--primary-light));
+            --accent: #d97706; /* Warm amber accent */
+            --accent-light: #f59e0b;
+            --dark-bg: #1e293b;
+            --darker-bg: #0f172a;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --text-light: #64748b;
+            --light-bg: #f8fafc;
+            --lighter-bg: #f1f5f9;
             --white: #ffffff;
-            --success: #27ae60;
-            --info: #3498db;
-            --elegant-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            --success: #059669;
+            --info: #2563eb;
+            --elegant-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
             --subtle-border: 1px solid rgba(0, 0, 0, 0.04);
-            --transition: all 0.3s ease;
+            --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            
+            /* Dance-specific colors */
+            --salsa-color: #dc2626; /* Rich red for salsa */
+            --bachata-color: #2563eb; /* Royal blue for bachata */
+            --private-color: #7c3aed; /* Elegant purple for private lessons */
         }
 
+        /* ENHANCED COMPACT Welcome Page Styles */
+        .welcome-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-darker), var(--primary), var(--primary-light));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        .welcome-page.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .welcome-content {
+            text-align: center;
+            max-width: 90%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .welcome-logo-container {
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .welcome-logo {
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .welcome-logo::after {
+            content: '';
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+            top: -25%;
+            left: -25%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .welcome-logo:hover::after {
+            opacity: 1;
+        }
+
+        .welcome-logo i {
+            font-size: 45px;
+            color: white;
+            z-index: 2;
+        }
+
+        .welcome-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            text-align: center;
+            max-width: 85%;
+            line-height: 1.4;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            background: rgba(217, 119, 6, 0.15);
+            padding: 12px 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .welcome-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 90%;
+            margin-bottom: 30px;
+        }
+
+        .welcome-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 110px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .welcome-option:hover {
+            transform: translateY(-5px);
+        }
+
+        .welcome-icon-container {
+            width: 75px;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .welcome-option:hover .welcome-icon-container {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.08);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-icon {
+            font-size: 32px;
+            color: white;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .welcome-option:hover .welcome-icon {
+            transform: scale(1.1);
+        }
+
+        .welcome-label {
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-timer {
+            position: absolute;
+            bottom: 30px;
+            width: 150px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .welcome-timer-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--accent-light), var(--accent));
+            border-radius: 3px;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
+        }
+
+        /* Hide main content initially */
+        .container {
+            display: none;
+        }
+
+        .container.visible {
+            display: block;
+        }
+
+        /* Enhanced base styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-rendering: optimizeLegibility;
-            -webkit-font-smoothing: subpixel-antialiased;
+            -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
         body {
             min-height: 100vh;
-            padding: 25px 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 15px;
+            overflow-x: hidden;
+            position: relative;
             color: var(--text-dark);
             background: linear-gradient(135deg, var(--light-bg), var(--lighter-bg));
-            line-height: 1.68;
+            line-height: 1.7;
             font-size: 1.08rem;
-            letter-spacing: 0.35px;
+            letter-spacing: 0.3px;
         }
         
         .container {
             width: 100%;
-            max-width: 920px;
-            margin: 0 auto;
+            max-width: 900px;
             background: var(--white);
             border-radius: 20px;
             overflow: hidden;
-            padding: 45px 35px;
+            position: relative;
+            z-index: 10;
+            margin: 0 auto;
+            padding: 40px 30px;
             box-shadow: var(--elegant-shadow);
             border: var(--subtle-border);
         }
         
+        .header-container {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+            padding-top: 50px;
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 170px;
+            height: 170px;
+            margin: 35px auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+        
+        .logo {
+            width: 140px;
+            height: 140px;
+            background: var(--primary-gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.2);
+            transition: var(--transition);
+            overflow: hidden;
+            animation: gentle-beat 4s infinite ease-in-out;
+        }
+        
+        .logo i {
+            font-size: 65px;
+            color: #fff;
+            z-index: 2;
+            transition: transform 0.5s ease;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .logo:hover i {
+            transform: scale(1.05);
+        }
+        
+        .radiating-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 1px solid rgba(30, 58, 138, 0.3);
+            z-index: 1;
+        }
+        
+        .ring-1 {
+            animation: radiate 5s infinite ease-in-out;
+            animation-delay: 0.5s;
+        }
+        
+        .ring-2 {
+            animation: radiate 5s infinite ease-in-out;
+            animation-delay: 1.0s;
+        }
+        
+        .ring-3 {
+            animation: radiate 5s infinite ease-in-out;
+            animation-delay: 1.5s;
+        }
+        
+        @keyframes radiate {
+            0% {
+                transform: scale(1);
+                opacity: 0.85;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 0.3px;
+            color: var(--primary-darker);
+            position: relative;
+            display: inline-block;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .tagline {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-medium);
+            margin: 20px auto 0;
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        .divider {
+            height: 4px;
+            width: 100px;
+            background: var(--primary-gradient);
+            border-radius: 3px;
+            margin: 25px auto;
+        }
+        
         .section-title {
-            font-size: 1.9rem;
-            font-weight: 750;
-            margin: 48px 0 30px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 45px 0 30px;
             text-align: center;
             position: relative;
             display: block;
             width: 100%;
-            color: var(--text-dark);
-            padding-bottom: 14px;
+            color: var(--primary-darker);
+            padding-bottom: 15px;
             font-family: 'Playfair Display', serif;
-            letter-spacing: 0.3px;
+            scroll-margin-top: 80px;
         }
         
         .section-title::after {
@@ -79,13 +411,954 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 90px;
-            height: 3.5px;
-            background: linear-gradient(to right, var(--primary), var(--primary-light));
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
             border-radius: 2px;
         }
         
-        /* EVENTS CAROUSEL STYLES */
+        .content {
+            padding: 0 15px 10px;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+            margin: 30px 0;
+        }
+        
+        .link-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 28px 25px;
+            border: 1px solid rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            min-height: 120px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            text-decoration: none !important;
+            scroll-margin-top: 120px;
+        }
+        
+        .link-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border-color: rgba(30, 58, 138, 0.15);
+        }
+        
+        .link-card.next-class-highlight {
+            position: relative;
+            z-index: 2;
+            transform: translateY(-3px);
+            border-left: 4px solid var(--primary-light);
+            box-shadow: 0 0 30px rgba(30, 58, 138, 0.15);
+            animation: elegant-pulse 1.8s infinite ease-in-out;
+        }
+        
+        .link-card.next-class-highlight::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.03), rgba(30, 58, 138, 0.01));
+            z-index: -1;
+            border-radius: 18px;
+        }
+        
+        @keyframes elegant-pulse {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(30, 58, 138, 0.15);
+                transform: translateY(-3px);
+            }
+            50% { 
+                box-shadow: 0 0 35px rgba(30, 58, 138, 0.25);
+                transform: translateY(-5px);
+            }
+        }
+        
+        .link-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.8rem;
+            border-radius: 14px;
+            flex-shrink: 0;
+            color: white;
+            background: var(--primary);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .social-icon-container {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            margin-right: 20px;
+            flex-shrink: 0;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            animation: pulseSocial 3s infinite;
+        }
+        
+        .social-icon-container:hover {
+            animation: none;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        @keyframes pulseSocial {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
+        
+        .social-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            z-index: 2;
+        }
+        
+        .social-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.9;
+            transition: var(--transition);
+        }
+        
+        .social-icon-container:hover .social-gradient {
+            opacity: 1;
+        }
+        
+        .facebook-icon-container .social-gradient {
+            background: linear-gradient(135deg, #1877f2, #3b5998);
+        }
+        
+        .instagram-icon-container .social-gradient {
+            background: linear-gradient(135deg, #e1306c, #c13584, #f56040, #f77737, #fcaf45, #ffdc80);
+        }
+        
+        .tiktok-icon-container .social-gradient {
+            background: linear-gradient(135deg, #000000, #69c9d0);
+        }
+        
+        .estilo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+        }
+        
+        .serrata-icon {
+            background: linear-gradient(135deg, var(--primary-darker), var(--primary)) !important;
+        }
+        
+        .tiktok-class-icon {
+            background: linear-gradient(135deg, #000000, #69c9d0) !important;
+        }
+        
+        .private-icon {
+            background: linear-gradient(135deg, var(--private-color), #8b5cf6) !important;
+        }
+        
+        .zoom-icon {
+            background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
+        }
+        
+        .vimeo-icon {
+            background: linear-gradient(135deg, #1ab7ea, #0d8cbf) !important;
+        }
+        
+        .contact-icon {
+            background: var(--primary-gradient) !important;
+        }
+        
+        .venmo .link-icon {
+            background: linear-gradient(135deg, #2d7db0, #0066cc) !important;
+        }
+        
+        .cash .link-icon {
+            background: linear-gradient(135deg, #27ae60, #1d8c4f) !important;
+        }
+        
+        .link-text {
+            flex: 1;
+            position: relative;
+        }
+        
+        .link-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--primary-darker);
+            letter-spacing: 0.3px;
+        }
+        
+        .link-subtitle {
+            font-size: 1.08rem;
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .schedule-list {
+            margin-top: 15px;
+        }
+        
+        .schedule-day-group {
+            margin-bottom: 15px;
+            padding: 0;
+        }
+        
+        .schedule-day-header {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            padding-bottom: 3px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+            font-size: 1.15rem;
+        }
+        
+        .schedule-class {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .class-time {
+            font-weight: 600;
+            min-width: 65px;
+            color: var(--primary-darker);
+            font-size: 1.05rem;
+        }
+        
+        .class-name {
+            flex: 1;
+            padding-left: 10px;
+            font-size: 1.05rem;
+        }
+        
+        .salsa-text {
+            color: var(--salsa-color);
+            font-weight: 700;
+            padding: 0 4px;
+            border-radius: 3px;
+            background: rgba(220, 38, 38, 0.05);
+        }
+        
+        .bachata-text {
+            color: var(--bachata-color);
+            font-weight: 700;
+            padding: 0 4px;
+            border-radius: 3px;
+            background: rgba(37, 99, 235, 0.05);
+        }
+        
+        .today .schedule-day-header {
+            background: linear-gradient(to right, rgba(30, 58, 138, 0.08), transparent);
+            border-radius: 4px;
+            padding: 3px 8px;
+            margin-right: -8px;
+        }
+        
+        .next-class .schedule-day-header {
+            background: linear-gradient(to right, rgba(30, 58, 138, 0.08), transparent);
+            border-radius: 4px;
+            padding: 3px 8px;
+            margin-right: -8px;
+            position: relative;
+        }
+        
+        .registration-form {
+            background: #fdfdfd;
+            border-radius: 18px;
+            padding: 35px 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.03);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .form-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: var(--primary-darker);
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+            letter-spacing: 0.5px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .form-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        .partner-notice {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--text-medium);
+            font-size: 1.15rem;
+            font-weight: 500;
+            display: block;
+            line-height: 1.7;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 18px 22px;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #f9f9f9;
+            color: #333;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+        }
+        
+        .form-input::placeholder {
+            color: #888;
+            font-size: 1.05rem;
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 18px 22px;
+            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #f9f9f9;
+            color: #333;
+            font-size: 1.1rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231e3a8a'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+            background-size: 20px;
+            transition: var(--transition);
+            -webkit-appearance: none;
+        }
+        
+        .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.12);
+        }
+        
+        .submit-btn {
+            background: var(--primary-gradient);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            padding: 16px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            display: block;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(30, 58, 138, 0.25);
+        }
+        
+        .submit-btn:active {
+            transform: translateY(1px);
+        }
+        
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 18px;
+            background: #fff;
+            margin-top: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.02);
+        }
+        
+        .thank-you-message h3 {
+            font-size: 1.9rem;
+            color: var(--primary-darker);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .thank-you-message h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        .thank-you-message p {
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding: 30px 20px 20px;
+            text-align: center;
+            color: #555;
+            font-size: 1.05rem;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            line-height: 1.7;
+            position: relative;
+        }
+        
+        .signature-container {
+            margin: 30px auto 15px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            width: 300px;
+            height: 20px;
+        }
+        
+        .signature-line {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--primary-darker), var(--primary), transparent);
+            position: relative;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .signature-line:hover {
+            height: 3px;
+            background: linear-gradient(to right, transparent, var(--primary), var(--primary-darker), transparent);
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            animation: slideIn 0.5s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .notification-success {
+            background: linear-gradient(to right, #059669, #10b981);
+            color: white;
+        }
+        
+        .notification-info {
+            background: linear-gradient(135deg, #2563eb, #1e40af);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .notification-info button.open-external {
+            background: white;
+            color: #2563eb;
+            border: none;
+            border-radius: 20px;
+            padding: 5px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+        
+        .notification-info button.open-external:hover {
+            background: #f0f7ff;
+            transform: scale(1.05);
+        }
+        
+        @keyframes slideIn {
+            from { bottom: -100px; opacity: 0; }
+            to { bottom: 30px; opacity: 1; }
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; bottom: -100px; }
+        }
+        
+        .class-cta-container {
+            background: linear-gradient(135deg, #f0f7ff, #f6fbff);
+            border-radius: 16px;
+            padding: 25px 30px;
+            margin: 20px 0 25px;
+            display: flex;
+            flex-direction: column;
+            color: var(--primary-darker);
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            position: relative;
+            overflow: hidden;
+            scroll-margin-top: 80px;
+        }
+        
+        .cta-header {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            letter-spacing: 0.3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--primary-darker);
+        }
+        
+        .cta-header i {
+            font-size: 1.4rem;
+            color: var(--primary);
+        }
+        
+        .cta-schedule {
+            background: rgba(30, 58, 138, 0.05);
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--primary-darker);
+        }
+        
+        .cta-action {
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 14px;
+            background: var(--primary-gradient);
+            color: white;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .cta-action:hover {
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            transform: scale(1.02);
+        }
+        
+        .date-section {
+            text-align: right;
+            margin: 0 0 20px auto;
+            padding: 10px 16px;
+            background: rgba(30, 58, 138, 0.06);
+            border-radius: 12px;
+            display: inline-block;
+            clear: both;
+            color: var(--text-medium);
+            font-weight: 500;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .date-section strong {
+            font-weight: 700;
+            color: var(--primary-darker);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* NEW: Improved location address styling */
+        .location-address-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.08);
+        }
+        
+        .location-address-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .location-address-link:hover {
+            color: var(--primary);
+        }
+        
+        .location-address-link i {
+            font-size: 1rem;
+            color: var(--primary);
+        }
+        
+        .studio-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        
+        .studio-name-address {
+            flex: 1;
+        }
+        
+        /* Language Switcher */
+        .lang-switcher-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .lang-switcher {
+            display: flex;
+            gap: 0;
+            background: #f9f9f9;
+            border-radius: 40px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 20;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: #555;
+            border-radius: 40px;
+            padding: 10px 30px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .lang-btn.active {
+            background: var(--primary-gradient);
+            color: white;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+        }
+        
+        .lang-btn:not(.active):hover {
+            color: var(--primary);
+        }
+        
+        .lang-label {
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+        
+        .lang-switcher:after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            height: calc(100% - 10px);
+            width: calc(50% - 5px);
+            background: white;
+            border-radius: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 1;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .lang-switcher.es:after {
+            transform: translateX(100%);
+        }
+        
+        /* New styles for participant registration */
+        .participant-form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .participant-controls {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin: 10px 0 20px;
+        }
+        
+        .participant-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: white;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
+        }
+        
+        .participant-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(30, 58, 138, 0.25);
+        }
+        
+        .participant-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: #f1f5f9;
+            color: #94a3b8;
+            border-color: #cbd5e1;
+        }
+        
+        .participant-fields {
+            background: rgba(240, 247, 255, 0.4);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .participant-fields::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-darker));
+        }
+        
+        .participant-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #222;
+            font-size: 1.05rem;
+        }
+        
+        .name-field {
+            animation: fadeIn 0.4s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* IMPROVED NAVIGATION BUTTONS */
+        .top-nav-buttons {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            padding: 12px 20px;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(30, 58, 138, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 1;
+            max-width: 95%;
+            width: auto;
+        }
+        
+        .nav-btn {
+            background: transparent;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 22px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 20px;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(30, 58, 138, 0.1);
+            color: #1e3a8a;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(30, 58, 138, 0.2);
+        }
+        
+        .nav-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .nav-btn.active-section {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: white;
+            box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);
+        }
+        
+        .nav-btn i {
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .nav-btn:hover i {
+            transform: scale(1.15);
+        }
+        
+        .nav-btn.active-section i {
+            color: white;
+        }
+        
+        .top-nav-buttons.hidden {
+            transform: translate(-50%, -100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Logo highlight effect for pull-down */
+        .logo-container.highlight {
+            animation: pulseHighlight 1.5s ease;
+        }
+        
+        @keyframes pulseHighlight {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(30, 58, 138, 0.6); }
+        }
+        
+        /* Form loading spinner */
+        .spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+            display: none;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* MODERN COMPACT EVENTS CAROUSEL - FIXED FOR FACEBOOK/INSTAGRAM */
         .events-carousel-container {
             margin: 40px 0;
             position: relative;
@@ -130,7 +1403,7 @@
             max-width: 100%;
         }
         
-        /* Modern compact event card */
+        /* Modern compact event card - Fixed for Facebook/Instagram */
         .event-card {
             background: var(--white);
             border-radius: 14px;
@@ -165,7 +1438,7 @@
             font-size: 1rem;
             margin-bottom: 12px;
             padding-bottom: 8px;
-            border-bottom: 1px dashed rgba(230, 126, 34, 0.2);
+            border-bottom: 1px dashed rgba(30, 58, 138, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -179,7 +1452,7 @@
         .event-title {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--primary-darker);
             margin-bottom: 10px;
             font-family: 'Playfair Display', serif;
             line-height: 1.3;
@@ -229,7 +1502,7 @@
         
         .event-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
         }
         
         .carousel-button {
@@ -253,7 +1526,7 @@
         }
         
         .carousel-button:hover {
-            background: var(--primary-light);
+            background: var(--primary-darker);
             transform: translateY(-50%) scale(1.1);
         }
         
@@ -276,7 +1549,7 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: rgba(230, 126, 34, 0.3);
+            background: rgba(30, 58, 138, 0.3);
             border: none;
             cursor: pointer;
             transition: var(--transition);
@@ -322,132 +1595,671 @@
         
         .refresh-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
         }
         
-        /* END OF EVENTS CAROUSEL STYLES */
+        /* New styles for TikTok classes */
+        .tiktok-class-badge {
+            position: absolute;
+            top: -10px;
+            right: -5px;
+            background: linear-gradient(135deg, #000000, #69c9d0);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+            z-index: 3;
+            animation: pulse 2s infinite;
+            white-space: nowrap;
+        }
         
-        /* CLASS CTA STYLES */
-        .class-cta-container {
-            background: linear-gradient(135deg, #f9f7f3, #fdfcf9);
-            border-radius: 18px;
-            padding: 28px 35px;
-            margin: 25px 0 30px;
-            display: flex;
-            flex-direction: column;
-            color: #2c3e50;
+        /* IMPROVED TIKTOK-STYLE VIDEO SECTION */
+        .tiktok-video-section {
+            margin: 50px 0;
+            position: relative;
+        }
+        
+        .video-header {
             text-align: center;
-            box-shadow: 0 9px 28px rgba(0, 0, 0, 0.06);
-            border: 0.8px solid #e8e4dc;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .video-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-darker);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .video-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+        
+        .video-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .tiktok-video-feed {
+            position: relative;
+            height: 80vh;
+            max-height: 800px;
+            overflow: hidden;
+            border-radius: 20px;
+            background: #000;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .video-feed-container {
+            height: 100%;
             position: relative;
             overflow: hidden;
         }
         
-        .cta-header {
-            font-size: 1.35rem;
-            font-weight: 680;
-            margin-bottom: 18px;
-            letter-spacing: 0.35px;
+        .video-feed {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-item {
+            height: 100%;
+            width: 100%;
+            flex-shrink: 0;
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
+            background: #000;
+        }
+        
+        .video-player {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .video-player iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .video-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-darker), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+        
+        .video-placeholder-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 2;
+            width: 80%;
+        }
+        
+        .video-placeholder-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .video-placeholder-description {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .play-button {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .play-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .video-info-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            z-index: 10;
+        }
+        
+        .video-item-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .video-item-description {
+            font-size: 1rem;
+            opacity: 0.9;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .video-level {
+            background: var(--primary-light);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .video-views {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .video-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: all;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .video-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .video-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .video-indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+        
+        /* UPDATED: Elite, modern category buttons */
+        .video-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 12px;
-            color: var(--primary);
-            z-index: 2;
+            margin-bottom: 40px;
         }
         
-        .cta-header i {
-            font-size: 1.45rem;
-            color: var(--primary);
+        .category-btn {
+            background: transparent;
+            border: 1px solid rgba(30, 58, 138, 0.2);
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--primary-darker);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
         }
         
-        .cta-schedule {
-            background: rgba(230, 126, 34, 0.07);
-            border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 18px;
-            font-size: 1.0rem;
-            line-height: 1.6;
-            color: #2c3e50;
-            z-index: 2;
+        .category-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05), transparent);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
-        .cta-action {
-            font-size: 1.15rem;
-            font-weight: 620;
-            padding: 16px;
+        .category-btn:hover {
+            border-color: rgba(30, 58, 138, 0.4);
+            color: var(--primary-darker);
+            transform: translateY(-2px);
+        }
+        
+        .category-btn:hover::before {
+            opacity: 1;
+        }
+        
+        .category-btn.active {
             background: var(--primary-gradient);
             color: white;
+            border-color: var(--primary);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+        }
+        
+        .video-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .video-cta-button {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
             border-radius: 50px;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            box-shadow: 0 6px 18px rgba(230, 126, 34, 0.18);
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
             cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(30, 58, 138, 0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .video-cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(30, 58, 138, 0.25);
+        }
+        
+        /* COMPACT PRIVATE LESSONS CARD - FIXED */
+        .private-lessons-card {
+            background: linear-gradient(135deg, #f8f5ff, #f0ebff);
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(124, 58, 237, 0.1);
+            margin-top: 15px;
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        
+        .private-lessons-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--private-color), #8b5cf6);
+        }
+        
+        .private-lessons-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-darker);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .private-lessons-description {
+            color: var(--text-medium);
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+        
+        .private-lessons-features {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .private-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+        }
+        
+        .private-feature i {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--private-color), #8b5cf6);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            min-height: 60px;
-            z-index: 2;
+            color: white;
+            font-size: 0.8rem;
+            flex-shrink: 0;
         }
         
-        .cta-action:hover {
-            background: linear-gradient(135deg, #c14f00, #d3731f);
-            transform: scale(1.025);
+        .private-feature-text {
+            color: var(--text-medium);
+            font-size: 0.95rem;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.025); }
-            100% { transform: scale(1); }
+        .book-private-btn {
+            background: linear-gradient(135deg, var(--private-color), #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(124, 58, 237, 0.15);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            justify-content: center;
         }
         
-        .pulse {
-            animation: pulse 1.8s infinite;
+        .book-private-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
         }
         
-        .down-arrow {
-            animation: gentle-bounce 2.2s infinite;
-            display: inline-block;
-            font-size: 0.95em;
+        /* REMOVED: Video controls (like, comment, share, save) */
+        
+        .video-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 5;
+            pointer-events: none;
         }
         
-        @keyframes gentle-bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-3px); }
+        .nav-arrow {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            pointer-events: all;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
-        /* RESPONSIVE STYLES */
-        @media (max-width: 800px) {
-            .container {
-                padding: 30px 25px;
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+        
+        .video-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .video-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .video-indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        /* Mobile-specific enhancements */
+        @media (max-width: 768px) {
+            /* COMPACT WELCOME PAGE MOBILE STYLES */
+            .welcome-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .welcome-logo i {
+                font-size: 35px;
+            }
+            
+            .welcome-title {
+                font-size: 1.8rem;
+            }
+            
+            .welcome-subtitle {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+            
+            .welcome-options {
+                gap: 15px;
+            }
+            
+            .welcome-option {
+                width: 95px;
+            }
+            
+            .welcome-icon-container {
+                width: 65px;
+                height: 65px;
+            }
+            
+            .welcome-icon {
+                font-size: 28px;
+            }
+            
+            .welcome-label {
+                font-size: 0.85rem;
+            }
+            
+            .welcome-timer {
+                width: 120px;
+                bottom: 20px;
+            }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .tagline {
+                font-size: 1.15rem;
             }
             
             .section-title {
-                font-size: 1.7rem;
-                margin: 40px 0 25px;
+                font-size: 1.6rem;
+                margin: 35px 0 20px;
             }
             
             .cta-header {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             
             .cta-schedule {
-                font-size: 0.95rem;
-                padding: 12px;
+                font-size: 0.9rem;
+                padding: 10px;
             }
             
             .cta-action {
-                font-size: 1.05rem;
-                padding: 14px;
+                font-size: 0.95rem;
             }
             
-            /* Mobile events carousel adjustments */
+            .registration-form {
+                padding: 25px 20px;
+            }
+            
+            .form-title {
+                font-size: 1.6rem;
+            }
+            
+            .form-input, .form-select {
+                padding: 16px 20px;
+                font-size: 1.05rem;
+            }
+            
+            .submit-btn {
+                padding: 15px;
+                font-size: 1.1rem;
+            }
+            
+            .thank-you-message {
+                padding: 30px 20px;
+            }
+            
+            .tiktok-video-feed {
+                height: 70vh;
+            }
+            
+            .video-placeholder-title {
+                font-size: 1.5rem;
+            }
+            
+            .video-placeholder-description {
+                font-size: 1rem;
+            }
+            
+            .video-info-overlay {
+                padding: 20px;
+            }
+            
+            .video-item-title {
+                font-size: 1.3rem;
+            }
+            
+            .video-item-description {
+                font-size: 0.9rem;
+            }
+            
+            .top-nav-buttons {
+                padding: 10px 16px;
+                gap: 8px;
+            }
+            
+            .nav-btn {
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+            
+            .nav-btn i {
+                font-size: 1rem;
+            }
+            
             .carousel-button {
                 width: 32px;
                 height: 32px;
                 font-size: 0.8rem;
             }
             
+            /* Mobile-specific event card improvements */
             .event-card {
                 padding: 15px;
             }
@@ -477,50 +2289,290 @@
             .carousel-slide {
                 padding: 0 10px;
             }
+            
+            /* Mobile-specific private lessons */
+            .private-lessons-card {
+                padding: 20px;
+            }
+            
+            .private-lessons-title {
+                font-size: 1.3rem;
+            }
+            
+            .private-feature {
+                padding: 6px 0;
+            }
+            
+            .private-feature-text {
+                font-size: 0.9rem;
+            }
+            
+            /* Mobile-specific video category buttons */
+            .video-categories {
+                gap: 8px;
+            }
+            
+            .category-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
         }
         
-        @media (max-width: 480px) {
+        @media (max-width: 576px) {
+            /* COMPACT WELCOME PAGE EXTRA SMALL DEVICES */
+            .welcome-logo {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .welcome-logo i {
+                font-size: 30px;
+            }
+            
+            .welcome-title {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 25px;
+                padding: 8px 12px;
+            }
+            
+            .welcome-options {
+                gap: 10px;
+            }
+            
+            .welcome-option {
+                width: 85px;
+            }
+            
+            .welcome-icon-container {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .welcome-icon {
+                font-size: 24px;
+            }
+            
+            .welcome-label {
+                font-size: 0.8rem;
+            }
+            
+            .welcome-timer {
+                width: 100px;
+                bottom: 15px;
+            }
+            
             body {
                 font-size: 1.05rem;
-                padding: 18px 12px;
+                padding: 15px 10px;
             }
             
             .container {
-                padding: 30px 18px;
-                border-radius: 18px;
+                padding: 25px 15px;
+                border-radius: 16px;
+            }
+            
+            .logo-container {
+                width: 140px;
+                height: 140px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .logo i {
+                font-size: 45px;
+            }
+            
+            h1 {
+                font-size: 1.9rem;
+                margin-bottom: 10px;
+            }
+            
+            .tagline {
+                font-size: 1.05rem;
+                margin-top: 10px;
+            }
+            
+            .divider {
+                margin: 20px auto;
+                width: 80px;
             }
             
             .section-title {
+                font-size: 1.4rem;
+                margin: 30px 0 25px;
+            }
+            
+            .section-title::after {
+                width: 70px;
+            }
+            
+            .link-card {
+                padding: 20px;
+                min-height: 110px;
+            }
+            
+            .social-icon-container {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+            }
+            
+            .social-icon {
                 font-size: 1.5rem;
-                margin: 35px 0 25px;
+            }
+            
+            .link-icon {
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+            }
+            
+            .link-title {
+                font-size: 1.2rem;
+            }
+            
+            .link-subtitle {
+                font-size: 1.0rem;
             }
             
             .cta-header {
                 flex-direction: column;
-                gap: 8px;
+                gap: 6px;
             }
             
             .cta-header i {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
             }
             
             .cta-schedule {
-                font-size: 0.9rem;
-                padding: 10px 12px;
+                font-size: 0.85rem;
+                padding: 8px 10px;
             }
             
             .cta-action {
-                font-size: 0.95rem;
-                padding: 12px;
+                font-size: 0.9rem;
+                padding: 10px;
             }
             
-            /* Extra small device event card improvements */
+            .schedule-day-header {
+                font-size: 1.05rem;
+            }
+            
+            .class-time, .class-name {
+                font-size: 1.0rem;
+            }
+            
+            .date-section {
+                margin: 0 0 15px auto;
+                padding: 8px 14px;
+                font-size: 1.0rem;
+            }
+            
+            .form-title {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            
+            .partner-notice {
+                font-size: 1.05rem;
+            }
+            
+            .form-input, .form-select {
+                padding: 14px 18px;
+                font-size: 1.0rem;
+            }
+            
+            .submit-btn {
+                font-size: 1.05rem;
+                padding: 14px;
+            }
+            
+            .thank-you-message h3 {
+                font-size: 1.5rem;
+            }
+            
+            .thank-you-message p {
+                font-size: 1.05rem;
+            }
+            
+            .signature-container {
+                width: 250px;
+            }
+            
+            .signature-line {
+                width: 180px;
+            }
+            
+            .tiktok-video-feed {
+                height: 60vh;
+            }
+            
+            .video-placeholder-title {
+                font-size: 1.3rem;
+            }
+            
+            .video-placeholder-description {
+                font-size: 0.9rem;
+            }
+            
+            .play-button {
+                width: 70px;
+                height: 70px;
+                font-size: 1.7rem;
+            }
+            
+            .video-info-overlay {
+                padding: 15px;
+            }
+            
+            .video-item-title {
+                font-size: 1.2rem;
+            }
+            
+            .video-item-description {
+                font-size: 0.85rem;
+            }
+            
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+            
+            .top-nav-buttons {
+                padding: 8px 12px;
+                gap: 6px;
+                top: 15px;
+            }
+            
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .nav-btn span {
+                display: none;
+            }
+            
+            .nav-btn i {
+                font-size: 1rem;
+                margin: 0;
+            }
+            
             .carousel-button {
                 width: 30px;
                 height: 30px;
                 font-size: 0.8rem;
             }
             
+            /* Extra small device event card improvements */
             .event-card {
                 padding: 12px;
             }
@@ -550,248 +2602,1593 @@
             .carousel-slide {
                 padding: 0 8px;
             }
+            
+            /* Extra small device private lessons */
+            .private-lessons-card {
+                padding: 18px;
+            }
+            
+            .private-lessons-title {
+                font-size: 1.2rem;
+            }
+            
+            .private-lessons-description {
+                font-size: 0.95rem;
+            }
+            
+            .book-private-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            /* Extra small device video category buttons */
+            .video-categories {
+                gap: 6px;
+            }
+            
+            .category-btn {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Facebook/Instagram specific fixes */
+        @media (max-width: 400px) {
+            .carousel-slide {
+                padding: 0 5px;
+            }
+            
+            .event-card {
+                padding: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Events Carousel Section -->
-        <div class="events-carousel-container" id="events-carousel">
-            <h2 class="section-title">Upcoming Events</h2>
-            <div class="carousel">
-                <button class="carousel-button prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="carousel-track-container">
-                    <ul class="carousel-track" id="events-track">
-                        <li class="carousel-slide">
-                            <div class="events-loading">
-                                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                                <p>Loading events from calendar...</p>
-                            </div>
-                        </li>
-                    </ul>
+    <!-- ENHANCED COMPACT Welcome Page -->
+    <div class="welcome-page" id="welcome-page">
+        <div class="welcome-content">
+            <div class="welcome-logo-container">
+                <div class="welcome-logo">
+                    <i class="fas fa-music"></i>
                 </div>
-                <button class="carousel-button next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-            <div class="carousel-nav" id="events-nav"></div>
-        </div>
-        
-        <!-- Class CTA Section -->
-        <h2 class="section-title" id="upcoming-title">Join Our Classes</h2>
-        
-        <div id="class-cta" class="class-cta-container">
-            <div class="cta-header">
-                <i class="fas fa-calendar-day pulse"></i>
-                <div id="cta-title">Tonight at Serrata Studio</div>
-                <i class="fas fa-star pulse"></i>
+                <!-- UPDATED: Removed "Daniel Palacios" and replaced with "Learn to Dance" -->
+                <h1 class="welcome-title">Learn to Dance</h1>
+                <!-- UPDATED: Added "Learn how to dance every Thursday night at Buena Vista Social 10pm" -->
+                <p class="welcome-subtitle">Learn how to dance every Thursday night at Buena Vista Social 10pm</p>
             </div>
             
-            <div class="cta-schedule" id="cta-schedule">
-                7:15pm Salsa | 8:15pm Bachata
+            <div class="welcome-options">
+                <div class="welcome-option" id="welcome-social">
+                    <div class="welcome-icon-container">
+                        <i class="fas fa-hashtag welcome-icon"></i>
+                    </div>
+                    <div class="welcome-label">Social Media</div>
+                </div>
+                
+                <div class="welcome-option" id="welcome-tutorial">
+                    <div class="welcome-icon-container">
+                        <i class="fas fa-play-circle welcome-icon"></i>
+                    </div>
+                    <div class="welcome-label">Tutorials</div>
+                </div>
+                
+                <!-- UPDATED: Changed label to "Schedule and Events" and will scroll to schedule -->
+                <div class="welcome-option" id="welcome-schedule">
+                    <div class="welcome-icon-container">
+                        <i class="fas fa-calendar-alt welcome-icon"></i>
+                    </div>
+                    <div class="welcome-label">Schedule and Events</div>
+                </div>
             </div>
             
-            <div class="cta-action" id="register-cta">
-                <span id="register-cta-text">Register Now</span> <span class="down-arrow"><i class="fas fa-arrow-down"></i></span>
+            <div class="welcome-timer">
+                <div class="welcome-timer-progress" id="welcome-timer-progress"></div>
             </div>
         </div>
     </div>
 
-    <script>
-        // Class schedule data
-        const classSchedule = [
-            { 
-                day: "Monday", 
-                dayIndex: 1,
-                studio: "Stardust Ballroom",
-                classes: [
-                    "6:30pm Bachata Intro",
-                    "7:00pm Bachata Fundamentals",
-                    "8:00pm Bachata Next Level"
-                ],
-                startTime: 1830,
-                endTime: 2100
-            },
-            { 
-                day: "Wednesday", 
-                dayIndex: 3,
-                studio: "Serrata Studio",
-                classes: [
-                    "7:15pm Salsa",
-                    "8:15pm Bachata"
-                ],
-                startTime: 1915,
-                endTime: 2215
-            },
-            { 
-                day: "Thursday", 
-                dayIndex: 4,
-                studio: "Stardust Ballroom",
-                classes: [
-                    "6:30pm Intro to Salsa",
-                    "7:00pm Salsa Open Level",
-                    "8:00pm Bachata Open Level"
-                ],
-                startTime: 1830,
-                endTime: 2100
-            },
-            { 
-                day: "Friday", 
-                dayIndex: 5,
-                studio: "Let's Bailar Dance Studio",
-                classes: [
-                    "7:00pm Salsa",
-                    "8:00pm Bachata"
-                ],
-                startTime: 1900,
-                endTime: 2100
-            },
-            { 
-                day: "Saturday", 
-                dayIndex: 6,
-                studio: "Serrata Studio",
-                classes: [
-                    "10:30am Bachata",
-                    "11:30am Salsa"
-                ],
-                startTime: 1030,
-                endTime: 1300
-            },
-            { 
-                day: "Saturday", 
-                dayIndex: 6,
-                studio: "Estilo Dance Studio",
-                classes: [
-                    "4:00pm Salsa",
-                    "5:00pm Bachata"
-                ],
-                startTime: 1600,
-                endTime: 1800
-            }
-        ];
-
-        // Function to get next class information
-        function getNextClassInfo() {
-            const now = new Date();
-            const currentDayIndex = now.getDay(); 
-            const currentHours = now.getHours();
-            const currentMinutes = now.getMinutes();
-            const currentTime = currentHours * 100 + currentMinutes;
+    <!-- Original Landing Page Content -->
+    <div class="container" id="main-container">
+        <div class="header-container">
+          <!-- Improved Navigation buttons with Payment moved to the end -->
+          <div class="top-nav-buttons" id="nav-buttons">
+            <button class="nav-btn" id="btn-social">
+              <i class="fas fa-hashtag"></i> <span>Social Media</span>
+            </button>
+            <button class="nav-btn" id="btn-videos">
+              <i class="fas fa-play-circle"></i> <span>Video Library</span>
+            </button>
+            <button class="nav-btn" id="btn-schedule">
+              <i class="fas fa-calendar"></i> <span>Schedule</span>
+            </button>
+            <button class="nav-btn" id="btn-payments">
+              <i class="fas fa-credit-card"></i> <span>Payments</span>
+            </button>
+          </div>
+          
+          <div class="logo-container" id="music-note">
+            <div class="radiating-ring ring-1"></div>
+            <div class="radiating-ring ring-2"></div>
+            <div class="radiating-ring ring-3"></div>
+            <div class="logo">
+              <i class="fas fa-music"></i>
+            </div>
+          </div>
+          <h1 id="main-title">Daniel Palacios</h1>
+          <div class="divider"></div>
+          <p class="tagline" id="tagline">Professional Salsa & Bachata Instruction | Transforming Passion into Movement</p>
+        </div>
+        
+        <div class="content">
+          <h2 class="section-title" id="connect-title">Connect With Me</h2>
+          <div class="links-grid">
+            <a href="fb://profile/danielp_bachata" 
+               onclick="return openSocialApp(event, 'https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr')"
+               class="link-card facebook">
+              <div class="social-icon-container facebook-icon-container">
+                <div class="social-gradient"></div>
+                <div class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </div>
+              </div>
+              <div class="link-text">
+                <div class="link-title">Daniel Palacios</div>
+                <div class="link-subtitle" id="facebook-sub">Facebook Profile</div>
+              </div>
+            </a>
             
-            const sortedClasses = [...classSchedule].sort((a, b) => {
-                if (a.dayIndex === b.dayIndex) {
-                    return a.startTime - b.startTime;
-                }
-                return a.dayIndex - b.dayIndex;
-            });
+            <a href="instagram://user?username=danielp_bachata" 
+               onclick="return openSocialApp(event, 'https://www.instagram.com/danielp_bachata')"
+               class="link-card instagram">
+              <div class="social-icon-container instagram-icon-container">
+                <div class="social-gradient"></div>
+                <div class="social-icon">
+                  <i class="fab fa-instagram"></i>
+                </div>
+              </div>
+              <div class="link-text">
+                <div class="link-title">Instagram</div>
+                <div class="link-subtitle">@danielp_bachata</div>
+              </div>
+            </a>
             
-            const todayClass = sortedClasses.find(s => 
-                s.dayIndex === currentDayIndex && 
-                currentTime < s.endTime
-            );
+            <a href="snssdk1233://user/profile/danielp_bachata" 
+               onclick="return openSocialApp(event, 'https://www.tiktok.com/@danielp_bachata')"
+               class="link-card tiktok">
+              <div class="social-icon-container tiktok-icon-container">
+                <div class="social-gradient"></div>
+                <div class="social-icon">
+                  <i class="fab fa-tiktok"></i>
+                </div>
+              </div>
+              <div class="link-text">
+                <div class="link-title">TikTok</div>
+                <div class="link-subtitle">@danielp_bachata</div>
+              </div>
+            </a>
+          </div>
+          
+          <div class="date-section" id="current-date-discreet">
+            <strong id="today-label">Today is:</strong> <span id="date-text"></span>
+          </div>
+          
+          <!-- IMPROVED TIKTOK-STYLE VIDEO SECTION -->
+          <section class="tiktok-video-section" id="video-library">
+            <div class="video-header">
+              <h2 class="video-title">Dance Video Library</h2>
+              <p class="video-subtitle">Swipe up and down to browse videos. Tap to play.</p>
+            </div>
             
-            if (todayClass) {
-                return {
-                    day: todayClass.day,
-                    studio: todayClass.studio,
-                    schedule: todayClass.classes,
-                    timePrefix: "Tonight",
-                    locationId: todayClass.locationId
-                };
-            }
+            <!-- UPDATED: Tutorial section buttons with Salsa and Bachata options -->
+            <div class="video-categories">
+              <button class="category-btn active" data-category="all">All Videos</button>
+              <button class="category-btn" data-category="salsa">Salsa Tutorials</button>
+              <button class="category-btn" data-category="bachata">Bachata Tutorials</button>
+            </div>
             
-            const futureClasses = sortedClasses.filter(s => s.dayIndex > currentDayIndex);
+            <div class="tiktok-video-feed">
+              <div class="video-feed-container">
+                <div class="video-feed" id="video-feed">
+                  <!-- Video items will be dynamically generated -->
+                </div>
+              </div>
+              
+              <div class="video-nav">
+                <button class="nav-arrow prev-video">
+                  <i class="fas fa-chevron-up"></i>
+                </button>
+                <button class="nav-arrow next-video">
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
+              
+              <div class="video-indicators" id="video-indicators">
+                <!-- Indicators will be dynamically generated -->
+              </div>
+            </div>
+          </section>
+          
+          <!-- Rest of the content remains the same -->
+          <h2 class="section-title" id="upcoming-title">Join Our Classes</h2>
+          
+          <div id="class-cta" class="class-cta-container">
+            <div class="cta-header">
+              <i class="fas fa-calendar-day pulse"></i>
+              <div id="cta-title">Join us at Estilo Dance Studio</div>
+              <i class="fas fa-star pulse"></i>
+            </div>
             
-            if (futureClasses.length > 0) {
-                const nextClass = futureClasses[0];
-                const dayDifference = nextClass.dayIndex - currentDayIndex;
-                let timePrefix = "";
+            <div class="cta-schedule" id="cta-schedule">
+              Saturdays: 4:00pm Salsa | 5:00pm Bachata
+            </div>
+            
+            <div class="cta-action" id="register-cta">
+              <span id="register-cta-text">Register Now</span> <i class="fas fa-arrow-down"></i>
+            </div>
+          </div>
+          
+          <h3 class="section-title" id="schedule-title">Class Schedule</h3>
+          
+          <div class="links-grid" id="schedule-grid">
+            <!-- Estilo Dance Studio -->
+            <div class="link-card estilo" 
+                 data-studio="Estilo Dance Studio" 
+                 id="estilo-card">
+              <div class="link-icon estilo-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="link-text">
+                <div class="studio-info">
+                  <div class="studio-name-address">
+                    <div class="link-title">Estilo Dance Studio</div>
+                    <!-- UPDATED: Address and map icon moved next to each other and made clickable -->
+                    <div class="location-address-container">
+                      <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
+                         class="location-address-link" 
+                         title="Directions to Estilo Dance Studio" 
+                         aria-label="Estilo Dance Studio on Google Maps"
+                         onclick="return openMaps(event, 'comgooglemaps://?q=Estilo+Dance+Studio+Fishtown+Philadelphia', 'geo:0,0?q=Estilo+Dance+Studio+Fishtown+Philadelphia')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="address-text">Fishtown, Philadelphia</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="schedule-list">
+                  <div class="schedule-day-group" data-day="Saturday">
+                    <div class="schedule-day-header">Saturday</div>
+                    <div class="schedule-class">
+                      <span class="class-time">4:00pm</span>
+                      <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">5:00pm</span>
+                      <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- NEW: Serrata Estudio Card -->
+            <div class="link-card serrata" 
+                 data-studio="Serrata Estudio" 
+                 id="serrata-card">
+              <div class="link-icon serrata-icon">
+                <i class="fas fa-school"></i>
+              </div>
+              <div class="link-text">
+                <div class="studio-info">
+                  <div class="studio-name-address">
+                    <div class="link-title">Serrata Estudio</div>
+                    <!-- UPDATED: Address and map icon moved next to each other and made clickable -->
+                    <div class="location-address-container">
+                      <a href="https://www.google.com/maps/search/?api=1&query=7157+Frankford+Ave+Philadelphia+PA+19135" 
+                         class="location-address-link" 
+                         title="Directions to Serrata Estudio" 
+                         aria-label="Serrata Estudio on Google Maps"
+                         onclick="return openMaps(event, 'comgooglemaps://?q=7157+Frankford+Ave+Philadelphia+PA+19135', 'geo:0,0?q=7157+Frankford+Ave+Philadelphia+PA+19135')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="address-text">7157 Frankford Ave, Philadelphia, PA 19135</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="schedule-list">
+                  <div class="schedule-day-group" data-day="Tuesday">
+                    <div class="schedule-day-header">Tuesday</div>
+                    <div class="schedule-class">
+                      <span class="class-time">7:30pm</span>
+                      <span class="class-name">4-Week Salsa & Bachata</span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">8:30pm</span>
+                      <span class="class-name">30 minutes práctica</span>
+                    </div>
+                  </div>
+                  <div class="schedule-day-group" data-day="Wednesday">
+                    <div class="schedule-day-header">Wednesday</div>
+                    <div class="schedule-class">
+                      <span class="class-time">6:30pm</span>
+                      <span class="class-name">4-Week Salsa & Bachata</span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">7:30pm</span>
+                      <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">8:30pm</span>
+                      <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- COMPACT Private Lessons Card (MOVED TO SCHEDULE SECTION) -->
+            <div class="link-card" id="private-lessons-card">
+              <div class="link-icon private-icon">
+                <i class="fas fa-user"></i>
+              </div>
+              <div class="link-text">
+                <div class="link-title">Private Lessons</div>
+                <div class="link-subtitle">Personalized instruction tailored to your goals</div>
                 
-                if (dayDifference === 1) {
-                    timePrefix = "Tomorrow";
-                } else if (dayDifference === 2) {
-                    timePrefix = "This " + nextClass.day;
-                } else {
-                    timePrefix = "Next " + nextClass.day;
-                }
-                
-                return {
-                    day: nextClass.day,
-                    studio: nextClass.studio,
-                    schedule: nextClass.classes,
-                    timePrefix: timePrefix,
-                    locationId: nextClass.locationId
-                };
-            }
+                <!-- COMPACT Private Lessons Card Content -->
+                <div class="private-lessons-card">
+                  <div class="private-lessons-title">Personalized Dance Instruction</div>
+                  <div class="private-lessons-description">
+                    Get one-on-one attention and customized instruction to accelerate your dance journey.
+                  </div>
+                  
+                  <div class="private-lessons-features">
+                    <div class="private-feature">
+                      <i class="fas fa-check"></i>
+                      <div class="private-feature-text">Available in-person or online via Zoom</div>
+                    </div>
+                    <div class="private-feature">
+                      <i class="fas fa-check"></i>
+                      <div class="private-feature-text">Perfect for individuals, couples, or small groups</div>
+                    </div>
+                    <div class="private-feature">
+                      <i class="fas fa-check"></i>
+                      <div class="private-feature-text">Flexible scheduling to fit your availability</div>
+                    </div>
+                  </div>
+                  
+                  <button class="book-private-btn" onclick="bookPrivateLesson()">
+                    <i class="fas fa-calendar-check"></i> Book Private Lesson
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Registration Form -->
+          <div class="registration-form" id="registration-form">
+            <div class="form-title" id="registration-title">Class Registration</div>
+            <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
+            <form id="dance-registration">
+              <!-- Participant Fields -->
+              <div id="participant-container">
+                <div class="participant-fields name-field">
+                  <div class="participant-form-group">
+                    <input type="text" class="form-input" placeholder="Full Name" required>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Add/Remove Controls -->
+              <div class="participant-controls">
+                <button type="button" id="add-participant" class="participant-btn" title="Add another participant">
+                  <i class="fas fa-plus"></i>
+                </button>
+                <button type="button" id="remove-participant" class="participant-btn" title="Remove participant" disabled>
+                  <i class="fas fa-minus"></i>
+                </button>
+              </div>
+              
+              <!-- Contact Information -->
+              <div class="form-group">
+                <input type="email" id="email" class="form-input" placeholder="Email Address" required>
+              </div>
+              
+              <div class="form-group">
+                <select id="location" class="form-select" required>
+                  <option value="">Select class type</option>
+                  <option value="estilo">Estilo Dance Studio (In-person)</option>
+                  <option value="serrata">Serrata Estudio - 4-Week Programs</option>
+                  <option value="zoom">Zoom Class (Online)</option>
+                  <option value="private">Private Lesson</option>
+                </select>
+              </div>
+              
+              <button type="submit" class="submit-btn">
+                <span id="register-button">Complete Registration</span> 
+                <span class="spinner" id="form-spinner"></span>
+              </button>
+            </form>
             
-            const nextClass = sortedClasses[0];
-            return {
-                day: nextClass.day,
-                studio: nextClass.studio,
-                schedule: nextClass.classes,
-                timePrefix: "Next " + nextClass.day,
-                locationId: nextClass.locationId
-            };
-        }
+            <div id="thank-you-message" class="thank-you-message">
+              <h3 id="thank-you-title">Thank You for Registering!</h3>
+              <p id="thank-you-text">We're excited to dance with you! Your spot is being saved.</p>
+              <button class="submit-btn" id="register-again-btn" style="margin-top: 20px;">
+                <span id="register-again-text">Register Another Person</span>
+              </button>
+            </div>
+          </div>
 
-        // Function to update CTA section
-        function updateCTASection() {
-            const nextClass = getNextClassInfo();
+          <!-- ADDED: Events Carousel after Registration Form -->
+          <div class="events-carousel-container" id="events-carousel">
+            <h2 class="section-title">Upcoming Events</h2>
+            <div class="carousel">
+              <button class="carousel-button prev">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="carousel-track-container">
+                <ul class="carousel-track" id="events-track">
+                  <li class="carousel-slide">
+                    <div class="events-loading">
+                      <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                      <p>Loading events from calendar...</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <button class="carousel-button next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+            <div class="carousel-nav" id="events-nav"></div>
+          </div>
+          
+          <h2 class="section-title" id="payment-title">Payment Options</h2>
+          <div class="links-grid">
+            <a href="venmo://account?username=Rebecca_Rose_Bachata" 
+               onclick="return openVenmo(event, 'https://venmo.com/u/Rebecca_Rose_Bachata')" 
+               class="link-card venmo">
+              <div class="link-icon">
+                <i class="fab fa-vimeo-v"></i>
+              </div>
+              <div class="link-text">
+                <div class="link-title">Venmo</div>
+                <div class="link-subtitle" id="venmo-sub">Rebecca Rose Bachata</div>
+              </div>
+            </a>
             
-            const ctaTitle = document.getElementById('cta-title');
-            ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
+            <div class="link-card cash">
+              <div class="link-icon">
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <div class="link-text">
+                <div class="link-title" id="cash-title">Cash</div>
+                <div class="link-subtitle" id="cash-sub">Pay at the studio</div>
+              </div>
+            </div>
+          </div>
+          
+          <h2 class="section-title" id="contact-title">Contact Me</h2>
+          <div class="links-grid">
+            <a href="mailto:contact@danielpbachata.com" class="link-card contact" target="_blank">
+              <div class="link-icon contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="link-text">
+                <div class="link-title" id="contact-title-text">Professional Inquiries</div>
+                <div class="link-subtitle" id="contact-subtitle">Bookings and partnerships</div>
+              </div>
+            </a>
+          </div>
+          
+          <footer>
+            <!-- Enhanced Language Switcher at Bottom -->
+            <div class="lang-switcher-container">
+              <div class="lang-label">Language</div>
+              <div class="lang-switcher en">
+                <button class="lang-btn active" id="lang-en" data-lang="en">EN</button>
+                <button class="lang-btn" id="lang-es" data-lang="es">ES</button>
+              </div>
+            </div>
             
-            document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+            <p id="copyright">© 2025 Daniel Palacios | Professional Instruction</p>
+            <p id="quote">Dance is the hidden language of the soul</p>
+            
+            <div class="signature-container">
+              <div class="signature-line" id="signature-line" 
+                   ondblclick="window.open('https://dancefirststep.github.io/class-schedule-/', '_blank')"
+                   style="cursor: pointer;"></div>
+            </div>
+          </footer>
+        </div>
+      </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Welcome page functionality
+      const welcomePage = document.getElementById('welcome-page');
+      const mainContainer = document.getElementById('main-container');
+      const timerProgress = document.getElementById('welcome-timer-progress');
+      let timerInterval;
+      let timerValue = 0;
+      // CHANGED: Reduced from 6000 to 5000 (5 seconds)
+      const timerDuration = 5000; // 5 seconds
+      
+      // Start the timer
+      function startWelcomeTimer() {
+        timerInterval = setInterval(function() {
+          timerValue += 100;
+          const progress = (timerValue / timerDuration) * 100;
+          timerProgress.style.width = `${progress}%`;
+          
+          if (timerValue >= timerDuration) {
+            clearInterval(timerInterval);
+            hideWelcomePage();
+          }
+        }, 100);
+      }
+      
+      // Hide welcome page and show main content
+      function hideWelcomePage() {
+        welcomePage.classList.add('hidden');
+        setTimeout(function() {
+          mainContainer.classList.add('visible');
+          // Initialize the main page functionality
+          initMainPage();
+        }, 500);
+      }
+      
+      // Welcome page option click handlers
+      document.getElementById('welcome-social').addEventListener('click', function() {
+        clearInterval(timerInterval);
+        hideWelcomePage();
+        // Scroll to social media section
+        setTimeout(function() {
+          document.getElementById('connect-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
+        }, 600);
+      });
+      
+      document.getElementById('welcome-tutorial').addEventListener('click', function() {
+        clearInterval(timerInterval);
+        hideWelcomePage();
+        // Scroll to video library section
+        setTimeout(function() {
+          document.getElementById('video-library').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
+        }, 600);
+      });
+      
+      // UPDATED: Changed to "welcome-schedule" and scroll to schedule section
+      document.getElementById('welcome-schedule').addEventListener('click', function() {
+        clearInterval(timerInterval);
+        hideWelcomePage();
+        // Scroll to schedule section
+        setTimeout(function() {
+          document.getElementById('schedule-title').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start'
+          });
+        }, 600);
+      });
+      
+      // Start the timer when page loads
+      startWelcomeTimer();
+      
+      // Main page functionality
+      function initMainPage() {
+        // Set current date
+        function updateCurrentDate(lang) {
+          const now = new Date();
+          const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            locale: lang === 'es' ? 'es-ES' : 'en-US'
+          };
+          const dateText = document.getElementById('date-text');
+          dateText.textContent = now.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', options);
         }
         
-        // EVENTS CAROUSEL FUNCTIONS
-        async function fetchCalendarEvents() {
+        // Language switch functionality
+        const langSwitcher = document.querySelector('.lang-switcher');
+        const langButtons = langSwitcher.querySelectorAll('.lang-btn');
+        let currentLanguage = 'en';
+        
+        // Translations object
+        const translations = {
+          en: {
+            mainTitle: "Daniel Palacios",
+            tagline: "Professional Salsa & Bachata Instruction | Transforming Passion into Movement",
+            connectTitle: "Connect With Me",
+            facebookSub: "Facebook Profile",
+            todayLabel: "Today is:",
+            upcomingTitle: "Join Our Classes",
+            registerCta: "Register Now",
+            scheduleTitle: "Class Schedule",
+            registrationTitle: "Class Registration",
+            partnerText: "No partner needed - come dance with us!",
+            namePlaceholder: "Full Name",
+            emailPlaceholder: "Email Address",
+            locationPlaceholder: "Select class type",
+            registerButton: "Complete Registration",
+            thankYouTitle: "Thank You for Registering!",
+            thankYouText: "We're excited to dance with you! Your spot is being saved.",
+            registerAgainText: "Register Another Person",
+            paymentTitle: "Payment Options",
+            venmoSub: "Rebecca Rose Bachata",
+            cashTitle: "Cash",
+            cashSub: "Pay at the studio",
+            contactTitle: "Contact Me",
+            contactTitleText: "Professional Inquiries",
+            contactSubtitle: "Bookings and partnerships",
+            copyright: "© 2025 Daniel Palacios | Professional Instruction",
+            quote: "Dance is the hidden language of the soul"
+          },
+          es: {
+            mainTitle: "Daniel Palacios",
+            tagline: "Instrucción Profesional de Salsa y Bachata | Transformando Pasión en Movimiento",
+            connectTitle: "Conéctate Conmigo",
+            facebookSub: "Perfil de Facebook",
+            todayLabel: "Hoy es:",
+            upcomingTitle: "Únete a Nuestras Clases",
+            registerCta: "Regístrate Ahora",
+            scheduleTitle: "Horario de Clases",
+            registrationTitle: "Registro de Clase",
+            partnerText: "No necesitas pareja - ¡Ven a bailar con nosotros!",
+            namePlaceholder: "Nombre Completo",
+            emailPlaceholder: "Correo Electrónico",
+            locationPlaceholder: "Selecciona el tipo de clase",
+            registerButton: "Completar Registro",
+            thankYouTitle: "¡Gracias por Registrarte!",
+            thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
+            registerAgainText: "Registrar Otra Persona",
+            paymentTitle: "Opciones de Pago",
+            venmoSub: "Rebecca Rose Bachata",
+            cashTitle: "Efectivo",
+            cashSub: "Paga en el estudio",
+            contactTitle: "Contáctame",
+            contactTitleText: "Consultas Profesionales",
+            contactSubtitle: "Reservas y colaboraciones",
+            copyright: "© 2025 Daniel Palacios | Instrucción Profesional",
+            quote: "El baile es el lenguaje oculto del alma"
+          }
+        };
+        
+        // Set language function
+        function setLanguage(lang) {
+          // Update UI
+          langButtons.forEach(btn => {
+            if (btn.dataset.lang === lang) {
+              btn.classList.add('active');
+            } else {
+              btn.classList.remove('active');
+            }
+          });
+          
+          // Update language switcher visual
+          langSwitcher.className = 'lang-switcher ' + lang;
+          
+          // Update content based on language
+          const langData = translations[lang];
+          
+          document.getElementById('main-title').textContent = langData.mainTitle;
+          document.getElementById('tagline').textContent = langData.tagline;
+          document.getElementById('connect-title').textContent = langData.connectTitle;
+          document.getElementById('facebook-sub').textContent = langData.facebookSub;
+          document.getElementById('today-label').textContent = langData.todayLabel;
+          document.getElementById('upcoming-title').textContent = langData.upcomingTitle;
+          document.getElementById('register-cta-text').textContent = langData.registerCta;
+          document.getElementById('schedule-title').textContent = langData.scheduleTitle;
+          document.getElementById('registration-title').textContent = langData.registrationTitle;
+          document.getElementById('partner-text').textContent = langData.partnerText;
+          
+          // Update participant input placeholder
+          document.querySelectorAll('.participant-fields .form-input').forEach(input => {
+            input.placeholder = langData.namePlaceholder;
+          });
+          
+          document.getElementById('email').placeholder = langData.emailPlaceholder;
+          document.getElementById('location').querySelector('option[value=""]').textContent = langData.locationPlaceholder;
+          document.getElementById('register-button').textContent = langData.registerButton;
+          document.getElementById('thank-you-title').textContent = langData.thankYouTitle;
+          document.getElementById('thank-you-text').textContent = langData.thankYouText;
+          document.getElementById('register-again-text').textContent = langData.registerAgainText;
+          document.getElementById('payment-title').textContent = langData.paymentTitle;
+          document.getElementById('venmo-sub').textContent = langData.venmoSub;
+          document.getElementById('cash-title').textContent = langData.cashTitle;
+          document.getElementById('cash-sub').textContent = langData.cashSub;
+          document.getElementById('contact-title').textContent = langData.contactTitle;
+          document.getElementById('contact-title-text').textContent = langData.contactTitleText;
+          document.getElementById('contact-subtitle').textContent = langData.contactSubtitle;
+          document.getElementById('copyright').textContent = langData.copyright;
+          document.getElementById('quote').textContent = langData.quote;
+          
+          // Update date format
+          updateCurrentDate(lang);
+          
+          currentLanguage = lang;
+          localStorage.setItem('language', lang);
+        }
+        
+        // Event listeners for language buttons
+        langButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            setLanguage(button.dataset.lang);
+          });
+        });
+        
+        // Check for saved language preference
+        const savedLanguage = localStorage.getItem('language');
+        if (savedLanguage) {
+          setLanguage(savedLanguage);
+        } else {
+          updateCurrentDate('en');
+        }
+        
+        // IMPROVED TIKTOK-STYLE VIDEO SECTION FUNCTIONALITY
+        const videoFeed = document.getElementById('video-feed');
+        const videoIndicators = document.getElementById('video-indicators');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const prevVideoBtn = document.querySelector('.prev-video');
+        const nextVideoBtn = document.querySelector('.next-video');
+        
+        // UPDATED: Video data with the provided Bachata count/beat videos
+        const videoData = [
+          {
+            id: 1,
+            title: "Bachata Counts Tutorial Part 1",
+            description: "",
+            duration: "",
+            level: "",
+            views: "1.2K",
+            category: ["bachata"],
+            thumbnail: "https://img.youtube.com/vi/OWLylEYSroA/maxresdefault.jpg",
+            videoId: "OWLylEYSroA"
+          },
+          {
+            id: 2,
+            title: "Bachata Counts Tutorial Part 2",
+            description: "",
+            duration: "",
+            level: "",
+            views: "980",
+            category: ["bachata"],
+            thumbnail: "https://img.youtube.com/vi/PPnVKETxf6I/maxresdefault.jpg",
+            videoId: "PPnVKETxf6I"
+          },
+          {
+            id: 3,
+            title: "Bachata Counts Tutorial Part 3",
+            description: "",
+            duration: "",
+            level: "",
+            views: "1.5K",
+            category: ["bachata"],
+            thumbnail: "https://img.youtube.com/vi/J5SEMr4vmTM/maxresdefault.jpg",
+            videoId: "J5SEMr4vmTM"
+          },
+          {
+            id: 4,
+            title: "Bachata Counts Tutorial Part 4",
+            description: "",
+            duration: "",
+            level: "",
+            views: "890",
+            category: ["bachata"],
+            thumbnail: "https://img.youtube.com/vi/ZE0Zgv5gCGo/maxresdefault.jpg",
+            videoId: "ZE0Zgv5gCGo"
+          },
+          {
+            id: 5,
+            title: "Bachata Counts Tutorial Part 5",
+            description: "",
+            duration: "",
+            level: "",
+            views: "1.1K",
+            category: ["bachata"],
+            thumbnail: "https://img.youtube.com/vi/NcpGLZVhKDc/maxresdefault.jpg",
+            videoId: "NcpGLZVhKDc"
+          }
+        ];
+        
+        let currentCategory = 'all';
+        let currentVideoIndex = 0;
+        
+        // Function to render videos
+        function renderVideos(category = 'all') {
+          videoFeed.innerHTML = '';
+          videoIndicators.innerHTML = '';
+          
+          const filteredVideos = category === 'all' 
+            ? videoData 
+            : videoData.filter(video => video.category.includes(category));
+          
+          if (filteredVideos.length === 0) {
+            videoFeed.innerHTML = `
+              <div class="video-item">
+                <div class="video-placeholder">
+                  <div class="video-placeholder-content">
+                    <h3 class="video-placeholder-title">No videos found</h3>
+                    <p class="video-placeholder-description">Try selecting a different category</p>
+                  </div>
+                </div>
+              </div>
+            `;
+            return;
+          }
+          
+          filteredVideos.forEach((video, index) => {
+            const videoItem = document.createElement('div');
+            videoItem.className = 'video-item';
+            videoItem.setAttribute('data-video-id', video.id);
+            videoItem.innerHTML = `
+              <div class="video-player">
+                <div class="video-placeholder">
+                  <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
+                  <div class="video-placeholder-content">
+                    <h3 class="video-placeholder-title">${video.title}</h3>
+                    <button class="play-button" data-video-id="${video.videoId}">
+                      <i class="fas fa-play"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="video-info-overlay">
+                <h3 class="video-item-title">${video.title}</h3>
+                <div class="video-meta">
+                  <span class="video-views"><i class="fas fa-eye"></i> ${video.views}</span>
+                </div>
+              </div>
+            `;
+            
+            videoFeed.appendChild(videoItem);
+            
+            // Create indicator
+            const indicator = document.createElement('button');
+            indicator.className = 'video-indicator';
+            indicator.dataset.index = index;
+            videoIndicators.appendChild(indicator);
+          });
+          
+          // Set first video as active
+          setActiveVideo(0);
+        }
+        
+        // Function to set active video
+        function setActiveVideo(index) {
+          const videoItems = document.querySelectorAll('.video-item');
+          const indicators = document.querySelectorAll('.video-indicator');
+          
+          // Remove active class from all items
+          videoItems.forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          indicators.forEach(indicator => {
+            indicator.classList.remove('active');
+          });
+          
+          // Add active class to current item
+          if (videoItems[index]) {
+            videoItems[index].classList.add('active');
+          }
+          
+          if (indicators[index]) {
+            indicators[index].classList.add('active');
+          }
+          
+          // Update video feed position
+          videoFeed.style.transform = `translateY(-${index * 100}%)`;
+          
+          currentVideoIndex = index;
+        }
+        
+        // Function to play video
+        function playVideo(videoId, videoItem) {
+          const videoPlayer = videoItem.querySelector('.video-player');
+          const placeholder = videoItem.querySelector('.video-placeholder');
+          
+          // Replace placeholder with iframe
+          videoPlayer.innerHTML = `
+            <iframe 
+              src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          `;
+        }
+        
+        // Initialize video section
+        function initVideoSection() {
+          // Render initial videos
+          renderVideos();
+          
+          // Category filter functionality
+          categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              // Update active category button
+              categoryButtons.forEach(btn => btn.classList.remove('active'));
+              this.classList.add('active');
+              
+              // Update current category and render videos
+              currentCategory = this.getAttribute('data-category');
+              renderVideos(currentCategory);
+            });
+          });
+          
+          // Navigation arrows
+          prevVideoBtn.addEventListener('click', () => {
+            if (currentVideoIndex > 0) {
+              setActiveVideo(currentVideoIndex - 1);
+            }
+          });
+          
+          nextVideoBtn.addEventListener('click', () => {
+            const videoItems = document.querySelectorAll('.video-item');
+            if (currentVideoIndex < videoItems.length - 1) {
+              setActiveVideo(currentVideoIndex + 1);
+            }
+          });
+          
+          // Indicator click
+          videoIndicators.addEventListener('click', (e) => {
+            if (e.target.classList.contains('video-indicator')) {
+              const index = parseInt(e.target.dataset.index);
+              setActiveVideo(index);
+            }
+          });
+          
+          // Play button click
+          videoFeed.addEventListener('click', (e) => {
+            if (e.target.closest('.play-button')) {
+              const playButton = e.target.closest('.play-button');
+              const videoId = playButton.dataset.videoId;
+              const videoItem = playButton.closest('.video-item');
+              playVideo(videoId, videoItem);
+            }
+          });
+          
+          // Touch/swipe functionality
+          let startY = 0;
+          let endY = 0;
+          
+          videoFeed.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+          });
+          
+          videoFeed.addEventListener('touchend', (e) => {
+            endY = e.changedTouches[0].clientY;
+            handleSwipe();
+          });
+          
+          function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startY - endY;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+              if (diff > 0) {
+                // Swiped up - next video
+                const videoItems = document.querySelectorAll('.video-item');
+                if (currentVideoIndex < videoItems.length - 1) {
+                  setActiveVideo(currentVideoIndex + 1);
+                }
+              } else {
+                // Swiped down - previous video
+                if (currentVideoIndex > 0) {
+                  setActiveVideo(currentVideoIndex - 1);
+                }
+              }
+            }
+          }
+          
+          // Keyboard navigation
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              if (currentVideoIndex > 0) {
+                setActiveVideo(currentVideoIndex - 1);
+              }
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              const videoItems = document.querySelectorAll('.video-item');
+              if (currentVideoIndex < videoItems.length - 1) {
+                setActiveVideo(currentVideoIndex + 1);
+              }
+            }
+          });
+        }
+
+        // Participant Registration Functionality
+        const participantContainer = document.getElementById('participant-container');
+        const addParticipantBtn = document.getElementById('add-participant');
+        const removeParticipantBtn = document.getElementById('remove-participant');
+        
+        let participantCount = 1;
+        const maxParticipants = 4;
+        
+        // Add participant
+        addParticipantBtn.addEventListener('click', function() {
+          if (participantCount < maxParticipants) {
+            participantCount++;
+            
+            // Create new participant field
+            const newParticipant = document.createElement('div');
+            newParticipant.className = 'participant-fields name-field';
+            newParticipant.innerHTML = `
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+              </div>
+            `;
+            
+            // Add with fade-in effect
+            participantContainer.appendChild(newParticipant);
+            
+            // Enable remove button
+            removeParticipantBtn.disabled = false;
+            
+            // Disable add button if max reached
+            if (participantCount === maxParticipants) {
+              addParticipantBtn.disabled = true;
+            }
+          }
+        });
+        
+        // Remove participant
+        removeParticipantBtn.addEventListener('click', function() {
+          if (participantCount > 1) {
+            const lastField = participantContainer.lastChild;
+            participantContainer.removeChild(lastField);
+            participantCount--;
+            
+            // Disable remove button if only one remains
+            if (participantCount === 1) {
+              removeParticipantBtn.disabled = true;
+            }
+            
+            // Re-enable add button
+            addParticipantBtn.disabled = false;
+          }
+        });
+        
+        // Class schedule data
+        const classSchedule = [
+          { 
+            day: "Saturday", 
+            dayIndex: 6,
+            studio: "Estilo Dance Studio",
+            classes: [
+              "4:00pm Salsa",
+              "5:00pm Bachata"
+            ],
+            locationId: "estilo-card",
+            startTime: 1600,
+            endTime: 1800
+          },
+          { 
+            day: "Tuesday", 
+            dayIndex: 2,
+            studio: "Serrata Estudio",
+            classes: [
+              "7:30pm 4-Week Salsa & Bachata",
+              "8:30pm 30 minutes práctica"
+            ],
+            locationId: "serrata-card",
+            startTime: 1930,
+            endTime: 2100
+          },
+          { 
+            day: "Wednesday", 
+            dayIndex: 3,
+            studio: "Serrata Estudio",
+            classes: [
+              "6:30pm 4-Week Salsa & Bachata",
+              "7:30pm Salsa",
+              "8:30pm Bachata"
+            ],
+            locationId: "serrata-card",
+            startTime: 1830,
+            endTime: 2130
+          }
+        ];
+
+        // Find next class to highlight
+        function getNextClassInfo() {
+          const now = new Date();
+          const currentDayIndex = now.getDay(); 
+          const currentHours = now.getHours();
+          const currentMinutes = now.getMinutes();
+          const currentTime = currentHours * 100 + currentMinutes;
+          
+          // Sort classes by day and then by start time
+          const sortedClasses = [...classSchedule].sort((a, b) => {
+            // If same day, sort by start time
+            if (a.dayIndex === b.dayIndex) {
+              return a.startTime - b.startTime;
+            }
+            return a.dayIndex - b.dayIndex;
+          });
+          
+          // Find today's class if exists and hasn't ended
+          const todayClass = sortedClasses.find(s => 
+            s.dayIndex === currentDayIndex && 
+            currentTime < s.endTime
+          );
+          
+          if (todayClass) {
+            return {
+              day: todayClass.day,
+              studio: todayClass.studio,
+              schedule: todayClass.classes,
+              timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
+              locationId: todayClass.locationId
+            };
+          }
+          
+          // Find next class in the same week
+          const futureClasses = sortedClasses.filter(s => s.dayIndex > currentDayIndex);
+          
+          if (futureClasses.length > 0) {
+            const nextClass = futureClasses[0];
+            const dayDifference = nextClass.dayIndex - currentDayIndex;
+            let timePrefix = "";
+            
+            if (dayDifference === 1) {
+              timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
+            } else if (dayDifference === 2) {
+              timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
+            } else {
+              timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+            }
+            
+            return {
+              day: nextClass.day,
+              studio: nextClass.studio,
+              schedule: nextClass.classes,
+              timePrefix: timePrefix,
+              locationId: nextClass.locationId
+            };
+          }
+          
+          // If no future classes in same week, take first class of next week
+          const nextClass = sortedClasses[0];
+          return {
+            day: nextClass.day,
+            studio: nextClass.studio,
+            schedule: nextClass.classes,
+            timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
+            locationId: nextClass.locationId
+          };
+        }
+
+        // Update the call-to-action section
+        function updateCTASection() {
+          const nextClass = getNextClassInfo();
+          
+          const ctaTitle = document.getElementById('cta-title');
+          ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
+          
+          document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
+          
+          document.querySelectorAll('.link-card').forEach(card => {
+            card.classList.remove('next-class-highlight');
+          });
+          
+          const locationCard = document.getElementById(nextClass.locationId);
+          if (locationCard) {
+            locationCard.classList.add('next-class-highlight');
+          }
+        }
+        
+        // Handle form submission
+        function initForm() {
+          const registrationForm = document.getElementById('dance-registration');
+          const thankYouMessage = document.getElementById('thank-you-message');
+          const submitBtn = registrationForm.querySelector('button[type="submit"]');
+          const spinner = document.getElementById('form-spinner');
+          
+          function resetForm() {
+            registrationForm.reset();
+            thankYouMessage.style.display = 'none';
+            registrationForm.style.display = 'block';
+            
+            // Reset participants to one
+            participantContainer.innerHTML = `
+              <div class="participant-fields name-field">
+                <div class="participant-form-group">
+                  <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+              </div>
+            `;
+            participantCount = 1;
+            removeParticipantBtn.disabled = true;
+            addParticipantBtn.disabled = false;
+          }
+          
+          document.getElementById('register-again-btn').addEventListener('click', resetForm);
+          
+          registrationForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect participant names
+            const participantNames = [];
+            const nameInputs = participantContainer.querySelectorAll('.form-input');
+            nameInputs.forEach(input => {
+              if (input.value.trim()) {
+                participantNames.push(input.value.trim());
+              }
+            });
+            
+            const email = document.getElementById('email').value;
+            const location = document.getElementById('location').value;
+            
+            if (participantNames.length === 0) {
+              showNotification(currentLanguage === 'es' ? "Por favor ingresa al menos un nombre" : "Please enter at least one name", "info");
+              return;
+            }
+            
+            if (!email.trim()) {
+              showNotification(currentLanguage === 'es' ? "Por favor ingresa tu correo electrónico" : "Please enter your email address", "info");
+              return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+@[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+              showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
+              return;
+            }
+            
+            if (!location) {
+              showNotification(currentLanguage === 'es' ? "Por favor selecciona una ubicación" : "Please select a class location", "info");
+              return;
+            }
+            
+            // Show loading spinner
+            submitBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            
+          setTimeout(function() {
+              // Hide spinner and show success
+              spinner.style.display = 'none';
+              submitBtn.disabled = false;
+              
+              registrationForm.style.display = 'none';
+              thankYouMessage.style.display = 'block';
+              thankYouMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              
+              showNotification(
+                currentLanguage === 'es' ? 
+                  "¡Registro exitoso! Tu lugar está siendo reservado" : 
+                  "Registration successful! Your spot is being saved", 
+                "success"
+              );
+            }, 1500);
+          });
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+          const notification = document.createElement('div');
+          notification.className = `notification notification-${type}`;
+          notification.innerHTML = `<i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i> ${message}`;
+          document.body.appendChild(notification);
+          setTimeout(() => { notification.remove(); }, 3000);
+        }
+        
+        // Enhanced registration flow
+        function initRegistrationFlow() {
+          const registerCta = document.getElementById('register-cta');
+          const registrationForm = document.getElementById('registration-form');
+          
+          registerCta.addEventListener('click', function() {
+            // Scroll to the registration form
+            registrationForm.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          });
+        }
+        
+        // Navigation button functionality - UPDATED ORDER
+        function initNavButtons() {
+          // Button 1: Social media section
+          document.getElementById('btn-social').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('connect-title').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          });
+          
+          // Button 2: Video library section (moved up)
+          document.getElementById('btn-videos').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('video-library').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          });
+          
+          // Button 3: Schedule section (now includes private lessons)
+          document.getElementById('btn-schedule').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('schedule-title').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          });
+          
+          // Button 4: Payment section (moved to the end)
+          document.getElementById('btn-payments').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('payment-title').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          });
+        }
+        
+        // Set active section based on scroll position
+        function setActiveSection() {
+          const sections = [
+            {id: 'connect-title', btn: 'btn-social'},
+            {id: 'video-library', btn: 'btn-videos'},
+            {id: 'schedule-title', btn: 'btn-schedule'},
+            {id: 'payment-title', btn: 'btn-payments'}
+          ];
+          
+          // Reset active states
+          document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.classList.remove('active-section');
+          });
+          
+          // Find current active section
+          const currentSection = sections.find(section => {
+            const el = document.getElementById(section.id);
+            if (el) {
+              const rect = el.getBoundingClientRect();
+              return rect.top <= 200 && rect.bottom >= 100;
+            }
+            return false;
+          });
+          
+          // Set active state
+          if (currentSection) {
+            document.getElementById(currentSection.btn).classList.add('active-section');
+          }
+        }
+        
+        // Smart navigation buttons visibility
+        function initSmartNavigation() {
+          const navButtons = document.getElementById('nav-buttons');
+          const logoContainer = document.getElementById('music-note');
+          
+          let lastScrollTop = 0;
+          const hideThreshold = 100;
+          let touchStartY = 0;
+          
+          // Scroll event handler
+          function handleScroll() {
+            const currentScrollY = window.scrollY;
+            
+            // Auto-hide/show nav based on scroll direction
+            if (currentScrollY > hideThreshold) {
+              if (currentScrollY > lastScrollTop) {
+                navButtons.classList.add('hidden');
+              } else {
+                navButtons.classList.remove('hidden');
+              }
+            } else {
+              navButtons.classList.remove('hidden');
+            }
+            
+            lastScrollTop = currentScrollY;
+            setActiveSection();
+          }
+          
+          // Touch events for pull-down gesture
+          function handleTouchStart(e) {
+            if (window.scrollY === 0) {
+              touchStartY = e.touches[0].clientY;
+            }
+          }
+          
+          function handleTouchMove(e) {
+            if (window.scrollY === 0 && touchStartY) {
+              const currentY = e.touches[0].clientY;
+              const diff = currentY - touchStartY;
+              
+              if (diff > 50) { // Pull down threshold
+                logoContainer.classList.add('highlight');
+              }
+            }
+          }
+          
+          function handleTouchEnd() {
+            touchStartY = 0;
+            logoContainer.classList.remove('highlight');
+          }
+          
+          // Event listeners
+          window.addEventListener('scroll', handleScroll);
+          document.addEventListener('touchstart', handleTouchStart);
+          document.addEventListener('touchmove', handleTouchMove);
+          document.addEventListener('touchend', handleTouchEnd);
+        }
+        
+        // Universal link handling
+        function openSocialApp(e, webUrl) {
+          e.preventDefault();
+          const appUrl = e.currentTarget.getAttribute('href');
+          
+          window.location = appUrl;
+          setTimeout(function() {
+            if (!document.hidden) {
+              window.location.href = webUrl;
+            }
+          }, 500);
+          return false;
+        }
+        
+        // Open Venmo with fallback to web
+        function openVenmo(e, webUrl) {
+          e.preventDefault();
+          const appUrl = e.currentTarget.getAttribute('href');
+          
+          window.location = appUrl;
+          setTimeout(function() {
+            if (!document.hidden) {
+              window.location.href = webUrl;
+            }
+          }, 500);
+          return false;
+        }
+        
+        // Improved Google Maps navigation function
+        function openMaps(e, iosUrl, androidUrl) {
+          e.preventDefault();
+          const mapsUrl = e.currentTarget.href;
+          
+          // Check if in Facebook in-app browser
+          const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+          const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
+          
+          if (isFacebookApp) {
+            // Create a visible prompt to open in external browser
+            const prompt = document.createElement('div');
+            prompt.className = 'notification notification-info';
+            prompt.innerHTML = `
+              <i class="fas fa-external-link-alt"></i> 
+              ${currentLanguage === 'es' ? 'Abre en navegador externo para ver mapa' : 'Open in external browser for maps'}
+              <button class="open-external">OK</button>
+            `;
+            document.body.appendChild(prompt);
+            
+            prompt.querySelector('.open-external').addEventListener('click', () => {
+              window.open(mapsUrl, '_blank');
+              prompt.remove();
+            });
+            
+            return false;
+          }
+          
+          // Detect iOS devices
+          const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+          
+          // Try to open the native app
+          if (isIOS) {
+            window.location = iosUrl;
+          } else {
+            // For Android, use the standard Google Maps URL format
+            window.location = androidUrl;
+          }
+          
+          // Fallback to web after a short delay
+          setTimeout(() => {
+            if (!document.hidden) {
+              window.location.href = mapsUrl;
+            }
+          }, 500);
+          
+          return false;
+        }
+        
+        // Initialize maps links after page load
+        function initMapsLinks() {
+          document.querySelectorAll('a.location-address-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+              const studioName = this.title.replace('Directions to ', '');
+              const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+              
+              if (isIOS) {
+                openMaps(e, `maps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
+              } else {
+                openMaps(e, `comgooglemaps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
+              }
+            });
+          });
+        }
+        
+        // New function for private lessons booking
+        function bookPrivateLesson() {
+          // Scroll to registration form and set private lesson option
+          document.getElementById('registration-form').scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          
+          // Set the dropdown to private lessons
+          setTimeout(() => {
+            document.getElementById('location').value = 'private';
+          }, 500);
+        }
+
+        // Event Carousel JavaScript Functionality
+        function initEventsCarousel() {
+          // Google Calendar Integration
+          async function fetchCalendarEvents() {
             const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
             
             try {
-                const eventsTrack = document.getElementById('events-track');
-                eventsTrack.innerHTML = `
-                    <li class="carousel-slide">
-                        <div class="events-loading">
-                            <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                            <p>Loading events from calendar...</p>
-                        </div>
-                    </li>
-                `;
-                
-                const proxyUrl = 'https://corsproxy.io/?';
-                const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                const icalData = await response.text();
-                
-                const events = parseICalData(icalData);
-                
-                updateEventsCarousel(events);
+              const eventsTrack = document.getElementById('events-track');
+              eventsTrack.innerHTML = `
+                <li class="carousel-slide">
+                  <div class="events-loading">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                    <p>Loading events from calendar...</p>
+                  </div>
+                </li>
+              `;
+              
+              const proxyUrl = 'https://corsproxy.io/?';
+              const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
+              
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              
+              const icalData = await response.text();
+              
+              const events = parseICalData(icalData);
+              
+              // Add static Zoom Private Class card
+              const staticEvent = {
+                summary: "Zoom Private Classes Available",
+                start: new Date(),
+                end: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+                location: "Online via Zoom",
+                description: "Book your private Zoom class at your convenience. Available by appointment.",
+                formattedDate: "Available Now"
+              };
+              
+              // Prepend the static event to the events array
+              events.unshift(staticEvent);
+              
+              updateEventsCarousel(events);
             } catch (error) {
-                console.error('Error fetching calendar events:', error);
-                
-                const eventsTrack = document.getElementById('events-track');
-                eventsTrack.innerHTML = `
-                    <li class="carousel-slide">
-                        <div class="events-error">
-                            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                            <p>Failed to load events from calendar.</p>
-                            <button class="refresh-button" onclick="fetchCalendarEvents()">
-                                <i class="fas fa-sync-alt"></i> Try Again
-                            </button>
-                        </div>
-                    </li>
-                `;
+              console.error('Error fetching calendar events:', error);
+              
+              const eventsTrack = document.getElementById('events-track');
+              eventsTrack.innerHTML = `
+                <li class="carousel-slide">
+                  <div class="events-error">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                    <p>Failed to load events from calendar.</p>
+                    <button class="refresh-button" onclick="fetchCalendarEvents()">
+                      <i class="fas fa-sync-alt"></i> Try Again
+                    </button>
+                  </div>
+                </li>
+              `;
             }
-        }
-        
-        function parseICalData(icalData) {
+          }
+          
+          function parseICalData(icalData) {
             const events = [];
             const lines = icalData.split('\n');
             let currentEvent = null;
@@ -800,85 +4197,85 @@
             let descriptionLines = [];
             
             for (let i = 0; i < lines.length; i++) {
-                const line = lines[i].trim();
+              const line = lines[i].trim();
+              
+              if (line === 'BEGIN:VEVENT') {
+                inEvent = true;
+                currentEvent = {};
+              } else if (line === 'END:VEVENT') {
+                inEvent = false;
+                inDescription = false;
                 
-                if (line === 'BEGIN:VEVENT') {
-                    inEvent = true;
-                    currentEvent = {};
-                } else if (line === 'END:VEVENT') {
-                    inEvent = false;
-                    inDescription = false;
-                    
-                    if (descriptionLines.length > 0) {
-                        currentEvent.description = descriptionLines.join('\n')
-                            .replace(/\\,/g, ',')
-                            .replace(/\\;/g, ';')
-                            .replace(/\\n/g, '\n')
-                            .trim();
-                        descriptionLines = [];
-                    }
-                    
-                    if (currentEvent && currentEvent.summary && currentEvent.start) {
-                        const eventDate = new Date(currentEvent.start);
-                        const now = new Date();
-                        
-                        if (eventDate >= now) {
-                            events.push(currentEvent);
-                        }
-                    }
-                    currentEvent = null;
-                } else if (inEvent && currentEvent !== null) {
-                    if (line.startsWith('SUMMARY:')) {
-                        currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
-                    } else if (line.startsWith('DTSTART:')) {
-                        const dateStr = line.substring(8);
-                        currentEvent.start = parseICalDate(dateStr);
-                    } else if (line.startsWith('DTEND:')) {
-                        const dateStr = line.substring(6);
-                        currentEvent.end = parseICalDate(dateStr);
-                    } else if (line.startsWith('LOCATION:')) {
-                        currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
-                    } else if (line.startsWith('DESCRIPTION:')) {
-                        inDescription = true;
-                        descriptionLines.push(line.substring(12));
-                    } else if (inDescription && line.startsWith(' ')) {
-                        descriptionLines.push(line.substring(1));
-                    } else if (line.indexOf(':') !== -1) {
-                        inDescription = false;
-                    }
+                if (descriptionLines.length > 0) {
+                  currentEvent.description = descriptionLines.join('\n')
+                    .replace(/\\,/g, ',')
+                    .replace(/\\;/g, ';')
+                    .replace(/\\n/g, '\n')
+                    .trim();
+                  descriptionLines = [];
                 }
+                
+                if (currentEvent && currentEvent.summary && currentEvent.start) {
+                  const eventDate = new Date(currentEvent.start);
+                  const now = new Date();
+                  
+                  if (eventDate >= now) {
+                    events.push(currentEvent);
+                  }
+                }
+                currentEvent = null;
+              } else if (inEvent && currentEvent !== null) {
+                if (line.startsWith('SUMMARY:')) {
+                  currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
+                } else if (line.startsWith('DTSTART:')) {
+                  const dateStr = line.substring(8);
+                  currentEvent.start = parseICalDate(dateStr);
+                } else if (line.startsWith('DTEND:')) {
+                  const dateStr = line.substring(6);
+                  currentEvent.end = parseICalDate(dateStr);
+                } else if (line.startsWith('LOCATION:')) {
+                  currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
+                } else if (line.startsWith('DESCRIPTION:')) {
+                  inDescription = true;
+                  descriptionLines.push(line.substring(12));
+                } else if (inDescription && line.startsWith(' ')) {
+                  descriptionLines.push(line.substring(1));
+                } else if (line.indexOf(':') !== -1) {
+                  inDescription = false;
+                }
+              }
             }
             
             events.sort((a, b) => new Date(a.start) - new Date(b.start));
             
             // Limit to 5 most recent upcoming events
             return events.slice(0, 5);
-        }
-        
-        function parseICalDate(dateStr) {
+          }
+          
+          function parseICalDate(dateStr) {
             if (dateStr.includes('T')) {
-                const year = dateStr.substring(0, 4);
-                const month = dateStr.substring(4, 6) - 1;
-                const day = dateStr.substring(6, 8);
-                const hour = dateStr.substring(9, 11) || 0;
-                const minute = dateStr.substring(11, 13) || 0;
-                const second = dateStr.substring(13, 15) || 0;
-                
-                if (dateStr.endsWith('Z')) {
-                    return new Date(Date.UTC(year, month, day, hour, minute, second));
-                }
-                
-                return new Date(year, month, day, hour, minute, second);
+              const year = dateStr.substring(0, 4);
+              const month = dateStr.substring(4, 6) - 1;
+              const day = dateStr.substring(6, 8);
+              const hour = dateStr.substring(9, 11) || 0;
+              const minute = dateStr.substring(11, 13) || 0;
+              const second = dateStr.substring(13, 15) || 0;
+              
+              if (dateStr.endsWith('Z')) {
+                return new Date(Date.UTC(year, month, day, hour, minute, second));
+              }
+              
+              return new Date(year, month, day, hour, minute, second);
             } else {
-                const year = dateStr.substring(0, 4);
-                const month = dateStr.substring(4, 6) - 1;
-                const day = dateStr.substring(6, 8);
-                
-                return new Date(year, month, day);
+              const year = dateStr.substring(0, 4);
+              const month = dateStr.substring(4, 6) - 1;
+              const day = dateStr.substring(6, 8);
+              
+              return new Date(year, month, day);
             }
-        }
-        
-        function updateEventsCarousel(events) {
+          }
+          
+          function updateEventsCarousel(events) {
             const eventsTrack = document.getElementById('events-track');
             const eventsNav = document.getElementById('events-nav');
             const eventsContainer = document.getElementById('events-carousel');
@@ -887,55 +4284,55 @@
             eventsNav.innerHTML = '';
             
             if (events.length === 0) {
-                eventsContainer.classList.add('hidden');
-                return;
+              eventsContainer.classList.add('hidden');
+              return;
             }
             
             // Show the container if there are events
             eventsContainer.classList.remove('hidden');
             
             events.forEach((event, index) => {
-                const slide = document.createElement('li');
-                slide.className = 'carousel-slide';
-                
-                const eventDate = new Date(event.start);
-                const options = { 
-                    weekday: 'short', 
-                    year: 'numeric', 
-                    month: 'short', 
-                    day: 'numeric',
-                    hour: 'numeric',
-                    minute: '2-digit'
-                };
-                const formattedDate = eventDate.toLocaleDateString('en-US', options);
-                
-                let description = event.description || '';
-                if (description.length > 200) {
-                    description = description.substring(0, 200) + '...';
-                }
-                
-                slide.innerHTML = `
-                    <div class="event-card">
-                        <div class="event-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
-                        <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
-                        ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
-                        ${description ? `<p class="event-description">${description}</p>` : ''}
-                        <a href="#registration-form" class="event-button">Register Now</a>
-                    </div>
-                `;
-                
-                eventsTrack.appendChild(slide);
-                
-                const indicator = document.createElement('button');
-                indicator.className = 'carousel-indicator';
-                indicator.dataset.index = index;
-                eventsNav.appendChild(indicator);
+              const slide = document.createElement('li');
+              slide.className = 'carousel-slide';
+              
+              const eventDate = new Date(event.start);
+              const options = { 
+                weekday: 'short', 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+              };
+              const formattedDate = event.formattedDate || eventDate.toLocaleDateString('en-US', options);
+              
+              let description = event.description || '';
+              if (description.length > 200) {
+                description = description.substring(0, 200) + '...';
+              }
+              
+              slide.innerHTML = `
+                <div class="event-card">
+                  <div class="event-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
+                  <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
+                  ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
+                  ${description ? `<p class="event-description">${description}</p>` : ''}
+                  <a href="#registration-form" class="event-button">Register Now</a>
+                </div>
+              `;
+              
+              eventsTrack.appendChild(slide);
+              
+              const indicator = document.createElement('button');
+              indicator.className = 'carousel-indicator';
+              indicator.dataset.index = index;
+              eventsNav.appendChild(indicator);
             });
             
             initCarouselFunctionality();
-        }
-        
-        function initCarouselFunctionality() {
+          }
+          
+          function initCarouselFunctionality() {
             const track = document.getElementById('events-track');
             const nav = document.getElementById('events-nav');
             const slides = Array.from(track.children);
@@ -944,98 +4341,111 @@
             const prevButton = document.querySelector('.carousel-button.prev');
             
             if (slides.length <= 1) {
-                nextButton.style.display = 'none';
-                prevButton.style.display = 'none';
-                nav.style.display = 'none';
-                return;
+              nextButton.style.display = 'none';
+              prevButton.style.display = 'none';
+              nav.style.display = 'none';
+              return;
             }
             
             let currentIndex = 0;
             
             function setActiveSlide(index) {
-                indicators.forEach(indicator => {
-                    indicator.classList.remove('current-slide');
-                });
-                if (indicators[index]) {
-                    indicators[index].classList.add('current-slide');
-                }
-                
-                track.style.transform = `translateX(-${index * 100}%)`;
-                
-                prevButton.style.display = index === 0 ? 'none' : 'flex';
-                nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
+              indicators.forEach(indicator => {
+                indicator.classList.remove('current-slide');
+              });
+              if (indicators[index]) {
+                indicators[index].classList.add('current-slide');
+              }
+              
+              track.style.transform = `translateX(-${index * 100}%)`;
+              
+              prevButton.style.display = index === 0 ? 'none' : 'flex';
+              nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
             }
             
             nextButton.addEventListener('click', () => {
-                if (currentIndex < slides.length - 1) {
-                    currentIndex++;
-                    setActiveSlide(currentIndex);
-                }
+              if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                setActiveSlide(currentIndex);
+              }
             });
             
             prevButton.addEventListener('click', () => {
-                if (currentIndex > 0) {
-                    currentIndex--;
-                    setActiveSlide(currentIndex);
-                }
+              if (currentIndex > 0) {
+                currentIndex--;
+                setActiveSlide(currentIndex);
+              }
             });
             
             indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', () => {
-                    currentIndex = index;
-                    setActiveSlide(currentIndex);
-                });
+              indicator.addEventListener('click', () => {
+                currentIndex = index;
+                setActiveSlide(currentIndex);
+              });
             });
             
             let autoAdvance = setInterval(() => {
-                if (currentIndex < slides.length - 1) {
-                    currentIndex++;
-                    setActiveSlide(currentIndex);
-                } else {
-                    currentIndex = 0;
-                    setActiveSlide(currentIndex);
-                }
+              if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                setActiveSlide(currentIndex);
+              } else {
+                currentIndex = 0;
+                setActiveSlide(currentIndex);
+              }
             }, 5000);
             
             const carousel = document.querySelector('.carousel');
             carousel.addEventListener('mouseenter', () => {
-                clearInterval(autoAdvance);
+              clearInterval(autoAdvance);
             });
             
             carousel.addEventListener('mouseleave', () => {
-                autoAdvance = setInterval(() => {
-                    if (currentIndex < slides.length - 1) {
-                        currentIndex++;
-                        setActiveSlide(currentIndex);
-                    } else {
-                        currentIndex = 0;
-                        setActiveSlide(currentIndex);
-                    }
-                }, 5000);
+              autoAdvance = setInterval(() => {
+                if (currentIndex < slides.length - 1) {
+                  currentIndex++;
+                  setActiveSlide(currentIndex);
+                } else {
+                  currentIndex = 0;
+                  setActiveSlide(currentIndex);
+                }
+              }, 5000);
             });
             
             setActiveSlide(0);
-        }
-        
-        function initEventsCarousel() {
-            fetchCalendarEvents();
-            
-            // Refresh events every hour
-            setInterval(fetchCalendarEvents, 60 * 60 * 1000);
+          }
+          
+          fetchCalendarEvents();
+          
+          // Refresh events every hour
+          setInterval(fetchCalendarEvents, 60 * 60 * 1000);
         }
         
         // Initialize the page
         function initPage() {
+          // Force page to start at top
+          window.scrollTo(0, 0);
+          
+          updateCTASection();
+          initVideoSection();
+          initForm();
+          initRegistrationFlow();
+          initNavButtons();
+          initSmartNavigation();
+          initMapsLinks();
+          initEventsCarousel();
+          
+          // Set scroll event listener for active section
+          window.addEventListener('scroll', setActiveSection);
+          
+          // Update every minute
+          setInterval(() => {
             updateCTASection();
-            initEventsCarousel();
-            
-            setInterval(() => {
-                updateCTASection();
-            }, 60000);
+          }, 60000);
         }
 
-        // Start everything when the DOM is loaded
-        document.addEventListener('DOMContentLoaded', initPage);
-    </script>
+        initPage();
+      }
+    });
+  </script>
 </body>
 </html>
