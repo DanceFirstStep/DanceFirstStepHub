@@ -7,15 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* ENHANCED PROFESSIONAL DANCE SCHOOL COLOR PALETTE */
         :root {
-            --primary: #1e3a8a; /* Deep professional blue */
+            --primary: #1e3a8a;
             --primary-light: #3b82f6;
             --primary-lighter: #60a5fa;
             --primary-dark: #1e40af;
             --primary-darker: #1e3a8a;
             --primary-gradient: linear-gradient(135deg, var(--primary-darker), var(--primary-light));
-            --accent: #d97706; /* Warm amber accent */
+            --accent: #d97706;
             --accent-light: #f59e0b;
             --dark-bg: #1e293b;
             --darker-bg: #0f172a;
@@ -31,14 +30,12 @@
             --subtle-border: 1px solid rgba(0, 0, 0, 0.04);
             --card-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            
-            /* Dance-specific colors */
-            --salsa-color: #dc2626; /* Rich red for salsa */
-            --bachata-color: #2563eb; /* Royal blue for bachata */
-            --private-color: #7c3aed; /* Elegant purple for private lessons */
+            --salsa-color: #dc2626;
+            --bachata-color: #2563eb;
+            --bachata-counts-color: #7c3aed;
+            --private-color: #7c3aed;
         }
 
-        /* ENHANCED COMPACT Welcome Page Styles */
         .welcome-page {
             position: fixed;
             top: 0;
@@ -92,22 +89,6 @@
             position: relative;
             overflow: hidden;
             transition: var(--transition);
-        }
-
-        .welcome-logo::after {
-            content: '';
-            position: absolute;
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
-            top: -25%;
-            left: -25%;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .welcome-logo:hover::after {
-            opacity: 1;
         }
 
         .welcome-logo i {
@@ -229,7 +210,6 @@
             box-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
         }
 
-        /* Hide main content initially */
         .container {
             display: none;
         }
@@ -238,7 +218,6 @@
             display: block;
         }
 
-        /* Enhanced base styles */
         * {
             margin: 0;
             padding: 0;
@@ -1046,7 +1025,6 @@
             animation: pulse 2s infinite;
         }
         
-        /* NEW: Improved location address styling */
         .location-address-container {
             display: flex;
             align-items: center;
@@ -1086,7 +1064,6 @@
             flex: 1;
         }
         
-        /* Language Switcher */
         .lang-switcher-container {
             display: flex;
             justify-content: center;
@@ -1160,7 +1137,6 @@
             transform: translateX(100%);
         }
         
-        /* New styles for participant registration */
         .participant-form-group {
             margin-bottom: 15px;
             position: relative;
@@ -1243,7 +1219,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* IMPROVED NAVIGATION BUTTONS */
         .top-nav-buttons {
             position: fixed;
             top: 20px;
@@ -1332,7 +1307,6 @@
             pointer-events: none;
         }
         
-        /* Logo highlight effect for pull-down */
         .logo-container.highlight {
             animation: pulseHighlight 1.5s ease;
         }
@@ -1342,7 +1316,6 @@
             50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(30, 58, 138, 0.6); }
         }
         
-        /* Form loading spinner */
         .spinner {
             width: 24px;
             height: 24px;
@@ -1358,7 +1331,6 @@
             to { transform: rotate(360deg); }
         }
         
-        /* MODERN COMPACT EVENTS CAROUSEL - FIXED FOR FACEBOOK/INSTAGRAM */
         .events-carousel-container {
             margin: 40px 0;
             position: relative;
@@ -1403,7 +1375,6 @@
             max-width: 100%;
         }
         
-        /* Modern compact event card - Fixed for Facebook/Instagram */
         .event-card {
             background: var(--white);
             border-radius: 14px;
@@ -1598,7 +1569,6 @@
             box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
         }
         
-        /* New styles for TikTok classes */
         .tiktok-class-badge {
             position: absolute;
             top: -10px;
@@ -1615,7 +1585,6 @@
             white-space: nowrap;
         }
         
-        /* IMPROVED TIKTOK-STYLE VIDEO SECTION */
         .tiktok-video-section {
             margin: 50px 0;
             position: relative;
@@ -1726,13 +1695,14 @@
         
         .video-placeholder-content {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: white;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 2;
-            width: 80%;
         }
         
         .video-placeholder-title {
@@ -1740,6 +1710,7 @@
             font-weight: 700;
             margin-bottom: 15px;
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: none;
         }
         
         .video-placeholder-description {
@@ -1747,6 +1718,7 @@
             margin-bottom: 25px;
             opacity: 0.9;
             line-height: 1.5;
+            display: none;
         }
         
         .play-button {
@@ -1764,11 +1736,16 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
         }
         
         .play-button:hover {
             background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
+            transform: translate(-50%, -50%) scale(1.1);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
         
@@ -1781,19 +1758,18 @@
             background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
             color: white;
             z-index: 10;
+            transition: opacity 0.3s ease;
+        }
+        
+        .video-info-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
         }
         
         .video-item-title {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 10px;
-        }
-        
-        .video-item-description {
-            font-size: 1rem;
-            opacity: 0.9;
-            line-height: 1.5;
-            margin-bottom: 15px;
         }
         
         .video-meta {
@@ -1878,7 +1854,6 @@
             transform: scale(1.2);
         }
         
-        /* UPDATED: Elite, modern category buttons */
         .video-categories {
             display: flex;
             justify-content: center;
@@ -1933,6 +1908,11 @@
             box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
         }
         
+        .category-btn.bachata-counts.active {
+            background: linear-gradient(135deg, var(--bachata-counts-color), #8b5cf6);
+            border-color: var(--bachata-counts-color);
+        }
+        
         .video-cta {
             text-align: center;
             margin-top: 50px;
@@ -1959,7 +1939,6 @@
             box-shadow: 0 12px 30px rgba(30, 58, 138, 0.25);
         }
         
-        /* COMPACT PRIVATE LESSONS CARD - FIXED */
         .private-lessons-card {
             background: linear-gradient(135deg, #f8f5ff, #f0ebff);
             border-radius: 18px;
@@ -2053,71 +2032,101 @@
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
         }
-        
-        /* REMOVED: Video controls (like, comment, share, save) */
-        
-        .video-nav {
+
+        .expand-button {
             position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            z-index: 5;
-            pointer-events: none;
-        }
-        
-        .nav-arrow {
+            top: 20px;
+            right: 20px;
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            pointer-events: all;
+            z-index: 20;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        
-        .nav-arrow:hover {
+
+        .expand-button:hover {
             background: rgba(255, 255, 255, 0.3);
             transform: scale(1.1);
         }
-        
-        .video-indicators {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-        
-        .video-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .video-indicator.active {
-            background: white;
-            transform: scale(1.2);
+
+        .tiktok-video-feed.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            max-height: 100vh;
+            z-index: 1000;
+            border-radius: 0;
         }
 
-        /* Mobile-specific enhancements */
+        .tiktok-video-feed.fullscreen .expand-button {
+            top: 30px;
+            right: 30px;
+        }
+
+        .tiktok-video-feed.fullscreen .video-nav {
+            padding: 0 40px;
+        }
+
+        .tiktok-video-feed.fullscreen .video-indicators {
+            bottom: 40px;
+        }
+
+        .video-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: white;
+            text-align: center;
+        }
+        
+        .video-loading .spinner {
+            width: 50px;
+            height: 50px;
+            border-width: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .video-loading-text {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .youtube-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: opacity 0.5s ease;
+        }
+        
+        .youtube-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
         @media (max-width: 768px) {
-            /* COMPACT WELCOME PAGE MOBILE STYLES */
             .welcome-logo {
                 width: 80px;
                 height: 80px;
@@ -2235,10 +2244,6 @@
                 font-size: 1.3rem;
             }
             
-            .video-item-description {
-                font-size: 0.9rem;
-            }
-            
             .top-nav-buttons {
                 padding: 10px 16px;
                 gap: 8px;
@@ -2259,7 +2264,6 @@
                 font-size: 0.8rem;
             }
             
-            /* Mobile-specific event card improvements */
             .event-card {
                 padding: 15px;
             }
@@ -2290,7 +2294,6 @@
                 padding: 0 10px;
             }
             
-            /* Mobile-specific private lessons */
             .private-lessons-card {
                 padding: 20px;
             }
@@ -2307,7 +2310,6 @@
                 font-size: 0.9rem;
             }
             
-            /* Mobile-specific video category buttons */
             .video-categories {
                 gap: 8px;
             }
@@ -2319,7 +2321,6 @@
         }
         
         @media (max-width: 576px) {
-            /* COMPACT WELCOME PAGE EXTRA SMALL DEVICES */
             .welcome-logo {
                 width: 70px;
                 height: 70px;
@@ -2536,10 +2537,6 @@
                 font-size: 1.2rem;
             }
             
-            .video-item-description {
-                font-size: 0.85rem;
-            }
-            
             .nav-arrow {
                 width: 40px;
                 height: 40px;
@@ -2572,7 +2569,6 @@
                 font-size: 0.8rem;
             }
             
-            /* Extra small device event card improvements */
             .event-card {
                 padding: 12px;
             }
@@ -2603,7 +2599,6 @@
                 padding: 0 8px;
             }
             
-            /* Extra small device private lessons */
             .private-lessons-card {
                 padding: 18px;
             }
@@ -2621,7 +2616,6 @@
                 font-size: 0.95rem;
             }
             
-            /* Extra small device video category buttons */
             .video-categories {
                 gap: 6px;
             }
@@ -2632,7 +2626,6 @@
             }
         }
         
-        /* Facebook/Instagram specific fixes */
         @media (max-width: 400px) {
             .carousel-slide {
                 padding: 0 5px;
@@ -2645,16 +2638,13 @@
     </style>
 </head>
 <body>
-    <!-- ENHANCED COMPACT Welcome Page -->
     <div class="welcome-page" id="welcome-page">
         <div class="welcome-content">
             <div class="welcome-logo-container">
                 <div class="welcome-logo">
                     <i class="fas fa-music"></i>
                 </div>
-                <!-- UPDATED: Removed "Daniel Palacios" and replaced with "Learn to Dance" -->
                 <h1 class="welcome-title">Learn to Dance</h1>
-                <!-- UPDATED: Added "Learn how to dance every Thursday night at Buena Vista Social 10pm" -->
                 <p class="welcome-subtitle">Learn how to dance every Thursday night at Buena Vista Social 10pm</p>
             </div>
             
@@ -2673,7 +2663,6 @@
                     <div class="welcome-label">Tutorials</div>
                 </div>
                 
-                <!-- UPDATED: Changed label to "Schedule and Events" and will scroll to schedule -->
                 <div class="welcome-option" id="welcome-schedule">
                     <div class="welcome-icon-container">
                         <i class="fas fa-calendar-alt welcome-icon"></i>
@@ -2688,10 +2677,8 @@
         </div>
     </div>
 
-    <!-- Original Landing Page Content -->
     <div class="container" id="main-container">
         <div class="header-container">
-          <!-- Improved Navigation buttons with Payment moved to the end -->
           <div class="top-nav-buttons" id="nav-buttons">
             <button class="nav-btn" id="btn-social">
               <i class="fas fa-hashtag"></i> <span>Social Media</span>
@@ -2773,24 +2760,25 @@
             <strong id="today-label">Today is:</strong> <span id="date-text"></span>
           </div>
           
-          <!-- IMPROVED TIKTOK-STYLE VIDEO SECTION -->
           <section class="tiktok-video-section" id="video-library">
             <div class="video-header">
               <h2 class="video-title">Dance Video Library</h2>
-              <p class="video-subtitle">Swipe up and down to browse videos. Tap to play.</p>
+              <p class="video-subtitle">Use navigation buttons to browse videos. Tap to play.</p>
             </div>
             
-            <!-- UPDATED: Tutorial section buttons with Salsa and Bachata options -->
             <div class="video-categories">
               <button class="category-btn active" data-category="all">All Videos</button>
               <button class="category-btn" data-category="salsa">Salsa Tutorials</button>
               <button class="category-btn" data-category="bachata">Bachata Tutorials</button>
+              <button class="category-btn bachata-counts" data-category="bachata-counts">Bachata Counts/Beat</button>
             </div>
             
             <div class="tiktok-video-feed">
+              <button class="expand-button" id="expand-button">
+                <i class="fas fa-expand"></i>
+              </button>
               <div class="video-feed-container">
                 <div class="video-feed" id="video-feed">
-                  <!-- Video items will be dynamically generated -->
                 </div>
               </div>
               
@@ -2804,12 +2792,10 @@
               </div>
               
               <div class="video-indicators" id="video-indicators">
-                <!-- Indicators will be dynamically generated -->
               </div>
             </div>
           </section>
           
-          <!-- Rest of the content remains the same -->
           <h2 class="section-title" id="upcoming-title">Join Our Classes</h2>
           
           <div id="class-cta" class="class-cta-container">
@@ -2831,47 +2817,6 @@
           <h3 class="section-title" id="schedule-title">Class Schedule</h3>
           
           <div class="links-grid" id="schedule-grid">
-            <!-- Estilo Dance Studio -->
-            <div class="link-card estilo" 
-                 data-studio="Estilo Dance Studio" 
-                 id="estilo-card">
-              <div class="link-icon estilo-icon">
-                <i class="fas fa-building"></i>
-              </div>
-              <div class="link-text">
-                <div class="studio-info">
-                  <div class="studio-name-address">
-                    <div class="link-title">Estilo Dance Studio</div>
-                    <!-- UPDATED: Address and map icon moved next to each other and made clickable -->
-                    <div class="location-address-container">
-                      <a href="https://www.google.com/maps/search/?api=1&query=Estilo+Dance+Studio+Fishtown+Philadelphia" 
-                         class="location-address-link" 
-                         title="Directions to Estilo Dance Studio" 
-                         aria-label="Estilo Dance Studio on Google Maps"
-                         onclick="return openMaps(event, 'comgooglemaps://?q=Estilo+Dance+Studio+Fishtown+Philadelphia', 'geo:0,0?q=Estilo+Dance+Studio+Fishtown+Philadelphia')">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span class="address-text">Fishtown, Philadelphia</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="schedule-list">
-                  <div class="schedule-day-group" data-day="Saturday">
-                    <div class="schedule-day-header">Saturday</div>
-                    <div class="schedule-class">
-                      <span class="class-time">4:00pm</span>
-                      <span class="class-name"><span class="salsa-text">Salsa</span></span>
-                    </div>
-                    <div class="schedule-class">
-                      <span class="class-time">5:00pm</span>
-                      <span class="class-name"><span class="bachata-text">Bachata</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- NEW: Serrata Estudio Card -->
             <div class="link-card serrata" 
                  data-studio="Serrata Estudio" 
                  id="serrata-card">
@@ -2882,9 +2827,8 @@
                 <div class="studio-info">
                   <div class="studio-name-address">
                     <div class="link-title">Serrata Estudio</div>
-                    <!-- UPDATED: Address and map icon moved next to each other and made clickable -->
                     <div class="location-address-container">
-                      <a href="https://www.google.com/maps/search/?api=1&query=7157+Frankford+Ave+Philadelphia+PA+19135" 
+                      <a href="https://maps.app.goo.gl/FY4U7T8F5fs2nB2Q8?g_st=ipc" 
                          class="location-address-link" 
                          title="Directions to Serrata Estudio" 
                          aria-label="Serrata Estudio on Google Maps"
@@ -2926,7 +2870,44 @@
               </div>
             </div>
             
-            <!-- COMPACT Private Lessons Card (MOVED TO SCHEDULE SECTION) -->
+            <div class="link-card estilo" 
+                 data-studio="Estilo Dance Studio" 
+                 id="estilo-card">
+              <div class="link-icon estilo-icon">
+                <i class="fas fa-building"></i>
+              </div>
+              <div class="link-text">
+                <div class="studio-info">
+                  <div class="studio-name-address">
+                    <div class="link-title">Estilo Dance Studio</div>
+                    <div class="location-address-container">
+                      <a href="https://maps.app.goo.gl/KDZ5uZbr7h9sWMgy8?g_st=ipc" 
+                         class="location-address-link" 
+                         title="Directions to Estilo Dance Studio" 
+                         aria-label="Estilo Dance Studio on Google Maps"
+                         onclick="return openMaps(event, 'comgooglemaps://?q=Estilo+Dance+Studio+Fishtown+Philadelphia', 'geo:0,0?q=Estilo+Dance+Studio+Fishtown+Philadelphia')">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="address-text">Fishtown, Philadelphia</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="schedule-list">
+                  <div class="schedule-day-group" data-day="Saturday">
+                    <div class="schedule-day-header">Saturday</div>
+                    <div class="schedule-class">
+                      <span class="class-time">4:00pm</span>
+                      <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">5:00pm</span>
+                      <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
             <div class="link-card" id="private-lessons-card">
               <div class="link-icon private-icon">
                 <i class="fas fa-user"></i>
@@ -2935,7 +2916,6 @@
                 <div class="link-title">Private Lessons</div>
                 <div class="link-subtitle">Personalized instruction tailored to your goals</div>
                 
-                <!-- COMPACT Private Lessons Card Content -->
                 <div class="private-lessons-card">
                   <div class="private-lessons-title">Personalized Dance Instruction</div>
                   <div class="private-lessons-description">
@@ -2965,12 +2945,10 @@
             </div>
           </div>
           
-          <!-- Registration Form -->
           <div class="registration-form" id="registration-form">
             <div class="form-title" id="registration-title">Class Registration</div>
             <div class="partner-notice" id="partner-text">No partner needed - come dance with us!</div>
             <form id="dance-registration">
-              <!-- Participant Fields -->
               <div id="participant-container">
                 <div class="participant-fields name-field">
                   <div class="participant-form-group">
@@ -2979,7 +2957,6 @@
                 </div>
               </div>
               
-              <!-- Add/Remove Controls -->
               <div class="participant-controls">
                 <button type="button" id="add-participant" class="participant-btn" title="Add another participant">
                   <i class="fas fa-plus"></i>
@@ -2989,7 +2966,6 @@
                 </button>
               </div>
               
-              <!-- Contact Information -->
               <div class="form-group">
                 <input type="email" id="email" class="form-input" placeholder="Email Address" required>
               </div>
@@ -3019,7 +2995,6 @@
             </div>
           </div>
 
-          <!-- ADDED: Events Carousel after Registration Form -->
           <div class="events-carousel-container" id="events-carousel">
             <h2 class="section-title">Upcoming Events</h2>
             <div class="carousel">
@@ -3082,7 +3057,6 @@
           </div>
           
           <footer>
-            <!-- Enhanced Language Switcher at Bottom -->
             <div class="lang-switcher-container">
               <div class="lang-label">Language</div>
               <div class="lang-switcher en">
@@ -3105,16 +3079,13 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Welcome page functionality
       const welcomePage = document.getElementById('welcome-page');
       const mainContainer = document.getElementById('main-container');
       const timerProgress = document.getElementById('welcome-timer-progress');
       let timerInterval;
       let timerValue = 0;
-      // CHANGED: Reduced from 6000 to 5000 (5 seconds)
-      const timerDuration = 5000; // 5 seconds
+      const timerDuration = 4300; // Changed from 4400 to 4300 for 4.3 seconds
       
-      // Start the timer
       function startWelcomeTimer() {
         timerInterval = setInterval(function() {
           timerValue += 100;
@@ -3128,21 +3099,17 @@
         }, 100);
       }
       
-      // Hide welcome page and show main content
       function hideWelcomePage() {
         welcomePage.classList.add('hidden');
         setTimeout(function() {
           mainContainer.classList.add('visible');
-          // Initialize the main page functionality
           initMainPage();
         }, 500);
       }
       
-      // Welcome page option click handlers
       document.getElementById('welcome-social').addEventListener('click', function() {
         clearInterval(timerInterval);
         hideWelcomePage();
-        // Scroll to social media section
         setTimeout(function() {
           document.getElementById('connect-title').scrollIntoView({ 
             behavior: 'smooth', 
@@ -3154,7 +3121,6 @@
       document.getElementById('welcome-tutorial').addEventListener('click', function() {
         clearInterval(timerInterval);
         hideWelcomePage();
-        // Scroll to video library section
         setTimeout(function() {
           document.getElementById('video-library').scrollIntoView({ 
             behavior: 'smooth', 
@@ -3163,11 +3129,9 @@
         }, 600);
       });
       
-      // UPDATED: Changed to "welcome-schedule" and scroll to schedule section
       document.getElementById('welcome-schedule').addEventListener('click', function() {
         clearInterval(timerInterval);
         hideWelcomePage();
-        // Scroll to schedule section
         setTimeout(function() {
           document.getElementById('schedule-title').scrollIntoView({ 
             behavior: 'smooth', 
@@ -3176,12 +3140,9 @@
         }, 600);
       });
       
-      // Start the timer when page loads
       startWelcomeTimer();
       
-      // Main page functionality
       function initMainPage() {
-        // Set current date
         function updateCurrentDate(lang) {
           const now = new Date();
           const options = { 
@@ -3195,12 +3156,10 @@
           dateText.textContent = now.toLocaleDateString(lang === 'es' ? 'es-ES' : 'en-US', options);
         }
         
-        // Language switch functionality
         const langSwitcher = document.querySelector('.lang-switcher');
         const langButtons = langSwitcher.querySelectorAll('.lang-btn');
         let currentLanguage = 'en';
         
-        // Translations object
         const translations = {
           en: {
             mainTitle: "Daniel Palacios",
@@ -3260,9 +3219,7 @@
           }
         };
         
-        // Set language function
         function setLanguage(lang) {
-          // Update UI
           langButtons.forEach(btn => {
             if (btn.dataset.lang === lang) {
               btn.classList.add('active');
@@ -3271,10 +3228,8 @@
             }
           });
           
-          // Update language switcher visual
           langSwitcher.className = 'lang-switcher ' + lang;
           
-          // Update content based on language
           const langData = translations[lang];
           
           document.getElementById('main-title').textContent = langData.mainTitle;
@@ -3288,7 +3243,6 @@
           document.getElementById('registration-title').textContent = langData.registrationTitle;
           document.getElementById('partner-text').textContent = langData.partnerText;
           
-          // Update participant input placeholder
           document.querySelectorAll('.participant-fields .form-input').forEach(input => {
             input.placeholder = langData.namePlaceholder;
           });
@@ -3309,21 +3263,18 @@
           document.getElementById('copyright').textContent = langData.copyright;
           document.getElementById('quote').textContent = langData.quote;
           
-          // Update date format
           updateCurrentDate(lang);
           
           currentLanguage = lang;
           localStorage.setItem('language', lang);
         }
         
-        // Event listeners for language buttons
         langButtons.forEach(button => {
           button.addEventListener('click', () => {
             setLanguage(button.dataset.lang);
           });
         });
         
-        // Check for saved language preference
         const savedLanguage = localStorage.getItem('language');
         if (savedLanguage) {
           setLanguage(savedLanguage);
@@ -3331,67 +3282,67 @@
           updateCurrentDate('en');
         }
         
-        // IMPROVED TIKTOK-STYLE VIDEO SECTION FUNCTIONALITY
         const videoFeed = document.getElementById('video-feed');
         const videoIndicators = document.getElementById('video-indicators');
         const categoryButtons = document.querySelectorAll('.category-btn');
         const prevVideoBtn = document.querySelector('.prev-video');
         const nextVideoBtn = document.querySelector('.next-video');
+        const expandButton = document.getElementById('expand-button');
+        const videoContainer = document.querySelector('.tiktok-video-feed');
         
-        // UPDATED: Video data with the provided Bachata count/beat videos
         const videoData = [
           {
             id: 1,
             title: "Bachata Counts Tutorial Part 1",
-            description: "",
+            description: "Learn the basic counts and beat structure of Bachata",
             duration: "",
             level: "",
             views: "1.2K",
-            category: ["bachata"],
+            category: ["bachata-counts"],
             thumbnail: "https://img.youtube.com/vi/OWLylEYSroA/maxresdefault.jpg",
             videoId: "OWLylEYSroA"
           },
           {
             id: 2,
             title: "Bachata Counts Tutorial Part 2",
-            description: "",
+            description: "Advanced counting techniques for Bachata music",
             duration: "",
             level: "",
             views: "980",
-            category: ["bachata"],
+            category: ["bachata-counts"],
             thumbnail: "https://img.youtube.com/vi/PPnVKETxf6I/maxresdefault.jpg",
             videoId: "PPnVKETxf6I"
           },
           {
             id: 3,
             title: "Bachata Counts Tutorial Part 3",
-            description: "",
+            description: "Mastering the timing and rhythm of Bachata",
             duration: "",
             level: "",
             views: "1.5K",
-            category: ["bachata"],
+            category: ["bachata-counts"],
             thumbnail: "https://img.youtube.com/vi/J5SEMr4vmTM/maxresdefault.jpg",
             videoId: "J5SEMr4vmTM"
           },
           {
             id: 4,
             title: "Bachata Counts Tutorial Part 4",
-            description: "",
+            description: "Understanding musical phrasing in Bachata",
             duration: "",
             level: "",
             views: "890",
-            category: ["bachata"],
+            category: ["bachata-counts"],
             thumbnail: "https://img.youtube.com/vi/ZE0Zgv5gCGo/maxresdefault.jpg",
             videoId: "ZE0Zgv5gCGo"
           },
           {
             id: 5,
             title: "Bachata Counts Tutorial Part 5",
-            description: "",
+            description: "Advanced beat recognition and timing exercises",
             duration: "",
             level: "",
             views: "1.1K",
-            category: ["bachata"],
+            category: ["bachata-counts"],
             thumbnail: "https://img.youtube.com/vi/NcpGLZVhKDc/maxresdefault.jpg",
             videoId: "NcpGLZVhKDc"
           }
@@ -3399,8 +3350,52 @@
         
         let currentCategory = 'all';
         let currentVideoIndex = 0;
+        let isFullscreen = false;
+        let currentPlayingVideo = null;
+        let activeVideoIframe = null;
         
-        // Function to render videos
+        function toggleFullscreen() {
+          if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
+            if (videoContainer.requestFullscreen) {
+              videoContainer.requestFullscreen();
+            } else if (videoContainer.webkitRequestFullscreen) {
+              videoContainer.webkitRequestFullscreen();
+            } else if (videoContainer.mozRequestFullScreen) {
+              videoContainer.mozRequestFullScreen();
+            } else if (videoContainer.msRequestFullscreen) {
+              videoContainer.msRequestFullscreen();
+            }
+          } else {
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+              document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+              document.msExitFullscreen();
+            }
+          }
+        }
+        
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+        
+        function handleFullscreenChange() {
+          const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
+          if (fullscreenElement) {
+            videoContainer.classList.add('fullscreen');
+            expandButton.innerHTML = '<i class="fas fa-compress"></i>';
+            isFullscreen = true;
+          } else {
+            videoContainer.classList.remove('fullscreen');
+            expandButton.innerHTML = '<i class="fas fa-expand"></i>';
+            isFullscreen = false;
+          }
+        }
+        
         function renderVideos(category = 'all') {
           videoFeed.innerHTML = '';
           videoIndicators.innerHTML = '';
@@ -3432,7 +3427,6 @@
                 <div class="video-placeholder">
                   <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
                   <div class="video-placeholder-content">
-                    <h3 class="video-placeholder-title">${video.title}</h3>
                     <button class="play-button" data-video-id="${video.videoId}">
                       <i class="fas fa-play"></i>
                     </button>
@@ -3449,23 +3443,25 @@
             
             videoFeed.appendChild(videoItem);
             
-            // Create indicator
             const indicator = document.createElement('button');
             indicator.className = 'video-indicator';
             indicator.dataset.index = index;
             videoIndicators.appendChild(indicator);
           });
           
-          // Set first video as active
           setActiveVideo(0);
         }
         
-        // Function to set active video
         function setActiveVideo(index) {
+          if (activeVideoIframe) {
+            const iframeSrc = activeVideoIframe.src;
+            activeVideoIframe.src = iframeSrc.replace('&autoplay=1', '');
+            activeVideoIframe = null;
+          }
+          
           const videoItems = document.querySelectorAll('.video-item');
           const indicators = document.querySelectorAll('.video-indicator');
           
-          // Remove active class from all items
           videoItems.forEach(item => {
             item.classList.remove('active');
           });
@@ -3474,7 +3470,6 @@
             indicator.classList.remove('active');
           });
           
-          // Add active class to current item
           if (videoItems[index]) {
             videoItems[index].classList.add('active');
           }
@@ -3483,47 +3478,69 @@
             indicators[index].classList.add('active');
           }
           
-          // Update video feed position
           videoFeed.style.transform = `translateY(-${index * 100}%)`;
           
           currentVideoIndex = index;
         }
         
-        // Function to play video
         function playVideo(videoId, videoItem) {
           const videoPlayer = videoItem.querySelector('.video-player');
-          const placeholder = videoItem.querySelector('.video-placeholder');
+          const videoInfoOverlay = videoItem.querySelector('.video-info-overlay');
           
-          // Replace placeholder with iframe
+          const existingOverlay = videoPlayer.querySelector('.youtube-overlay');
+          if (existingOverlay) {
+            existingOverlay.remove();
+          }
+          
+          currentPlayingVideo = videoId;
+          
+          videoInfoOverlay.classList.add('hidden');
+          
           videoPlayer.innerHTML = `
+            <div class="youtube-overlay" id="youtube-overlay-${videoId}">
+              <div style="text-align: center;">
+                <div class="spinner" style="margin: 0 auto 15px;"></div>
+                <div>Loading video...</div>
+              </div>
+            </div>
             <iframe 
-              src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0"
+              src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&playsinline=1&enablejsapi=1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
             </iframe>
           `;
+          
+          activeVideoIframe = videoPlayer.querySelector('iframe');
+          
+          setTimeout(() => {
+            const overlay = document.getElementById(`youtube-overlay-${videoId}`);
+            if (overlay) {
+              overlay.classList.add('hidden');
+              setTimeout(() => {
+                if (overlay.parentNode) {
+                  overlay.parentNode.removeChild(overlay);
+                }
+              }, 500);
+            }
+          }, 2000);
         }
         
-        // Initialize video section
         function initVideoSection() {
-          // Render initial videos
           renderVideos();
           
-          // Category filter functionality
+          expandButton.addEventListener('click', toggleFullscreen);
+          
           categoryButtons.forEach(button => {
             button.addEventListener('click', function() {
-              // Update active category button
               categoryButtons.forEach(btn => btn.classList.remove('active'));
               this.classList.add('active');
               
-              // Update current category and render videos
               currentCategory = this.getAttribute('data-category');
               renderVideos(currentCategory);
             });
           });
           
-          // Navigation arrows
           prevVideoBtn.addEventListener('click', () => {
             if (currentVideoIndex > 0) {
               setActiveVideo(currentVideoIndex - 1);
@@ -3537,7 +3554,6 @@
             }
           });
           
-          // Indicator click
           videoIndicators.addEventListener('click', (e) => {
             if (e.target.classList.contains('video-indicator')) {
               const index = parseInt(e.target.dataset.index);
@@ -3545,7 +3561,6 @@
             }
           });
           
-          // Play button click
           videoFeed.addEventListener('click', (e) => {
             if (e.target.closest('.play-button')) {
               const playButton = e.target.closest('.play-button');
@@ -3555,40 +3570,6 @@
             }
           });
           
-          // Touch/swipe functionality
-          let startY = 0;
-          let endY = 0;
-          
-          videoFeed.addEventListener('touchstart', (e) => {
-            startY = e.touches[0].clientY;
-          });
-          
-          videoFeed.addEventListener('touchend', (e) => {
-            endY = e.changedTouches[0].clientY;
-            handleSwipe();
-          });
-          
-          function handleSwipe() {
-            const swipeThreshold = 50;
-            const diff = startY - endY;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-              if (diff > 0) {
-                // Swiped up - next video
-                const videoItems = document.querySelectorAll('.video-item');
-                if (currentVideoIndex < videoItems.length - 1) {
-                  setActiveVideo(currentVideoIndex + 1);
-                }
-              } else {
-                // Swiped down - previous video
-                if (currentVideoIndex > 0) {
-                  setActiveVideo(currentVideoIndex - 1);
-                }
-              }
-            }
-          }
-          
-          // Keyboard navigation
           document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowUp') {
               e.preventDefault();
@@ -3601,11 +3582,12 @@
               if (currentVideoIndex < videoItems.length - 1) {
                 setActiveVideo(currentVideoIndex + 1);
               }
+            } else if (e.key === 'Escape' && isFullscreen) {
+              toggleFullscreen();
             }
           });
         }
 
-        // Participant Registration Functionality
         const participantContainer = document.getElementById('participant-container');
         const addParticipantBtn = document.getElementById('add-participant');
         const removeParticipantBtn = document.getElementById('remove-participant');
@@ -3613,12 +3595,10 @@
         let participantCount = 1;
         const maxParticipants = 4;
         
-        // Add participant
         addParticipantBtn.addEventListener('click', function() {
           if (participantCount < maxParticipants) {
             participantCount++;
             
-            // Create new participant field
             const newParticipant = document.createElement('div');
             newParticipant.className = 'participant-fields name-field';
             newParticipant.innerHTML = `
@@ -3627,37 +3607,30 @@
               </div>
             `;
             
-            // Add with fade-in effect
             participantContainer.appendChild(newParticipant);
             
-            // Enable remove button
             removeParticipantBtn.disabled = false;
             
-            // Disable add button if max reached
             if (participantCount === maxParticipants) {
               addParticipantBtn.disabled = true;
             }
           }
         });
         
-        // Remove participant
         removeParticipantBtn.addEventListener('click', function() {
           if (participantCount > 1) {
             const lastField = participantContainer.lastChild;
             participantContainer.removeChild(lastField);
             participantCount--;
             
-            // Disable remove button if only one remains
             if (participantCount === 1) {
               removeParticipantBtn.disabled = true;
             }
             
-            // Re-enable add button
             addParticipantBtn.disabled = false;
           }
         });
         
-        // Class schedule data
         const classSchedule = [
           { 
             day: "Saturday", 
@@ -3669,7 +3642,7 @@
             ],
             locationId: "estilo-card",
             startTime: 1600,
-            endTime: 1800
+            lastClassEndTime: 1800
           },
           { 
             day: "Tuesday", 
@@ -3681,7 +3654,7 @@
             ],
             locationId: "serrata-card",
             startTime: 1930,
-            endTime: 2100
+            lastClassEndTime: 2100
           },
           { 
             day: "Wednesday", 
@@ -3694,11 +3667,10 @@
             ],
             locationId: "serrata-card",
             startTime: 1830,
-            endTime: 2130
+            lastClassEndTime: 2130
           }
         ];
 
-        // Find next class to highlight
         function getNextClassInfo() {
           const now = new Date();
           const currentDayIndex = now.getDay(); 
@@ -3706,19 +3678,16 @@
           const currentMinutes = now.getMinutes();
           const currentTime = currentHours * 100 + currentMinutes;
           
-          // Sort classes by day and then by start time
           const sortedClasses = [...classSchedule].sort((a, b) => {
-            // If same day, sort by start time
             if (a.dayIndex === b.dayIndex) {
               return a.startTime - b.startTime;
             }
             return a.dayIndex - b.dayIndex;
           });
           
-          // Find today's class if exists and hasn't ended
           const todayClass = sortedClasses.find(s => 
             s.dayIndex === currentDayIndex && 
-            currentTime < s.endTime
+            currentTime < s.lastClassEndTime
           );
           
           if (todayClass) {
@@ -3731,7 +3700,6 @@
             };
           }
           
-          // Find next class in the same week
           const futureClasses = sortedClasses.filter(s => s.dayIndex > currentDayIndex);
           
           if (futureClasses.length > 0) {
@@ -3756,7 +3724,6 @@
             };
           }
           
-          // If no future classes in same week, take first class of next week
           const nextClass = sortedClasses[0];
           return {
             day: nextClass.day,
@@ -3767,7 +3734,43 @@
           };
         }
 
-        // Update the call-to-action section
+        function shouldSerrataBeFirst() {
+          const now = new Date();
+          const currentDayIndex = now.getDay();
+          const currentHours = now.getHours();
+          const currentMinutes = now.getMinutes();
+          const currentTime = currentHours * 100 + currentMinutes;
+          
+          if (currentDayIndex === 2 && currentTime < 2100) {
+            return true;
+          }
+          
+          if (currentDayIndex === 3 && currentTime < 2130) {
+            return true;
+          }
+          
+          return false;
+        }
+
+        function reorderScheduleCards() {
+          const scheduleGrid = document.getElementById('schedule-grid');
+          const serrataCard = document.getElementById('serrata-card');
+          const estiloCard = document.getElementById('estilo-card');
+          const privateCard = document.getElementById('private-lessons-card');
+          
+          scheduleGrid.innerHTML = '';
+          
+          if (shouldSerrataBeFirst()) {
+            scheduleGrid.appendChild(serrataCard);
+            scheduleGrid.appendChild(estiloCard);
+            scheduleGrid.appendChild(privateCard);
+          } else {
+            scheduleGrid.appendChild(estiloCard);
+            scheduleGrid.appendChild(serrataCard);
+            scheduleGrid.appendChild(privateCard);
+          }
+        }
+
         function updateCTASection() {
           const nextClass = getNextClassInfo();
           
@@ -3784,9 +3787,10 @@
           if (locationCard) {
             locationCard.classList.add('next-class-highlight');
           }
+          
+          reorderScheduleCards();
         }
         
-        // Handle form submission
         function initForm() {
           const registrationForm = document.getElementById('dance-registration');
           const thankYouMessage = document.getElementById('thank-you-message');
@@ -3798,7 +3802,6 @@
             thankYouMessage.style.display = 'none';
             registrationForm.style.display = 'block';
             
-            // Reset participants to one
             participantContainer.innerHTML = `
               <div class="participant-fields name-field">
                 <div class="participant-form-group">
@@ -3815,7 +3818,6 @@
           registrationForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Collect participant names
             const participantNames = [];
             const nameInputs = participantContainer.querySelectorAll('.form-input');
             nameInputs.forEach(input => {
@@ -3837,7 +3839,7 @@
               return;
             }
             
-            const emailRegex = /^[^\s@]+@[^\s@]+@[^\s@]+$/;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
               showNotification(currentLanguage === 'es' ? "Por favor ingresa un correo electrónico válido" : "Please enter a valid email address", "info");
               return;
@@ -3848,12 +3850,10 @@
               return;
             }
             
-            // Show loading spinner
             submitBtn.disabled = true;
             spinner.style.display = 'inline-block';
             
           setTimeout(function() {
-              // Hide spinner and show success
               spinner.style.display = 'none';
               submitBtn.disabled = false;
               
@@ -3871,7 +3871,6 @@
           });
         }
         
-        // Show notification
         function showNotification(message, type) {
           const notification = document.createElement('div');
           notification.className = `notification notification-${type}`;
@@ -3880,13 +3879,11 @@
           setTimeout(() => { notification.remove(); }, 3000);
         }
         
-        // Enhanced registration flow
         function initRegistrationFlow() {
           const registerCta = document.getElementById('register-cta');
           const registrationForm = document.getElementById('registration-form');
           
           registerCta.addEventListener('click', function() {
-            // Scroll to the registration form
             registrationForm.scrollIntoView({
               behavior: 'smooth',
               block: 'start'
@@ -3894,9 +3891,7 @@
           });
         }
         
-        // Navigation button functionality - UPDATED ORDER
         function initNavButtons() {
-          // Button 1: Social media section
           document.getElementById('btn-social').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('connect-title').scrollIntoView({ 
@@ -3905,7 +3900,6 @@
             });
           });
           
-          // Button 2: Video library section (moved up)
           document.getElementById('btn-videos').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('video-library').scrollIntoView({ 
@@ -3914,7 +3908,6 @@
             });
           });
           
-          // Button 3: Schedule section (now includes private lessons)
           document.getElementById('btn-schedule').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('schedule-title').scrollIntoView({ 
@@ -3923,7 +3916,6 @@
             });
           });
           
-          // Button 4: Payment section (moved to the end)
           document.getElementById('btn-payments').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('payment-title').scrollIntoView({ 
@@ -3933,7 +3925,6 @@
           });
         }
         
-        // Set active section based on scroll position
         function setActiveSection() {
           const sections = [
             {id: 'connect-title', btn: 'btn-social'},
@@ -3942,12 +3933,10 @@
             {id: 'payment-title', btn: 'btn-payments'}
           ];
           
-          // Reset active states
           document.querySelectorAll('.nav-btn').forEach(btn => {
             btn.classList.remove('active-section');
           });
           
-          // Find current active section
           const currentSection = sections.find(section => {
             const el = document.getElementById(section.id);
             if (el) {
@@ -3957,13 +3946,11 @@
             return false;
           });
           
-          // Set active state
           if (currentSection) {
             document.getElementById(currentSection.btn).classList.add('active-section');
           }
         }
         
-        // Smart navigation buttons visibility
         function initSmartNavigation() {
           const navButtons = document.getElementById('nav-buttons');
           const logoContainer = document.getElementById('music-note');
@@ -3972,11 +3959,9 @@
           const hideThreshold = 100;
           let touchStartY = 0;
           
-          // Scroll event handler
           function handleScroll() {
             const currentScrollY = window.scrollY;
             
-            // Auto-hide/show nav based on scroll direction
             if (currentScrollY > hideThreshold) {
               if (currentScrollY > lastScrollTop) {
                 navButtons.classList.add('hidden');
@@ -3991,7 +3976,6 @@
             setActiveSection();
           }
           
-          // Touch events for pull-down gesture
           function handleTouchStart(e) {
             if (window.scrollY === 0) {
               touchStartY = e.touches[0].clientY;
@@ -4003,7 +3987,7 @@
               const currentY = e.touches[0].clientY;
               const diff = currentY - touchStartY;
               
-              if (diff > 50) { // Pull down threshold
+              if (diff > 50) {
                 logoContainer.classList.add('highlight');
               }
             }
@@ -4014,14 +3998,12 @@
             logoContainer.classList.remove('highlight');
           }
           
-          // Event listeners
           window.addEventListener('scroll', handleScroll);
           document.addEventListener('touchstart', handleTouchStart);
           document.addEventListener('touchmove', handleTouchMove);
           document.addEventListener('touchend', handleTouchEnd);
         }
         
-        // Universal link handling
         function openSocialApp(e, webUrl) {
           e.preventDefault();
           const appUrl = e.currentTarget.getAttribute('href');
@@ -4035,7 +4017,6 @@
           return false;
         }
         
-        // Open Venmo with fallback to web
         function openVenmo(e, webUrl) {
           e.preventDefault();
           const appUrl = e.currentTarget.getAttribute('href');
@@ -4049,17 +4030,14 @@
           return false;
         }
         
-        // Improved Google Maps navigation function
         function openMaps(e, iosUrl, androidUrl) {
           e.preventDefault();
           const mapsUrl = e.currentTarget.href;
           
-          // Check if in Facebook in-app browser
           const userAgent = navigator.userAgent || navigator.vendor || window.opera;
           const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
           
           if (isFacebookApp) {
-            // Create a visible prompt to open in external browser
             const prompt = document.createElement('div');
             prompt.className = 'notification notification-info';
             prompt.innerHTML = `
@@ -4077,18 +4055,14 @@
             return false;
           }
           
-          // Detect iOS devices
           const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
           
-          // Try to open the native app
           if (isIOS) {
             window.location = iosUrl;
           } else {
-            // For Android, use the standard Google Maps URL format
             window.location = androidUrl;
           }
           
-          // Fallback to web after a short delay
           setTimeout(() => {
             if (!document.hidden) {
               window.location.href = mapsUrl;
@@ -4098,7 +4072,6 @@
           return false;
         }
         
-        // Initialize maps links after page load
         function initMapsLinks() {
           document.querySelectorAll('a.location-address-link').forEach(link => {
             link.addEventListener('click', function(e) {
@@ -4114,23 +4087,18 @@
           });
         }
         
-        // New function for private lessons booking
         function bookPrivateLesson() {
-          // Scroll to registration form and set private lesson option
           document.getElementById('registration-form').scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
           
-          // Set the dropdown to private lessons
           setTimeout(() => {
             document.getElementById('location').value = 'private';
           }, 500);
         }
 
-        // Event Carousel JavaScript Functionality
         function initEventsCarousel() {
-          // Google Calendar Integration
           async function fetchCalendarEvents() {
             const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
             
@@ -4156,7 +4124,6 @@
               
               const events = parseICalData(icalData);
               
-              // Add static Zoom Private Class card
               const staticEvent = {
                 summary: "Zoom Private Classes Available",
                 start: new Date(),
@@ -4166,7 +4133,6 @@
                 formattedDate: "Available Now"
               };
               
-              // Prepend the static event to the events array
               events.unshift(staticEvent);
               
               updateEventsCarousel(events);
@@ -4248,7 +4214,6 @@
             
             events.sort((a, b) => new Date(a.start) - new Date(b.start));
             
-            // Limit to 5 most recent upcoming events
             return events.slice(0, 5);
           }
           
@@ -4288,7 +4253,6 @@
               return;
             }
             
-            // Show the container if there are events
             eventsContainer.classList.remove('hidden');
             
             events.forEach((event, index) => {
@@ -4416,13 +4380,10 @@
           
           fetchCalendarEvents();
           
-          // Refresh events every hour
           setInterval(fetchCalendarEvents, 60 * 60 * 1000);
         }
         
-        // Initialize the page
         function initPage() {
-          // Force page to start at top
           window.scrollTo(0, 0);
           
           updateCTASection();
@@ -4434,10 +4395,8 @@
           initMapsLinks();
           initEventsCarousel();
           
-          // Set scroll event listener for active section
           window.addEventListener('scroll', setActiveSection);
           
-          // Update every minute
           setInterval(() => {
             updateCTASection();
           }, 60000);
