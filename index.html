@@ -2033,32 +2033,6 @@
             box-shadow: 0 8px 20px rgba(124, 58, 237, 0.25);
         }
 
-        .expand-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            border-radius: 8px;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 20;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .expand-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
         .tiktok-video-feed.fullscreen {
             position: fixed;
             top: 0;
@@ -2068,11 +2042,6 @@
             max-height: 100vh;
             z-index: 1000;
             border-radius: 0;
-        }
-
-        .tiktok-video-feed.fullscreen .expand-button {
-            top: 30px;
-            right: 30px;
         }
 
         .tiktok-video-feed.fullscreen .video-nav {
@@ -2774,9 +2743,6 @@
             </div>
             
             <div class="tiktok-video-feed">
-              <button class="expand-button" id="expand-button">
-                <i class="fas fa-expand"></i>
-              </button>
               <div class="video-feed-container">
                 <div class="video-feed" id="video-feed">
                 </div>
@@ -3062,7 +3028,7 @@
               <div class="lang-switcher en">
                 <button class="lang-btn active" id="lang-en" data-lang="en">EN</button>
                 <button class="lang-btn" id="lang-es" data-lang="es">ES</button>
-              </div>
+            </div>
             </div>
             
             <p id="copyright">© 2025 Daniel Palacios | Professional Instruction</p>
@@ -3084,7 +3050,7 @@
       const timerProgress = document.getElementById('welcome-timer-progress');
       let timerInterval;
       let timerValue = 0;
-      const timerDuration = 4100;
+      const timerDuration = 4000; // Changed to 4 seconds
       
       function startWelcomeTimer() {
         timerInterval = setInterval(function() {
@@ -3287,8 +3253,6 @@
         const categoryButtons = document.querySelectorAll('.category-btn');
         const prevVideoBtn = document.querySelector('.prev-video');
         const nextVideoBtn = document.querySelector('.next-video');
-        const expandButton = document.getElementById('expand-button');
-        const videoContainer = document.querySelector('.tiktok-video-feed');
         
         const videoData = [
           {
@@ -3350,52 +3314,9 @@
         
         let currentCategory = 'all';
         let currentVideoIndex = 0;
-        let isFullscreen = false;
         let currentPlayingVideo = null;
         let activeVideoIframe = null;
         let videoObserver;
-        
-        function toggleFullscreen() {
-          if (!document.fullscreenElement && !document.webkitFullscreenElement && !document.mozFullScreenElement && !document.msFullscreenElement) {
-            if (videoContainer.requestFullscreen) {
-              videoContainer.requestFullscreen();
-            } else if (videoContainer.webkitRequestFullscreen) {
-              videoContainer.webkitRequestFullscreen();
-            } else if (videoContainer.mozRequestFullScreen) {
-              videoContainer.mozRequestFullScreen();
-            } else if (videoContainer.msRequestFullscreen) {
-              videoContainer.msRequestFullscreen();
-            }
-          } else {
-            if (document.exitFullscreen) {
-              document.exitFullscreen();
-            } else if (document.webkitExitFullscreen) {
-              document.webkitExitFullscreen();
-            } else if (document.mozCancelFullScreen) {
-              document.mozCancelFullScreen();
-            } else if (document.msExitFullscreen) {
-              document.msExitFullscreen();
-            }
-          }
-        }
-        
-        document.addEventListener('fullscreenchange', handleFullscreenChange);
-        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
-        document.addEventListener('mozfullscreenchange', handleFullscreenChange);
-        document.addEventListener('MSFullscreenChange', handleFullscreenChange);
-        
-        function handleFullscreenChange() {
-          const fullscreenElement = document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement;
-          if (fullscreenElement) {
-            videoContainer.classList.add('fullscreen');
-            expandButton.innerHTML = '<i class="fas fa-compress"></i>';
-            isFullscreen = true;
-          } else {
-            videoContainer.classList.remove('fullscreen');
-            expandButton.innerHTML = '<i class="fas fa-expand"></i>';
-            isFullscreen = false;
-          }
-        }
         
         function pauseAllVideos() {
           if (activeVideoIframe) {
@@ -3415,7 +3336,7 @@
             });
           }, { threshold: 0.1 });
           
-          videoObserver.observe(videoContainer);
+          videoObserver.observe(document.querySelector('.tiktok-video-feed'));
         }
         
         function renderVideos(category = 'all') {
@@ -3526,7 +3447,7 @@
               </div>
             </div>
             <iframe 
-              src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&playsinline=1&enablejsapi=1"
+              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&playsinline=1&enablejsapi=1"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen>
@@ -3551,8 +3472,6 @@
         function initVideoSection() {
           renderVideos();
           initVideoObserver();
-          
-          expandButton.addEventListener('click', toggleFullscreen);
           
           categoryButtons.forEach(button => {
             button.addEventListener('click', function() {
@@ -3605,8 +3524,6 @@
               if (currentVideoIndex < videoItems.length - 1) {
                 setActiveVideo(currentVideoIndex + 1);
               }
-            } else if (e.key === 'Escape' && isFullscreen) {
-              toggleFullscreen();
             }
           });
         }
