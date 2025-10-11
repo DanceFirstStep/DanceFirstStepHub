@@ -38,10 +38,10 @@
 
         .welcome-page {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
             background: linear-gradient(135deg, var(--primary-darker), var(--primary), var(--primary-light));
             display: flex;
             flex-direction: column;
@@ -51,6 +51,8 @@
             transition: opacity 0.5s ease, visibility 0.5s ease;
             overflow: hidden;
             padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
 
         .welcome-page.hidden {
@@ -67,11 +69,13 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            width: 100%;
         }
 
         .welcome-logo-container {
             margin-bottom: 25px;
             text-align: center;
+            width: 100%;
         }
 
         .welcome-logo {
@@ -2108,6 +2112,14 @@
         }
         
         @media (max-width: 768px) {
+            .welcome-page {
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                padding: 15px;
+            }
+            
             .welcome-logo {
                 width: 80px;
                 height: 80px;
@@ -2306,6 +2318,14 @@
         }
         
         @media (max-width: 576px) {
+            .welcome-page {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                padding: 10px;
+            }
+            
             .welcome-logo {
                 width: 70px;
                 height: 70px;
@@ -2616,6 +2636,14 @@
         }
         
         @media (max-width: 400px) {
+            .welcome-page {
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+                padding: 8px;
+            }
+            
             .carousel-slide {
                 padding: 0 5px;
             }
@@ -2633,8 +2661,8 @@
                 <div class="welcome-logo">
                     <i class="fas fa-music"></i>
                 </div>
-                <h1 class="welcome-title" style="display: none;"></h1>
-                <p class="welcome-subtitle">Join Our Dance Community</p>
+                <h1 class="welcome-title" id="welcome-title"></h1>
+                <p class="welcome-subtitle" id="welcome-subtitle"></p>
             </div>
             
             <div class="welcome-options">
@@ -2642,21 +2670,21 @@
                     <div class="welcome-icon-container">
                         <i class="fas fa-hashtag welcome-icon"></i>
                     </div>
-                    <div class="welcome-label">Social Media</div>
+                    <div class="welcome-label" id="welcome-social-label"></div>
                 </div>
                 
                 <div class="welcome-option" id="welcome-tutorial">
                     <div class="welcome-icon-container">
                         <i class="fas fa-play-circle welcome-icon"></i>
                     </div>
-                    <div class="welcome-label">Tutorials</div>
+                    <div class="welcome-label" id="welcome-tutorial-label"></div>
                 </div>
                 
                 <div class="welcome-option" id="welcome-schedule">
                     <div class="welcome-icon-container">
                         <i class="fas fa-calendar-alt welcome-icon"></i>
                     </div>
-                    <div class="welcome-label">Schedule and Events</div>
+                    <div class="welcome-label" id="welcome-schedule-label"></div>
                 </div>
             </div>
             
@@ -2828,29 +2856,37 @@
                 </div>
                 <div class="schedule-list">
                   <div class="schedule-day-group" data-day="Tuesday">
-                    <div class="schedule-day-header">Tuesday</div>
+                    <div class="schedule-day-header">Tuesday – 4-Week Intro Program</div>
                     <div class="schedule-class">
                       <span class="class-time">7:30pm</span>
-                      <span class="class-name">4-Week Salsa & Bachata</span>
+                      <span class="class-name"><span class="salsa-text">Salsa Introduction</span></span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">8:00pm</span>
+                      <span class="class-name"><span class="bachata-text">Bachata Introduction</span></span>
                     </div>
                     <div class="schedule-class">
                       <span class="class-time">8:30pm</span>
-                      <span class="class-name">30 minutes práctica</span>
+                      <span class="class-name">Practice Session</span>
                     </div>
                   </div>
                   <div class="schedule-day-group" data-day="Wednesday">
-                    <div class="schedule-day-header">Wednesday</div>
+                    <div class="schedule-day-header">Wednesday Classes</div>
                     <div class="schedule-class">
                       <span class="class-time">6:30pm</span>
-                      <span class="class-name">4-Week Salsa & Bachata</span>
+                      <span class="class-name"><span class="salsa-text">Salsa Intro</span></span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">7:00pm</span>
+                      <span class="class-name"><span class="bachata-text">Bachata Intro</span></span>
                     </div>
                     <div class="schedule-class">
                       <span class="class-time">7:30pm</span>
-                      <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                      <span class="class-name"><span class="salsa-text">Advanced Beginner Salsa</span></span>
                     </div>
                     <div class="schedule-class">
                       <span class="class-time">8:30pm</span>
-                      <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                      <span class="class-name"><span class="bachata-text">Advanced Beginner Bachata</span></span>
                     </div>
                   </div>
                 </div>
@@ -2884,11 +2920,11 @@
                     <div class="schedule-day-header">Saturday</div>
                     <div class="schedule-class">
                       <span class="class-time">4:00pm</span>
-                      <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                      <span class="class-name"><span class="salsa-text">Advanced Beginner Salsa</span></span>
                     </div>
                     <div class="schedule-class">
                       <span class="class-time">5:00pm</span>
-                      <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                      <span class="class-name"><span class="bachata-text">Bachata Sensual</span></span>
                     </div>
                   </div>
                 </div>
@@ -3065,7 +3101,54 @@
       </div>
 
   <script>
+    // Language detection and welcome page translations
+    function detectUserLanguage() {
+      // Get browser language
+      const browserLang = navigator.language || navigator.userLanguage;
+      
+      // Check if it's Spanish or starts with 'es'
+      if (browserLang.startsWith('es')) {
+        return 'es';
+      }
+      
+      // Default to English
+      return 'en';
+    }
+
+    // Welcome page translations
+    const welcomeTranslations = {
+      en: {
+        title: "Daniel Palacios",
+        subtitle: "Join Our Dance Community",
+        socialLabel: "Social Media",
+        tutorialLabel: "Tutorials",
+        scheduleLabel: "Schedule and Events"
+      },
+      es: {
+        title: "Daniel Palacios",
+        subtitle: "Únete a Nuestra Comunidad de Baile",
+        socialLabel: "Redes Sociales",
+        tutorialLabel: "Tutoriales",
+        scheduleLabel: "Horario y Eventos"
+      }
+    };
+
+    function setWelcomePageLanguage(lang) {
+      const translations = welcomeTranslations[lang];
+      
+      // Set welcome page content
+      document.getElementById('welcome-title').textContent = translations.title;
+      document.getElementById('welcome-subtitle').textContent = translations.subtitle;
+      document.getElementById('welcome-social-label').textContent = translations.socialLabel;
+      document.getElementById('welcome-tutorial-label').textContent = translations.tutorialLabel;
+      document.getElementById('welcome-schedule-label').textContent = translations.scheduleLabel;
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
+      // Set welcome page language based on user's browser language
+      const userLanguage = detectUserLanguage();
+      setWelcomePageLanguage(userLanguage);
+      
       const welcomePage = document.getElementById('welcome-page');
       const mainContainer = document.getElementById('main-container');
       const timerProgress = document.getElementById('welcome-timer-progress');
@@ -3262,11 +3345,13 @@
           });
         });
         
+        // Set initial language - use detected language from welcome page
+        // or fallback to saved preference
         const savedLanguage = localStorage.getItem('language');
         if (savedLanguage) {
           setLanguage(savedLanguage);
         } else {
-          updateCurrentDate('en');
+          setLanguage(userLanguage);
         }
         
         const videoFeed = document.getElementById('video-feed');
@@ -3598,8 +3683,8 @@
             dayIndex: 6,
             studio: "Estilo Dance Studio",
             classes: [
-              "4:00pm Salsa",
-              "5:00pm Bachata"
+              "4:00pm Advanced Beginner Salsa",
+              "5:00pm Bachata Sensual"
             ],
             locationId: "estilo-card",
             startTime: 1600,
@@ -3610,8 +3695,9 @@
             dayIndex: 2,
             studio: "Serrata Estudio",
             classes: [
-              "7:30pm 4-Week Salsa & Bachata",
-              "8:30pm 30 minutes práctica"
+              "7:30pm Salsa Introduction",
+              "8:00pm Bachata Introduction",
+              "8:30pm Practice Session"
             ],
             locationId: "serrata-card",
             startTime: 1930,
@@ -3622,9 +3708,10 @@
             dayIndex: 3,
             studio: "Serrata Estudio",
             classes: [
-              "6:30pm 4-Week Salsa & Bachata",
-              "7:30pm Salsa",
-              "8:30pm Bachata"
+              "6:30pm Salsa Intro",
+              "7:00pm Bachata Intro",
+              "7:30pm Advanced Beginner Salsa",
+              "8:30pm Advanced Beginner Bachata"
             ],
             locationId: "serrata-card",
             startTime: 1830,
