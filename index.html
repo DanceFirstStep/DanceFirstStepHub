@@ -362,6 +362,18 @@
             font-weight: 500;
         }
         
+        .logo-tagline {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-medium);
+            margin: 10px 0 20px;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+        
         .divider {
             height: 4px;
             width: 100px;
@@ -2153,6 +2165,10 @@
                 font-size: 1.15rem;
             }
             
+            .logo-tagline {
+                font-size: 1.1rem;
+            }
+            
             .section-title {
                 font-size: 1.6rem;
                 margin: 35px 0 20px;
@@ -2367,6 +2383,10 @@
             .tagline {
                 font-size: 1.05rem;
                 margin-top: 10px;
+            }
+            
+            .logo-tagline {
+                font-size: 1rem;
             }
             
             .divider {
@@ -2613,8 +2633,8 @@
                 <div class="welcome-logo">
                     <i class="fas fa-music"></i>
                 </div>
-                <h1 class="welcome-title">Learn to Dance</h1>
-                <p class="welcome-subtitle">Learn how to dance every Thursday night at Buena Vista Social 10pm</p>
+                <h1 class="welcome-title" style="display: none;"></h1>
+                <p class="welcome-subtitle">Join Our Dance Community</p>
             </div>
             
             <div class="welcome-options">
@@ -2671,6 +2691,7 @@
               <i class="fas fa-music"></i>
             </div>
           </div>
+          <p class="logo-tagline">Move. Connect. Feel Alive.</p>
           <h1 id="main-title">Daniel Palacios</h1>
           <div class="divider"></div>
           <p class="tagline" id="tagline">Professional Salsa & Bachata Instruction | Transforming Passion into Movement</p>
@@ -3050,7 +3071,7 @@
       const timerProgress = document.getElementById('welcome-timer-progress');
       let timerInterval;
       let timerValue = 0;
-      const timerDuration = 4000; // Changed to 4 seconds
+      const timerDuration = 4000;
       
       function startWelcomeTimer() {
         timerInterval = setInterval(function() {
@@ -4038,6 +4059,13 @@
           }, 500);
         }
 
+        function extractFirstURL(text) {
+          if (!text) return null;
+          const urlRegex = /(https?:\/\/[^\s<]+)/g;
+          const match = text.match(urlRegex);
+          return match ? match[0] : null;
+        }
+
         function initEventsCarousel() {
           async function fetchCalendarEvents() {
             const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
@@ -4126,6 +4154,7 @@
                   const now = new Date();
                   
                   if (eventDate >= now) {
+                    currentEvent.link = extractFirstURL(currentEvent.description);
                     events.push(currentEvent);
                   }
                 }
@@ -4215,13 +4244,20 @@
                 description = description.substring(0, 200) + '...';
               }
               
+              let buttonHtml;
+              if (event.link) {
+                buttonHtml = `<a href="${event.link}" class="event-button" target="_blank" onclick="handleEventRegistration(event, '${event.link}')">Register Now</a>`;
+              } else {
+                buttonHtml = `<a href="#registration-form" class="event-button" onclick="scrollToRegistration()">Register Now</a>`;
+              }
+              
               slide.innerHTML = `
                 <div class="event-card">
                   <div class="event-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
                   <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
                   ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
                   ${description ? `<p class="event-description">${description}</p>` : ''}
-                  <a href="#registration-form" class="event-button">Register Now</a>
+                  ${buttonHtml}
                 </div>
               `;
               
@@ -4345,6 +4381,52 @@
         initPage();
       }
     });
+
+    // NEW FUNCTIONS TO FIX THE CALENDAR BUTTON ISSUE
+    function handleEventRegistration(event, url) {
+      event.preventDefault();
+      
+      // Check if this is a Facebook event URL
+      if (url.includes('facebook.com') || url.includes('fb.me') || url.includes('fb.com')) {
+        // Try to open in Facebook app first
+        const fbAppUrl = url.replace('https://www.facebook.com/', 'fb://facewebmodal/f?href=');
+        window.location.href = fbAppUrl;
+        
+        // Fallback to web URL if app doesn't open
+        setTimeout(() => {
+          if (!document.hidden) {
+            window.open(url, '_blank');
+          }
+        }, 500);
+      } else {
+        // For non-Facebook URLs, just open in new tab
+        window.open(url, '_blank');
+      }
+    }
+    
+    function scrollToRegistration() {
+      document.getElementById('registration-form').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    
+    // Fix for the extractFirstURL function to better handle Facebook event URLs
+    function extractFirstURL(text) {
+      if (!text) return null;
+      
+      // First, try to find Facebook event URLs specifically
+      const fbEventRegex = /(https?:\/\/[^\s<]*facebook\.com\/events\/[^\s<]+|https?:\/\/[^\s<]*fb\.me\/[^\s<]+)/gi;
+      const fbMatch = text.match(fbEventRegex);
+      if (fbMatch) {
+        return fbMatch[0];
+      }
+      
+      // Then try to find any URL
+      const urlRegex = /(https?:\/\/[^\s<]+)/gi;
+      const match = text.match(urlRegex);
+      return match ? match[0] : null;
+    }
   </script>
 </body>
 </html>
