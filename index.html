@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Daniel Palacios | Professional Dance Instruction</title>
+    <title>Serrata Dance Studio | Events & Parties</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -14,8 +14,8 @@
             --primary-dark: #1e40af;
             --primary-darker: #1e3a8a;
             --primary-gradient: linear-gradient(135deg, var(--primary-darker), var(--primary-light));
-            --accent: #d97706;
-            --accent-light: #f59e0b;
+            --accent: #0d9488;
+            --accent-light: #14b8a6;
             --dark-bg: #1e293b;
             --darker-bg: #0f172a;
             --text-dark: #1e293b;
@@ -34,192 +34,6 @@
             --bachata-color: #2563eb;
             --bachata-counts-color: #7c3aed;
             --private-color: #7c3aed;
-        }
-
-        .welcome-page {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            background: linear-gradient(135deg, var(--primary-darker), var(--primary), var(--primary-light));
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-            overflow: hidden;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .welcome-page.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .welcome-content {
-            text-align: center;
-            max-width: 90%;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            width: 100%;
-        }
-
-        .welcome-logo-container {
-            margin-bottom: 25px;
-            text-align: center;
-            width: 100%;
-        }
-
-        .welcome-logo {
-            width: 100px;
-            height: 100px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .welcome-logo i {
-            font-size: 45px;
-            color: white;
-            z-index: 2;
-        }
-
-        .welcome-title {
-            font-size: 2.2rem;
-            font-weight: 800;
-            color: white;
-            margin-bottom: 12px;
-            font-family: 'Playfair Display', serif;
-            text-align: center;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            letter-spacing: 1px;
-            line-height: 1.2;
-        }
-
-        .welcome-subtitle {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.95);
-            margin-bottom: 30px;
-            text-align: center;
-            max-width: 85%;
-            line-height: 1.4;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-            background: rgba(217, 119, 6, 0.15);
-            padding: 12px 18px;
-            border-radius: 12px;
-            border-left: 4px solid var(--accent);
-        }
-
-        .welcome-options {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            max-width: 90%;
-            margin-bottom: 30px;
-        }
-
-        .welcome-option {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 110px;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .welcome-option:hover {
-            transform: translateY(-5px);
-        }
-
-        .welcome-icon-container {
-            width: 75px;
-            height: 75px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .welcome-option:hover .welcome-icon-container {
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(1.08);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .welcome-icon {
-            font-size: 32px;
-            color: white;
-            z-index: 2;
-            transition: var(--transition);
-        }
-
-        .welcome-option:hover .welcome-icon {
-            transform: scale(1.1);
-        }
-
-        .welcome-label {
-            color: white;
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .welcome-timer {
-            position: absolute;
-            bottom: 30px;
-            width: 150px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .welcome-timer-progress {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(to right, var(--accent-light), var(--accent));
-            border-radius: 3px;
-            transition: width 0.1s linear;
-            box-shadow: 0 0 10px rgba(217, 119, 6, 0.5);
-        }
-
-        .container {
-            display: none;
-        }
-
-        .container.visible {
-            display: block;
         }
 
         * {
@@ -246,8 +60,226 @@
             font-size: 1.08rem;
             letter-spacing: 0.3px;
         }
-        
+
+        /* WELCOME PAGE STYLES - IMPROVED WITH ROUNDED CORNERS */
+        .welcome-page {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            background: linear-gradient(135deg, var(--primary-darker), var(--primary), var(--primary-light));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            overflow: hidden;
+            padding: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+        }
+
+        .welcome-page.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .welcome-content {
+            text-align: center;
+            max-width: 95%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .welcome-logo-container {
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .welcome-logo {
+            width: 120px;
+            height: 120px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            animation: gentle-beat 4s infinite ease-in-out;
+        }
+
+        .welcome-logo i {
+            font-size: 55px;
+            color: white;
+            z-index: 2;
+        }
+
+        .welcome-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 12px;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            letter-spacing: 1px;
+            line-height: 1.2;
+            max-width: 100%;
+            padding: 0 10px;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 90%;
+            line-height: 1.4;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            background: rgba(13, 148, 136, 0.15);
+            padding: 12px 18px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .welcome-prompt {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            text-align: center;
+            font-weight: 500;
+            max-width: 90%;
+            line-height: 1.4;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            animation: fadeInOut 2s infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .welcome-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 95%;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        .welcome-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 110px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .welcome-option:hover {
+            transform: translateY(-8px);
+        }
+
+        .welcome-icon-container {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            animation: gentle-pulse 3s infinite ease-in-out;
+        }
+
+        @keyframes gentle-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .welcome-option:hover .welcome-icon-container {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.12);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 255, 255, 0.2);
+            animation: none;
+        }
+
+        .welcome-icon {
+            font-size: 34px;
+            color: white;
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .welcome-option:hover .welcome-icon {
+            transform: scale(1.15);
+        }
+
+        .welcome-label {
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            max-width: 100%;
+            padding: 0 5px;
+            transition: var(--transition);
+        }
+
+        .welcome-option:hover .welcome-label {
+            color: var(--accent-light);
+            text-shadow: 0 0 10px rgba(13, 148, 136, 0.3);
+        }
+
+        .welcome-timer {
+            position: absolute;
+            bottom: 30px;
+            width: 140px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .welcome-timer-progress {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--accent-light), var(--accent));
+            border-radius: 3px;
+            transition: width 0.1s linear;
+            box-shadow: 0 0 10px rgba(13, 148, 136, 0.5);
+        }
+
+        /* MAIN CONTENT STYLES */
         .container {
+            display: none;
             width: 100%;
             max-width: 900px;
             background: var(--white);
@@ -259,6 +291,10 @@
             padding: 40px 30px;
             box-shadow: var(--elegant-shadow);
             border: var(--subtle-border);
+        }
+
+        .container.visible {
+            display: block;
         }
         
         .header-container {
@@ -343,6 +379,11 @@
                 transform: scale(1.4);
                 opacity: 0;
             }
+        }
+        
+        @keyframes gentle-beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
         }
         
         h1 {
@@ -561,16 +602,8 @@
             background: linear-gradient(135deg, #000000, #69c9d0);
         }
         
-        .estilo-icon {
-            background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
-        }
-        
         .serrata-icon {
             background: linear-gradient(135deg, var(--primary-darker), var(--primary)) !important;
-        }
-        
-        .tiktok-class-icon {
-            background: linear-gradient(135deg, #000000, #69c9d0) !important;
         }
         
         .private-icon {
@@ -1141,7 +1174,7 @@
             top: 5px;
             left: 5px;
             height: calc(100% - 10px);
-            width: calc(50% - 5px);
+            width = calc(50% - 5px);
             background: white;
             border-radius: 40px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -1347,6 +1380,7 @@
             to { transform: rotate(360deg); }
         }
         
+        /* ENHANCED: Larger carousel for better URL display */
         .events-carousel-container {
             margin: 40px 0;
             position: relative;
@@ -1364,37 +1398,41 @@
             overflow: hidden;
             border-radius: 18px;
             background: white;
-            padding: 15px 0;
+            padding: 25px 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             width: 100%;
             max-width: 100%;
+            min-height: 450px;
         }
         
         .carousel-track-container {
             overflow: hidden;
             width: 100%;
             max-width: 100%;
+            min-height: 400px;
         }
         
         .carousel-track {
             display: flex;
             transition: transform 0.5s ease-in-out;
             width: 100%;
+            flex-wrap: nowrap;
         }
         
         .carousel-slide {
             min-width: 100%;
             flex: 0 0 auto;
-            padding: 0 15px;
+            padding: 0 25px;
             box-sizing: border-box;
             width: 100%;
             max-width: 100%;
+            min-height: 400px;
         }
         
         .event-card {
             background: var(--white);
             border-radius: 14px;
-            padding: 20px;
+            padding: 25px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
             border: 1px solid rgba(0, 0, 0, 0.04);
             text-align: center;
@@ -1407,6 +1445,7 @@
             width: 100%;
             max-width: 100%;
             box-sizing: border-box;
+            min-height: 350px;
         }
         
         .event-card::before {
@@ -1422,9 +1461,9 @@
         .event-date {
             font-weight: 700;
             color: var(--primary);
-            font-size: 1rem;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
             border-bottom: 1px dashed rgba(30, 58, 138, 0.2);
             display: flex;
             align-items: center;
@@ -1437,19 +1476,19 @@
         }
         
         .event-title {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 700;
             color: var(--primary-darker);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-family: 'Playfair Display', serif;
             line-height: 1.3;
         }
         
         .event-location {
             color: var(--text-medium);
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1457,18 +1496,52 @@
         }
         
         .event-location i {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+        }
+        
+        .event-url {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            word-break: break-all;
+            white-space: normal;
+            padding: 10px;
+            background: rgba(30, 58, 138, 0.05);
+            border-radius: 8px;
+            max-width: 100%;
+            overflow-wrap: break-word;
+            line-height: 1.4;
+            margin-top: auto;
+        }
+        
+        .event-url a {
+            color: var(--primary);
+            text-decoration: none;
+            word-break: break-all;
+            max-width: 100%;
+            display: inline-block;
+        }
+        
+        .event-url a:hover {
+            text-decoration: underline;
         }
         
         .event-description {
             color: var(--text-light);
             line-height: 1.5;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
+            margin-bottom: 20px;
+            font-size: 1rem;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            flex-grow: 1;
         }
         
         .event-button {
@@ -1476,14 +1549,14 @@
             color: white;
             border: none;
             border-radius: 50px;
-            padding: 10px 20px;
+            padding: 12px 25px;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
             display: inline-block;
             text-decoration: none;
             margin-top: 10px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             align-self: center;
         }
         
@@ -1499,10 +1572,10 @@
             background: var(--primary);
             color: white;
             border: none;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            font-size: 0.9rem;
+            font-size: 1rem;
             cursor: pointer;
             z-index: 10;
             display: flex;
@@ -1518,23 +1591,23 @@
         }
         
         .carousel-button.prev {
-            left: 5px;
+            left: 10px;
         }
         
         .carousel-button.next {
-            right: 5px;
+            right: 10px;
         }
         
         .carousel-nav {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
-            gap: 8px;
+            margin-top: 25px;
+            gap: 10px;
         }
         
         .carousel-indicator {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: rgba(30, 58, 138, 0.3);
             border: none;
@@ -2111,52 +2184,60 @@
             pointer-events: none;
         }
         
+        /* RESPONSIVE STYLES */
         @media (max-width: 768px) {
             .welcome-page {
-                top: 15px;
-                left: 15px;
-                right: 15px;
-                bottom: 15px;
-                padding: 15px;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+                padding: 10px;
             }
             
             .welcome-logo {
-                width: 80px;
-                height: 80px;
+                width: 90px;
+                height: 90px;
             }
             
             .welcome-logo i {
-                font-size: 35px;
+                font-size: 40px;
             }
             
             .welcome-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
             
             .welcome-subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
                 padding: 10px 15px;
+                max-width: 95%;
+            }
+            
+            .welcome-prompt {
+                font-size: 1rem;
+                margin-bottom: 20px;
             }
             
             .welcome-options {
-                gap: 15px;
+                gap: 12px;
+                max-width: 100%;
             }
             
             .welcome-option {
-                width: 95px;
+                width: 90px;
             }
             
             .welcome-icon-container {
-                width: 65px;
-                height: 65px;
+                width: 60px;
+                height: 60px;
             }
             
             .welcome-icon {
-                font-size: 28px;
+                font-size: 26px;
             }
             
             .welcome-label {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
             
             .welcome-timer {
@@ -2262,33 +2343,38 @@
             }
             
             .event-card {
-                padding: 15px;
+                padding: 20px;
+                min-height: 280px;
             }
             
             .event-title {
-                font-size: 1.15rem;
+                font-size: 1.2rem;
             }
             
             .event-date {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
             
             .event-location {
+                font-size: 0.95rem;
+            }
+            
+            .event-url {
                 font-size: 0.9rem;
             }
             
             .event-description {
-                font-size: 0.85rem;
+                font-size: 0.9rem;
                 -webkit-line-clamp: 4;
             }
             
             .event-button {
-                padding: 8px 16px;
-                font-size: 0.9rem;
+                padding: 10px 20px;
+                font-size: 0.95rem;
             }
             
             .carousel-slide {
-                padding: 0 10px;
+                padding: 0 15px;
             }
             
             .private-lessons-card {
@@ -2319,43 +2405,48 @@
         
         @media (max-width: 576px) {
             .welcome-page {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                bottom: 10px;
-                padding: 10px;
+                top: 8px;
+                left: 8px;
+                right: 8px;
+                bottom: 8px;
+                padding: 8px;
             }
             
             .welcome-logo {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
             }
             
             .welcome-logo i {
-                font-size: 30px;
+                font-size: 35px;
             }
             
             .welcome-title {
-                font-size: 1.6rem;
+                font-size: 1.5rem;
             }
             
             .welcome-subtitle {
-                font-size: 0.95rem;
-                margin-bottom: 25px;
+                font-size: 0.9rem;
+                margin-bottom: 20px;
                 padding: 8px 12px;
             }
             
+            .welcome-prompt {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+            
             .welcome-options {
-                gap: 10px;
+                gap: 8px;
             }
             
             .welcome-option {
-                width: 85px;
+                width: 80px;
             }
             
             .welcome-icon-container {
-                width: 60px;
-                height: 60px;
+                width: 55px;
+                height: 55px;
             }
             
             .welcome-icon {
@@ -2363,7 +2454,7 @@
             }
             
             .welcome-label {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
             
             .welcome-timer {
@@ -2579,33 +2670,38 @@
             }
             
             .event-card {
-                padding: 12px;
+                padding: 18px;
+                min-height: 260px;
             }
             
             .event-title {
-                font-size: 1.05rem;
+                font-size: 1.1rem;
             }
             
             .event-date {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
             }
             
             .event-location {
+                font-size: 0.9rem;
+            }
+            
+            .event-url {
                 font-size: 0.85rem;
             }
             
             .event-description {
-                font-size: 0.8rem;
+                font-size: 0.85rem;
                 -webkit-line-clamp: 4;
             }
             
             .event-button {
-                padding: 7px 14px;
-                font-size: 0.85rem;
+                padding: 9px 18px;
+                font-size: 0.9rem;
             }
             
             .carousel-slide {
-                padding: 0 8px;
+                padding: 0 12px;
             }
             
             .private-lessons-card {
@@ -2637,19 +2733,24 @@
         
         @media (max-width: 400px) {
             .welcome-page {
-                top: 8px;
-                left: 8px;
-                right: 8px;
-                bottom: 8px;
-                padding: 8px;
+                top: 5px;
+                left: 5px;
+                right: 5px;
+                bottom: 5px;
+                padding: 5px;
+            }
+            
+            .welcome-content {
+                padding: 10px;
             }
             
             .carousel-slide {
-                padding: 0 5px;
+                padding: 0 10px;
             }
             
             .event-card {
-                padding: 10px;
+                padding: 15px;
+                min-height: 240px;
             }
         }
     </style>
@@ -2661,30 +2762,33 @@
                 <div class="welcome-logo">
                     <i class="fas fa-music"></i>
                 </div>
-                <h1 class="welcome-title" id="welcome-title"></h1>
-                <p class="welcome-subtitle" id="welcome-subtitle"></p>
+                <h1 class="welcome-title">Join Our Dance Community</h1>
             </div>
+            
+            <p class="welcome-subtitle">Experience the Joy of Salsa & Bachata — No Partner or Experience Needed!</p>
+            
+            <p class="welcome-prompt" id="welcome-prompt">Tap an option to get started</p>
             
             <div class="welcome-options">
                 <div class="welcome-option" id="welcome-social">
                     <div class="welcome-icon-container">
                         <i class="fas fa-hashtag welcome-icon"></i>
                     </div>
-                    <div class="welcome-label" id="welcome-social-label"></div>
+                    <div class="welcome-label" id="welcome-social-label">Social Media</div>
                 </div>
                 
                 <div class="welcome-option" id="welcome-tutorial">
                     <div class="welcome-icon-container">
                         <i class="fas fa-play-circle welcome-icon"></i>
                     </div>
-                    <div class="welcome-label" id="welcome-tutorial-label"></div>
+                    <div class="welcome-label" id="welcome-tutorial-label">Tutorials</div>
                 </div>
                 
                 <div class="welcome-option" id="welcome-schedule">
                     <div class="welcome-icon-container">
                         <i class="fas fa-calendar-alt welcome-icon"></i>
                     </div>
-                    <div class="welcome-label" id="welcome-schedule-label"></div>
+                    <div class="welcome-label" id="welcome-schedule-label">Schedule & Events</div>
                 </div>
             </div>
             
@@ -2720,16 +2824,16 @@
             </div>
           </div>
           <p class="logo-tagline">Move. Connect. Feel Alive.</p>
-          <h1 id="main-title">Daniel Palacios</h1>
+          <h1 id="main-title">Serrata Dance Studio</h1>
           <div class="divider"></div>
-          <p class="tagline" id="tagline">Professional Salsa & Bachata Instruction | Transforming Passion into Movement</p>
+          <p class="tagline" id="tagline">Professional Salsa & Bachata Instruction | Events & Parties | Transforming Passion into Movement</p>
         </div>
         
         <div class="content">
-          <h2 class="section-title" id="connect-title">Connect With Me</h2>
+          <h2 class="section-title" id="connect-title">Connect With Us</h2>
           <div class="links-grid">
-            <a href="fb://profile/danielp_bachata" 
-               onclick="return openSocialApp(event, 'https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr')"
+            <a href="https://www.facebook.com/serrataestudio" 
+               target="_blank"
                class="link-card facebook">
               <div class="social-icon-container facebook-icon-container">
                 <div class="social-gradient"></div>
@@ -2738,13 +2842,13 @@
                 </div>
               </div>
               <div class="link-text">
-                <div class="link-title">Daniel Palacios</div>
-                <div class="link-subtitle" id="facebook-sub">Facebook Profile</div>
+                <div class="link-title">Serrata Estudio</div>
+                <div class="link-subtitle" id="facebook-sub">Facebook Page</div>
               </div>
             </a>
             
-            <a href="instagram://user?username=danielp_bachata" 
-               onclick="return openSocialApp(event, 'https://www.instagram.com/danielp_bachata')"
+            <a href="https://www.instagram.com/serrataestudio" 
+               target="_blank"
                class="link-card instagram">
               <div class="social-icon-container instagram-icon-container">
                 <div class="social-gradient"></div>
@@ -2754,12 +2858,12 @@
               </div>
               <div class="link-text">
                 <div class="link-title">Instagram</div>
-                <div class="link-subtitle">@danielp_bachata</div>
+                <div class="link-subtitle">@serrataestudio</div>
               </div>
             </a>
             
-            <a href="snssdk1233://user/profile/danielp_bachata" 
-               onclick="return openSocialApp(event, 'https://www.tiktok.com/@danielp_bachata')"
+            <a href="https://www.tiktok.com/@serrataestudio" 
+               target="_blank"
                class="link-card tiktok">
               <div class="social-icon-container tiktok-icon-container">
                 <div class="social-gradient"></div>
@@ -2769,7 +2873,7 @@
               </div>
               <div class="link-text">
                 <div class="link-title">TikTok</div>
-                <div class="link-subtitle">@danielp_bachata</div>
+                <div class="link-subtitle">@serrataestudio</div>
               </div>
             </a>
           </div>
@@ -2778,50 +2882,17 @@
             <strong id="today-label">Today is:</strong> <span id="date-text"></span>
           </div>
           
-          <section class="tiktok-video-section" id="video-library">
-            <div class="video-header">
-              <h2 class="video-title">Dance Video Library</h2>
-              <p class="video-subtitle">Use navigation buttons to browse videos. Tap to play.</p>
-            </div>
-            
-            <div class="video-categories">
-              <button class="category-btn active" data-category="all">All Videos</button>
-              <button class="category-btn" data-category="salsa">Salsa Tutorials</button>
-              <button class="category-btn" data-category="bachata">Bachata Tutorials</button>
-              <button class="category-btn bachata-counts" data-category="bachata-counts">Bachata Counts/Beat</button>
-            </div>
-            
-            <div class="tiktok-video-feed">
-              <div class="video-feed-container">
-                <div class="video-feed" id="video-feed">
-                </div>
-              </div>
-              
-              <div class="video-nav">
-                <button class="nav-arrow prev-video">
-                  <i class="fas fa-chevron-up"></i>
-                </button>
-                <button class="nav-arrow next-video">
-                  <i class="fas fa-chevron-down"></i>
-                </button>
-              </div>
-              
-              <div class="video-indicators" id="video-indicators">
-              </div>
-            </div>
-          </section>
-          
           <h2 class="section-title" id="upcoming-title">Join Our Classes</h2>
           
           <div id="class-cta" class="class-cta-container">
             <div class="cta-header">
               <i class="fas fa-calendar-day pulse"></i>
-              <div id="cta-title">Join us at Estilo Dance Studio</div>
+              <div id="cta-title">Join us at Serrata Estudio</div>
               <i class="fas fa-star pulse"></i>
             </div>
             
             <div class="cta-schedule" id="cta-schedule">
-              Saturdays: 4:00pm Salsa | 5:00pm Bachata
+              Tuesdays: 7:30pm Salsa | 8:00pm Bachata
             </div>
             
             <div class="cta-action" id="register-cta">
@@ -2847,7 +2918,7 @@
                          class="location-address-link" 
                          title="Directions to Serrata Estudio" 
                          aria-label="Serrata Estudio on Google Maps"
-                         onclick="return openMaps(event, 'comgooglemaps://?q=7157+Frankford+Ave+Philadelphia+PA+19135', 'geo:0,0?q=7157+Frankford+Ave+Philadelphia+PA+19135')">
+                         target="_blank">
                         <i class="fas fa-map-marker-alt"></i>
                         <span class="address-text">7157 Frankford Ave, Philadelphia, PA 19135</span>
                       </a>
@@ -2887,44 +2958,6 @@
                     <div class="schedule-class">
                       <span class="class-time">8:30pm</span>
                       <span class="class-name"><span class="bachata-text">Advanced Beginner Bachata</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="link-card estilo" 
-                 data-studio="Estilo Dance Studio" 
-                 id="estilo-card">
-              <div class="link-icon estilo-icon">
-                <i class="fas fa-building"></i>
-              </div>
-              <div class="link-text">
-                <div class="studio-info">
-                  <div class="studio-name-address">
-                    <div class="link-title">Estilo Dance Studio</div>
-                    <div class="location-address-container">
-                      <a href="https://maps.app.goo.gl/KDZ5uZbr7h9sWMgy8?g_st=ipc" 
-                         class="location-address-link" 
-                         title="Directions to Estilo Dance Studio" 
-                         aria-label="Estilo Dance Studio on Google Maps"
-                         onclick="return openMaps(event, 'comgooglemaps://?q=Estilo+Dance+Studio+Fishtown+Philadelphia', 'geo:0,0?q=Estilo+Dance+Studio+Fishtown+Philadelphia')">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span class="address-text">Fishtown, Philadelphia</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="schedule-list">
-                  <div class="schedule-day-group" data-day="Saturday">
-                    <div class="schedule-day-header">Saturday</div>
-                    <div class="schedule-class">
-                      <span class="class-time">4:00pm</span>
-                      <span class="class-name"><span class="salsa-text">Advanced Beginner Salsa</span></span>
-                    </div>
-                    <div class="schedule-class">
-                      <span class="class-time">5:00pm</span>
-                      <span class="class-name"><span class="bachata-text">Bachata Sensual</span></span>
                     </div>
                   </div>
                 </div>
@@ -2996,7 +3029,6 @@
               <div class="form-group">
                 <select id="location" class="form-select" required>
                   <option value="">Select class type</option>
-                  <option value="estilo">Estilo Dance Studio (In-person)</option>
                   <option value="serrata">Serrata Estudio - 4-Week Programs</option>
                   <option value="zoom">Zoom Class (Online)</option>
                   <option value="private">Private Lesson</option>
@@ -3019,7 +3051,7 @@
           </div>
 
           <div class="events-carousel-container" id="events-carousel">
-            <h2 class="section-title">Upcoming Events</h2>
+            <h2 class="section-title">Upcoming Events & Parties</h2>
             <div class="carousel">
               <button class="carousel-button prev">
                 <i class="fas fa-chevron-left"></i>
@@ -3027,9 +3059,42 @@
               <div class="carousel-track-container">
                 <ul class="carousel-track" id="events-track">
                   <li class="carousel-slide">
-                    <div class="events-loading">
-                      <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                      <p>Loading events from calendar...</p>
+                    <div class="event-card">
+                      <div class="event-date"><i class="far fa-calendar-alt"></i> Every Friday Night</div>
+                      <h3 class="event-title">Serrata Social Dance Party</h3>
+                      <div class="event-location"><i class="fas fa-map-marker-alt"></i> Serrata Estudio, Philadelphia</div>
+                      <p class="event-description">Join us every Friday for our signature social dance party. Enjoy salsa, bachata, and merengue music with dancers of all levels. No partner needed!</p>
+                      <div class="event-url">
+                        <i class="fas fa-link"></i>
+                        <a href="https://www.facebook.com/serrataestudio" target="_blank">Follow us on Facebook for updates</a>
+                      </div>
+                      <button class="event-button" onclick="window.open('https://www.facebook.com/serrataestudio', '_blank')">View Event</button>
+                    </div>
+                  </li>
+                  <li class="carousel-slide">
+                    <div class="event-card">
+                      <div class="event-date"><i class="far fa-calendar-alt"></i> Monthly Special Event</div>
+                      <h3 class="event-title">Bachata Night Live</h3>
+                      <div class="event-location"><i class="fas fa-map-marker-alt"></i> Serrata Estudio, Philadelphia</div>
+                      <p class="event-description">Experience the hottest bachata night in Philadelphia with live music, professional performances, and social dancing until late.</p>
+                      <div class="event-url">
+                        <i class="fas fa-link"></i>
+                        <a href="https://www.instagram.com/serrataestudio" target="_blank">Check Instagram for dates</a>
+                      </div>
+                      <button class="event-button" onclick="window.open('https://www.instagram.com/serrataestudio', '_blank')">View Event</button>
+                    </div>
+                  </li>
+                  <li class="carousel-slide">
+                    <div class="event-card">
+                      <div class="event-date"><i class="far fa-calendar-alt"></i> Seasonal Event</div>
+                      <h3 class="event-title">Salsa & Bachata Festival</h3>
+                      <div class="event-location"><i class="fas fa-map-marker-alt"></i> Serrata Estudio, Philadelphia</div>
+                      <p class="event-description">Our annual festival featuring workshops with international instructors, performances, parties, and competitions.</p>
+                      <div class="event-url">
+                        <i class="fas fa-link"></i>
+                        <a href="https://www.serrataestudio.com" target="_blank">Visit our website for details</a>
+                      </div>
+                      <button class="event-button" onclick="scrollToRegistration()">Register Interest</button>
                     </div>
                   </li>
                 </ul>
@@ -3043,15 +3108,15 @@
           
           <h2 class="section-title" id="payment-title">Payment Options</h2>
           <div class="links-grid">
-            <a href="venmo://account?username=Rebecca_Rose_Bachata" 
-               onclick="return openVenmo(event, 'https://venmo.com/u/Rebecca_Rose_Bachata')" 
+            <a href="https://venmo.com/serrataestudio" 
+               target="_blank" 
                class="link-card venmo">
               <div class="link-icon">
                 <i class="fab fa-vimeo-v"></i>
               </div>
               <div class="link-text">
                 <div class="link-title">Venmo</div>
-                <div class="link-subtitle" id="venmo-sub">Rebecca Rose Bachata</div>
+                <div class="link-subtitle" id="venmo-sub">@serrataestudio</div>
               </div>
             </a>
             
@@ -3066,15 +3131,15 @@
             </div>
           </div>
           
-          <h2 class="section-title" id="contact-title">Contact Me</h2>
+          <h2 class="section-title" id="contact-title">Contact Us</h2>
           <div class="links-grid">
-            <a href="mailto:contact@danielpbachata.com" class="link-card contact" target="_blank">
+            <a href="mailto:info@serrataestudio.com" class="link-card contact" target="_blank">
               <div class="link-icon contact-icon">
                 <i class="fas fa-envelope"></i>
               </div>
               <div class="link-text">
-                <div class="link-title" id="contact-title-text">Professional Inquiries</div>
-                <div class="link-subtitle" id="contact-subtitle">Bookings and partnerships</div>
+                <div class="link-title" id="contact-title-text">Studio Inquiries</div>
+                <div class="link-subtitle" id="contact-subtitle">Classes, events and partnerships</div>
               </div>
             </a>
           </div>
@@ -3088,12 +3153,12 @@
             </div>
             </div>
             
-            <p id="copyright">© 2025 Daniel Palacios | Professional Instruction</p>
+            <p id="copyright">© 2025 Serrata Dance Studio | Events & Parties</p>
             <p id="quote">Dance is the hidden language of the soul</p>
             
             <div class="signature-container">
               <div class="signature-line" id="signature-line" 
-                   ondblclick="window.open('https://dancefirststep.github.io/class-schedule-/', '_blank')"
+                   ondblclick="window.open('https://serrataestudio.com', '_blank')"
                    style="cursor: pointer;"></div>
             </div>
           </footer>
@@ -3118,18 +3183,16 @@
     // Welcome page translations
     const welcomeTranslations = {
       en: {
-        title: "Daniel Palacios",
-        subtitle: "Join Our Dance Community",
         socialLabel: "Social Media",
         tutorialLabel: "Tutorials",
-        scheduleLabel: "Schedule and Events"
+        scheduleLabel: "Schedule & Events",
+        prompt: "Tap an option to get started"
       },
       es: {
-        title: "Daniel Palacios",
-        subtitle: "Únete a Nuestra Comunidad de Baile",
         socialLabel: "Redes Sociales",
         tutorialLabel: "Tutoriales",
-        scheduleLabel: "Horario y Eventos"
+        scheduleLabel: "Horario y Eventos",
+        prompt: "Toca una opción para comenzar"
       }
     };
 
@@ -3137,11 +3200,10 @@
       const translations = welcomeTranslations[lang];
       
       // Set welcome page content
-      document.getElementById('welcome-title').textContent = translations.title;
-      document.getElementById('welcome-subtitle').textContent = translations.subtitle;
       document.getElementById('welcome-social-label').textContent = translations.socialLabel;
       document.getElementById('welcome-tutorial-label').textContent = translations.tutorialLabel;
       document.getElementById('welcome-schedule-label').textContent = translations.scheduleLabel;
+      document.getElementById('welcome-prompt').textContent = translations.prompt;
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -3153,10 +3215,10 @@
       const mainContainer = document.getElementById('main-container');
       const timerProgress = document.getElementById('welcome-timer-progress');
       let timerInterval;
-      let timerValue = 0;
-      const timerDuration = 4000;
+      const timerDuration = 4100; // UPDATED: Exactly 4.1 seconds as requested
       
       function startWelcomeTimer() {
+        let timerValue = 0;
         timerInterval = setInterval(function() {
           timerValue += 100;
           const progress = (timerValue / timerDuration) * 100;
@@ -3177,6 +3239,7 @@
         }, 500);
       }
       
+      // Welcome page click handlers
       document.getElementById('welcome-social').addEventListener('click', function() {
         clearInterval(timerInterval);
         hideWelcomePage();
@@ -3192,7 +3255,7 @@
         clearInterval(timerInterval);
         hideWelcomePage();
         setTimeout(function() {
-          document.getElementById('video-library').scrollIntoView({ 
+          document.getElementById('upcoming-title').scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start'
           });
@@ -3210,8 +3273,10 @@
         }, 600);
       });
       
+      // Start the welcome timer
       startWelcomeTimer();
       
+      // Main page initialization
       function initMainPage() {
         function updateCurrentDate(lang) {
           const now = new Date();
@@ -3232,10 +3297,10 @@
         
         const translations = {
           en: {
-            mainTitle: "Daniel Palacios",
-            tagline: "Professional Salsa & Bachata Instruction | Transforming Passion into Movement",
-            connectTitle: "Connect With Me",
-            facebookSub: "Facebook Profile",
+            mainTitle: "Serrata Dance Studio",
+            tagline: "Professional Salsa & Bachata Instruction | Events & Parties | Transforming Passion into Movement",
+            connectTitle: "Connect With Us",
+            facebookSub: "Facebook Page",
             todayLabel: "Today is:",
             upcomingTitle: "Join Our Classes",
             registerCta: "Register Now",
@@ -3250,20 +3315,20 @@
             thankYouText: "We're excited to dance with you! Your spot is being saved.",
             registerAgainText: "Register Another Person",
             paymentTitle: "Payment Options",
-            venmoSub: "Rebecca Rose Bachata",
+            venmoSub: "@serrataestudio",
             cashTitle: "Cash",
             cashSub: "Pay at the studio",
-            contactTitle: "Contact Me",
-            contactTitleText: "Professional Inquiries",
-            contactSubtitle: "Bookings and partnerships",
-            copyright: "© 2025 Daniel Palacios | Professional Instruction",
+            contactTitle: "Contact Us",
+            contactTitleText: "Studio Inquiries",
+            contactSubtitle: "Classes, events and partnerships",
+            copyright: "© 2025 Serrata Dance Studio | Events & Parties",
             quote: "Dance is the hidden language of the soul"
           },
           es: {
-            mainTitle: "Daniel Palacios",
-            tagline: "Instrucción Profesional de Salsa y Bachata | Transformando Pasión en Movimiento",
-            connectTitle: "Conéctate Conmigo",
-            facebookSub: "Perfil de Facebook",
+            mainTitle: "Serrata Dance Studio",
+            tagline: "Instrucción Profesional de Salsa y Bachata | Eventos y Fiestas | Transformando Pasión en Movimiento",
+            connectTitle: "Conéctate Con Nosotros",
+            facebookSub: "Página de Facebook",
             todayLabel: "Hoy es:",
             upcomingTitle: "Únete a Nuestras Clases",
             registerCta: "Regístrate Ahora",
@@ -3278,13 +3343,13 @@
             thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
             registerAgainText: "Registrar Otra Persona",
             paymentTitle: "Opciones de Pago",
-            venmoSub: "Rebecca Rose Bachata",
+            venmoSub: "@serrataestudio",
             cashTitle: "Efectivo",
             cashSub: "Paga en el estudio",
-            contactTitle: "Contáctame",
-            contactTitleText: "Consultas Profesionales",
-            contactSubtitle: "Reservas y colaboraciones",
-            copyright: "© 2025 Daniel Palacios | Instrucción Profesional",
+            contactTitle: "Contáctanos",
+            contactTitleText: "Consultas del Estudio",
+            contactSubtitle: "Clases, eventos y colaboraciones",
+            copyright: "© 2025 Serrata Dance Studio | Eventos y Fiestas",
             quote: "El baile es el lenguaje oculto del alma"
           }
         };
@@ -3354,342 +3419,8 @@
           setLanguage(userLanguage);
         }
         
-        const videoFeed = document.getElementById('video-feed');
-        const videoIndicators = document.getElementById('video-indicators');
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        const prevVideoBtn = document.querySelector('.prev-video');
-        const nextVideoBtn = document.querySelector('.next-video');
-        
-        const videoData = [
-          {
-            id: 1,
-            title: "Bachata Counts Tutorial Part 1",
-            description: "Learn the basic counts and beat structure of Bachata",
-            duration: "",
-            level: "",
-            views: "1.2K",
-            category: ["bachata-counts"],
-            thumbnail: "https://img.youtube.com/vi/OWLylEYSroA/maxresdefault.jpg",
-            videoId: "OWLylEYSroA"
-          },
-          {
-            id: 2,
-            title: "Bachata Counts Tutorial Part 2",
-            description: "Advanced counting techniques for Bachata music",
-            duration: "",
-            level: "",
-            views: "980",
-            category: ["bachata-counts"],
-            thumbnail: "https://img.youtube.com/vi/PPnVKETxf6I/maxresdefault.jpg",
-            videoId: "PPnVKETxf6I"
-          },
-          {
-            id: 3,
-            title: "Bachata Counts Tutorial Part 3",
-            description: "Mastering the timing and rhythm of Bachata",
-            duration: "",
-            level: "",
-            views: "1.5K",
-            category: ["bachata-counts"],
-            thumbnail: "https://img.youtube.com/vi/J5SEMr4vmTM/maxresdefault.jpg",
-            videoId: "J5SEMr4vmTM"
-          },
-          {
-            id: 4,
-            title: "Bachata Counts Tutorial Part 4",
-            description: "Understanding musical phrasing in Bachata",
-            duration: "",
-            level: "",
-            views: "890",
-            category: ["bachata-counts"],
-            thumbnail: "https://img.youtube.com/vi/ZE0Zgv5gCGo/maxresdefault.jpg",
-            videoId: "ZE0Zgv5gCGo"
-          },
-          {
-            id: 5,
-            title: "Bachata Counts Tutorial Part 5",
-            description: "Advanced beat recognition and timing exercises",
-            duration: "",
-            level: "",
-            views: "1.1K",
-            category: ["bachata-counts"],
-            thumbnail: "https://img.youtube.com/vi/NcpGLZVhKDc/maxresdefault.jpg",
-            videoId: "NcpGLZVhKDc"
-          }
-        ];
-        
-        let currentCategory = 'all';
-        let currentVideoIndex = 0;
-        let currentPlayingVideo = null;
-        let activeVideoIframe = null;
-        let videoObserver;
-        
-        function pauseAllVideos() {
-          if (activeVideoIframe) {
-            const iframeSrc = activeVideoIframe.src;
-            activeVideoIframe.src = iframeSrc.replace('&autoplay=1', '');
-            activeVideoIframe = null;
-          }
-          currentPlayingVideo = null;
-        }
-        
-        function initVideoObserver() {
-          videoObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (!entry.isIntersecting) {
-                pauseAllVideos();
-              }
-            });
-          }, { threshold: 0.1 });
-          
-          videoObserver.observe(document.querySelector('.tiktok-video-feed'));
-        }
-        
-        function renderVideos(category = 'all') {
-          videoFeed.innerHTML = '';
-          videoIndicators.innerHTML = '';
-          
-          const filteredVideos = category === 'all' 
-            ? videoData 
-            : videoData.filter(video => video.category.includes(category));
-          
-          if (filteredVideos.length === 0) {
-            videoFeed.innerHTML = `
-              <div class="video-item">
-                <div class="video-placeholder">
-                  <div class="video-placeholder-content">
-                    <h3 class="video-placeholder-title">No videos found</h3>
-                    <p class="video-placeholder-description">Try selecting a different category</p>
-                  </div>
-                </div>
-              </div>
-            `;
-            return;
-          }
-          
-          filteredVideos.forEach((video, index) => {
-            const videoItem = document.createElement('div');
-            videoItem.className = 'video-item';
-            videoItem.setAttribute('data-video-id', video.id);
-            videoItem.innerHTML = `
-              <div class="video-player">
-                <div class="video-placeholder">
-                  <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
-                  <div class="video-placeholder-content">
-                    <button class="play-button" data-video-id="${video.videoId}">
-                      <i class="fas fa-play"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="video-info-overlay">
-                <h3 class="video-item-title">${video.title}</h3>
-                <div class="video-meta">
-                  <span class="video-views"><i class="fas fa-eye"></i> ${video.views}</span>
-                </div>
-              </div>
-            `;
-            
-            videoFeed.appendChild(videoItem);
-            
-            const indicator = document.createElement('button');
-            indicator.className = 'video-indicator';
-            indicator.dataset.index = index;
-            videoIndicators.appendChild(indicator);
-          });
-          
-          setActiveVideo(0);
-        }
-        
-        function setActiveVideo(index) {
-          if (activeVideoIframe) {
-            const iframeSrc = activeVideoIframe.src;
-            activeVideoIframe.src = iframeSrc.replace('&autoplay=1', '');
-            activeVideoIframe = null;
-          }
-          
-          const videoItems = document.querySelectorAll('.video-item');
-          const indicators = document.querySelectorAll('.video-indicator');
-          
-          videoItems.forEach(item => {
-            item.classList.remove('active');
-          });
-          
-          indicators.forEach(indicator => {
-            indicator.classList.remove('active');
-          });
-          
-          if (videoItems[index]) {
-            videoItems[index].classList.add('active');
-          }
-          
-          if (indicators[index]) {
-            indicators[index].classList.add('active');
-          }
-          
-          videoFeed.style.transform = `translateY(-${index * 100}%)`;
-          
-          currentVideoIndex = index;
-        }
-        
-        function playVideo(videoId, videoItem) {
-          const videoPlayer = videoItem.querySelector('.video-player');
-          const videoInfoOverlay = videoItem.querySelector('.video-info-overlay');
-          
-          const existingOverlay = videoPlayer.querySelector('.youtube-overlay');
-          if (existingOverlay) {
-            existingOverlay.remove();
-          }
-          
-          currentPlayingVideo = videoId;
-          
-          videoInfoOverlay.classList.add('hidden');
-          
-          videoPlayer.innerHTML = `
-            <div class="youtube-overlay" id="youtube-overlay-${videoId}">
-              <div style="text-align: center;">
-                <div class="spinner" style="margin: 0 auto 15px;"></div>
-                <div>Loading video...</div>
-              </div>
-            </div>
-            <iframe 
-              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&playsinline=1&enablejsapi=1"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          `;
-          
-          activeVideoIframe = videoPlayer.querySelector('iframe');
-          
-          setTimeout(() => {
-            const overlay = document.getElementById(`youtube-overlay-${videoId}`);
-            if (overlay) {
-              overlay.classList.add('hidden');
-              setTimeout(() => {
-                if (overlay.parentNode) {
-                  overlay.parentNode.removeChild(overlay);
-                }
-              }, 500);
-            }
-          }, 2000);
-        }
-        
-        function initVideoSection() {
-          renderVideos();
-          initVideoObserver();
-          
-          categoryButtons.forEach(button => {
-            button.addEventListener('click', function() {
-              categoryButtons.forEach(btn => btn.classList.remove('active'));
-              this.classList.add('active');
-              
-              currentCategory = this.getAttribute('data-category');
-              renderVideos(currentCategory);
-            });
-          });
-          
-          prevVideoBtn.addEventListener('click', () => {
-            if (currentVideoIndex > 0) {
-              setActiveVideo(currentVideoIndex - 1);
-            }
-          });
-          
-          nextVideoBtn.addEventListener('click', () => {
-            const videoItems = document.querySelectorAll('.video-item');
-            if (currentVideoIndex < videoItems.length - 1) {
-              setActiveVideo(currentVideoIndex + 1);
-            }
-          });
-          
-          videoIndicators.addEventListener('click', (e) => {
-            if (e.target.classList.contains('video-indicator')) {
-              const index = parseInt(e.target.dataset.index);
-              setActiveVideo(index);
-            }
-          });
-          
-          videoFeed.addEventListener('click', (e) => {
-            if (e.target.closest('.play-button')) {
-              const playButton = e.target.closest('.play-button');
-              const videoId = playButton.dataset.videoId;
-              const videoItem = playButton.closest('.video-item');
-              playVideo(videoId, videoItem);
-            }
-          });
-          
-          document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowUp') {
-              e.preventDefault();
-              if (currentVideoIndex > 0) {
-                setActiveVideo(currentVideoIndex - 1);
-              }
-            } else if (e.key === 'ArrowDown') {
-              e.preventDefault();
-              const videoItems = document.querySelectorAll('.video-item');
-              if (currentVideoIndex < videoItems.length - 1) {
-                setActiveVideo(currentVideoIndex + 1);
-              }
-            }
-          });
-        }
-
-        const participantContainer = document.getElementById('participant-container');
-        const addParticipantBtn = document.getElementById('add-participant');
-        const removeParticipantBtn = document.getElementById('remove-participant');
-        
-        let participantCount = 1;
-        const maxParticipants = 4;
-        
-        addParticipantBtn.addEventListener('click', function() {
-          if (participantCount < maxParticipants) {
-            participantCount++;
-            
-            const newParticipant = document.createElement('div');
-            newParticipant.className = 'participant-fields name-field';
-            newParticipant.innerHTML = `
-              <div class="participant-form-group">
-                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
-              </div>
-            `;
-            
-            participantContainer.appendChild(newParticipant);
-            
-            removeParticipantBtn.disabled = false;
-            
-            if (participantCount === maxParticipants) {
-              addParticipantBtn.disabled = true;
-            }
-          }
-        });
-        
-        removeParticipantBtn.addEventListener('click', function() {
-          if (participantCount > 1) {
-            const lastField = participantContainer.lastChild;
-            participantContainer.removeChild(lastField);
-            participantCount--;
-            
-            if (participantCount === 1) {
-              removeParticipantBtn.disabled = true;
-            }
-            
-            addParticipantBtn.disabled = false;
-          }
-        });
-        
+        // Class schedule data
         const classSchedule = [
-          { 
-            day: "Saturday", 
-            dayIndex: 6,
-            studio: "Estilo Dance Studio",
-            classes: [
-              "4:00pm Advanced Beginner Salsa",
-              "5:00pm Bachata Sensual"
-            ],
-            locationId: "estilo-card",
-            startTime: 1600,
-            lastClassEndTime: 1800
-          },
           { 
             day: "Tuesday", 
             dayIndex: 2,
@@ -3726,41 +3457,52 @@
           const currentMinutes = now.getMinutes();
           const currentTime = currentHours * 100 + currentMinutes;
           
-          const sortedClasses = [...classSchedule].sort((a, b) => {
-            if (a.dayIndex === b.dayIndex) {
-              return a.startTime - b.startTime;
+          // Find all upcoming classes (today and future days)
+          const upcomingClasses = classSchedule.filter(schedule => {
+            // If it's the same day, check if there are classes still to come
+            if (schedule.dayIndex === currentDayIndex) {
+              return currentTime < schedule.lastClassEndTime;
             }
-            return a.dayIndex - b.dayIndex;
+            // If it's a future day, include it
+            return schedule.dayIndex > currentDayIndex || 
+                   (schedule.dayIndex < currentDayIndex && schedule.dayIndex + 7 > currentDayIndex);
           });
           
-          const todayClass = sortedClasses.find(s => 
-            s.dayIndex === currentDayIndex && 
-            currentTime < s.lastClassEndTime
-          );
+          // Sort by day and time
+          upcomingClasses.sort((a, b) => {
+            // Calculate day difference considering week wrap-around
+            let aDayDiff = a.dayIndex - currentDayIndex;
+            if (aDayDiff < 0) aDayDiff += 7;
+            
+            let bDayDiff = b.dayIndex - currentDayIndex;
+            if (bDayDiff < 0) bDayDiff += 7;
+            
+            // If same day, compare by start time
+            if (aDayDiff === bDayDiff) {
+              return a.startTime - b.startTime;
+            }
+            
+            return aDayDiff - bDayDiff;
+          });
           
-          if (todayClass) {
-            return {
-              day: todayClass.day,
-              studio: todayClass.studio,
-              schedule: todayClass.classes,
-              timePrefix: currentLanguage === 'es' ? "Esta noche" : "Tonight",
-              locationId: todayClass.locationId
-            };
-          }
-          
-          const futureClasses = sortedClasses.filter(s => s.dayIndex > currentDayIndex);
-          
-          if (futureClasses.length > 0) {
-            const nextClass = futureClasses[0];
-            const dayDifference = nextClass.dayIndex - currentDayIndex;
+          if (upcomingClasses.length > 0) {
+            const nextClass = upcomingClasses[0];
+            const dayDifference = (nextClass.dayIndex - currentDayIndex + 7) % 7;
+            
             let timePrefix = "";
             
-            if (dayDifference === 1) {
+            if (dayDifference === 0) {
+              timePrefix = currentLanguage === 'es' ? "Esta noche" : "Tonight";
+            } else if (dayDifference === 1) {
               timePrefix = currentLanguage === 'es' ? "Mañana" : "Tomorrow";
-            } else if (dayDifference === 2) {
-              timePrefix = currentLanguage === 'es' ? "Este " : "This " + nextClass.day;
             } else {
-              timePrefix = currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day;
+              const dayNames = currentLanguage === 'es' 
+                ? ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"]
+                : ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+              
+              timePrefix = currentLanguage === 'es' 
+                ? `Este ${dayNames[nextClass.dayIndex]}`
+                : `This ${dayNames[nextClass.dayIndex]}`;
             }
             
             return {
@@ -3772,51 +3514,37 @@
             };
           }
           
-          const nextClass = sortedClasses[0];
+          // Fallback if no upcoming classes found
+          const firstClass = classSchedule[0];
           return {
-            day: nextClass.day,
-            studio: nextClass.studio,
-            schedule: nextClass.classes,
-            timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + nextClass.day,
-            locationId: nextClass.locationId
+            day: firstClass.day,
+            studio: firstClass.studio,
+            schedule: firstClass.classes,
+            timePrefix: currentLanguage === 'es' ? "Próximo " : "Next " + firstClass.day,
+            locationId: firstClass.locationId
           };
-        }
-
-        function shouldSerrataBeFirst() {
-          const now = new Date();
-          const currentDayIndex = now.getDay();
-          const currentHours = now.getHours();
-          const currentMinutes = now.getMinutes();
-          const currentTime = currentHours * 100 + currentMinutes;
-          
-          if (currentDayIndex === 2 && currentTime < 2100) {
-            return true;
-          }
-          
-          if (currentDayIndex === 3 && currentTime < 2130) {
-            return true;
-          }
-          
-          return false;
         }
 
         function reorderScheduleCards() {
           const scheduleGrid = document.getElementById('schedule-grid');
           const serrataCard = document.getElementById('serrata-card');
-          const estiloCard = document.getElementById('estilo-card');
           const privateCard = document.getElementById('private-lessons-card');
           
           scheduleGrid.innerHTML = '';
           
-          if (shouldSerrataBeFirst()) {
-            scheduleGrid.appendChild(serrataCard);
-            scheduleGrid.appendChild(estiloCard);
-            scheduleGrid.appendChild(privateCard);
-          } else {
-            scheduleGrid.appendChild(estiloCard);
-            scheduleGrid.appendChild(serrataCard);
-            scheduleGrid.appendChild(privateCard);
-          }
+          const nextClass = getNextClassInfo();
+          
+          // Highlight the next class card
+          document.querySelectorAll('.link-card').forEach(card => {
+            card.classList.remove('next-class-highlight');
+          });
+          
+          // Only Serrata card now, so always highlight it
+          scheduleGrid.appendChild(serrataCard);
+          serrataCard.classList.add('next-class-highlight');
+          
+          // Private lessons always last
+          scheduleGrid.appendChild(privateCard);
         }
 
         function updateCTASection() {
@@ -3826,15 +3554,6 @@
           ctaTitle.innerHTML = `<span class="pulse">${nextClass.timePrefix}</span>: ${nextClass.studio}`;
           
           document.getElementById('cta-schedule').textContent = nextClass.schedule.join(' | ');
-          
-          document.querySelectorAll('.link-card').forEach(card => {
-            card.classList.remove('next-class-highlight');
-          });
-          
-          const locationCard = document.getElementById(nextClass.locationId);
-          if (locationCard) {
-            locationCard.classList.add('next-class-highlight');
-          }
           
           reorderScheduleCards();
         }
@@ -3948,14 +3667,6 @@
             });
           });
           
-          document.getElementById('btn-videos').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.getElementById('video-library').scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start'
-            });
-          });
-          
           document.getElementById('btn-schedule').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('schedule-title').scrollIntoView({ 
@@ -3976,7 +3687,6 @@
         function setActiveSection() {
           const sections = [
             {id: 'connect-title', btn: 'btn-social'},
-            {id: 'video-library', btn: 'btn-videos'},
             {id: 'schedule-title', btn: 'btn-schedule'},
             {id: 'payment-title', btn: 'btn-payments'}
           ];
@@ -4005,7 +3715,6 @@
           
           let lastScrollTop = 0;
           const hideThreshold = 100;
-          let touchStartY = 0;
           
           function handleScroll() {
             const currentScrollY = window.scrollY;
@@ -4024,115 +3733,7 @@
             setActiveSection();
           }
           
-          function handleTouchStart(e) {
-            if (window.scrollY === 0) {
-              touchStartY = e.touches[0].clientY;
-            }
-          }
-          
-          function handleTouchMove(e) {
-            if (window.scrollY === 0 && touchStartY) {
-              const currentY = e.touches[0].clientY;
-              const diff = currentY - touchStartY;
-              
-              if (diff > 50) {
-                logoContainer.classList.add('highlight');
-              }
-            }
-          }
-          
-          function handleTouchEnd() {
-            touchStartY = 0;
-            logoContainer.classList.remove('highlight');
-          }
-          
           window.addEventListener('scroll', handleScroll);
-          document.addEventListener('touchstart', handleTouchStart);
-          document.addEventListener('touchmove', handleTouchMove);
-          document.addEventListener('touchend', handleTouchEnd);
-        }
-        
-        function openSocialApp(e, webUrl) {
-          e.preventDefault();
-          const appUrl = e.currentTarget.getAttribute('href');
-          
-          window.location = appUrl;
-          setTimeout(function() {
-            if (!document.hidden) {
-              window.location.href = webUrl;
-            }
-          }, 500);
-          return false;
-        }
-        
-        function openVenmo(e, webUrl) {
-          e.preventDefault();
-          const appUrl = e.currentTarget.getAttribute('href');
-          
-          window.location = appUrl;
-          setTimeout(function() {
-            if (!document.hidden) {
-              window.location.href = webUrl;
-            }
-          }, 500);
-          return false;
-        }
-        
-        function openMaps(e, iosUrl, androidUrl) {
-          e.preventDefault();
-          const mapsUrl = e.currentTarget.href;
-          
-          const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-          const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
-          
-          if (isFacebookApp) {
-            const prompt = document.createElement('div');
-            prompt.className = 'notification notification-info';
-            prompt.innerHTML = `
-              <i class="fas fa-external-link-alt"></i> 
-              ${currentLanguage === 'es' ? 'Abre en navegador externo para ver mapa' : 'Open in external browser for maps'}
-              <button class="open-external">OK</button>
-            `;
-            document.body.appendChild(prompt);
-            
-            prompt.querySelector('.open-external').addEventListener('click', () => {
-              window.open(mapsUrl, '_blank');
-              prompt.remove();
-            });
-            
-            return false;
-          }
-          
-          const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-          
-          if (isIOS) {
-            window.location = iosUrl;
-          } else {
-            window.location = androidUrl;
-          }
-          
-          setTimeout(() => {
-            if (!document.hidden) {
-              window.location.href = mapsUrl;
-            }
-          }, 500);
-          
-          return false;
-        }
-        
-        function initMapsLinks() {
-          document.querySelectorAll('a.location-address-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-              const studioName = this.title.replace('Directions to ', '');
-              const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-              
-              if (isIOS) {
-                openMaps(e, `maps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
-              } else {
-                openMaps(e, `comgooglemaps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
-              }
-            });
-          });
         }
         
         function bookPrivateLesson() {
@@ -4146,272 +3747,76 @@
           }, 500);
         }
 
-        function extractFirstURL(text) {
-          if (!text) return null;
-          const urlRegex = /(https?:\/\/[^\s<]+)/g;
-          const match = text.match(urlRegex);
-          return match ? match[0] : null;
-        }
-
+        // Initialize events carousel
         function initEventsCarousel() {
-          async function fetchCalendarEvents() {
-            const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
-            
-            try {
-              const eventsTrack = document.getElementById('events-track');
-              eventsTrack.innerHTML = `
-                <li class="carousel-slide">
-                  <div class="events-loading">
-                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                    <p>Loading events from calendar...</p>
-                  </div>
-                </li>
-              `;
-              
-              const proxyUrl = 'https://corsproxy.io/?';
-              const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
-              
-              if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-              }
-              
-              const icalData = await response.text();
-              
-              const events = parseICalData(icalData);
-              
-              const staticEvent = {
-                summary: "Zoom Private Classes Available",
-                start: new Date(),
-                end: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
-                location: "Online via Zoom",
-                description: "Book your private Zoom class at your convenience. Available by appointment.",
-                formattedDate: "Available Now"
-              };
-              
-              events.unshift(staticEvent);
-              
-              updateEventsCarousel(events);
-            } catch (error) {
-              console.error('Error fetching calendar events:', error);
-              
-              const eventsTrack = document.getElementById('events-track');
-              eventsTrack.innerHTML = `
-                <li class="carousel-slide">
-                  <div class="events-error">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
-                    <p>Failed to load events from calendar.</p>
-                    <button class="refresh-button" onclick="fetchCalendarEvents()">
-                      <i class="fas fa-sync-alt"></i> Try Again
-                    </button>
-                  </div>
-                </li>
-              `;
-            }
+          const track = document.getElementById('events-track');
+          const nav = document.getElementById('events-nav');
+          const slides = Array.from(track.children);
+          const indicators = Array.from(nav.children);
+          const nextButton = document.querySelector('.carousel-button.next');
+          const prevButton = document.querySelector('.carousel-button.prev');
+          
+          if (slides.length <= 1) {
+            nextButton.style.display = 'none';
+            prevButton.style.display = 'none';
+            nav.style.display = 'none';
+            return;
           }
           
-          function parseICalData(icalData) {
-            const events = [];
-            const lines = icalData.split('\n');
-            let currentEvent = null;
-            let inEvent = false;
-            let inDescription = false;
-            let descriptionLines = [];
-            
-            for (let i = 0; i < lines.length; i++) {
-              const line = lines[i].trim();
-              
-              if (line === 'BEGIN:VEVENT') {
-                inEvent = true;
-                currentEvent = {};
-              } else if (line === 'END:VEVENT') {
-                inEvent = false;
-                inDescription = false;
-                
-                if (descriptionLines.length > 0) {
-                  currentEvent.description = descriptionLines.join('\n')
-                    .replace(/\\,/g, ',')
-                    .replace(/\\;/g, ';')
-                    .replace(/\\n/g, '\n')
-                    .trim();
-                  descriptionLines = [];
-                }
-                
-                if (currentEvent && currentEvent.summary && currentEvent.start) {
-                  const eventDate = new Date(currentEvent.start);
-                  const now = new Date();
-                  
-                  if (eventDate >= now) {
-                    currentEvent.link = extractFirstURL(currentEvent.description);
-                    events.push(currentEvent);
-                  }
-                }
-                currentEvent = null;
-              } else if (inEvent && currentEvent !== null) {
-                if (line.startsWith('SUMMARY:')) {
-                  currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
-                } else if (line.startsWith('DTSTART:')) {
-                  const dateStr = line.substring(8);
-                  currentEvent.start = parseICalDate(dateStr);
-                } else if (line.startsWith('DTEND:')) {
-                  const dateStr = line.substring(6);
-                  currentEvent.end = parseICalDate(dateStr);
-                } else if (line.startsWith('LOCATION:')) {
-                  currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
-                } else if (line.startsWith('DESCRIPTION:')) {
-                  inDescription = true;
-                  descriptionLines.push(line.substring(12));
-                } else if (inDescription && line.startsWith(' ')) {
-                  descriptionLines.push(line.substring(1));
-                } else if (line.indexOf(':') !== -1) {
-                  inDescription = false;
-                }
-              }
+          let currentIndex = 0;
+          
+          function setActiveSlide(index) {
+            indicators.forEach(indicator => {
+              indicator.classList.remove('current-slide');
+            });
+            if (indicators[index]) {
+              indicators[index].classList.add('current-slide');
             }
             
-            events.sort((a, b) => new Date(a.start) - new Date(b.start));
+            track.style.transform = `translateX(-${index * 100}%)`;
             
-            return events.slice(0, 5);
+            prevButton.style.display = index === 0 ? 'none' : 'flex';
+            nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
           }
           
-          function parseICalDate(dateStr) {
-            if (dateStr.includes('T')) {
-              const year = dateStr.substring(0, 4);
-              const month = dateStr.substring(4, 6) - 1;
-              const day = dateStr.substring(6, 8);
-              const hour = dateStr.substring(9, 11) || 0;
-              const minute = dateStr.substring(11, 13) || 0;
-              const second = dateStr.substring(13, 15) || 0;
-              
-              if (dateStr.endsWith('Z')) {
-                return new Date(Date.UTC(year, month, day, hour, minute, second));
-              }
-              
-              return new Date(year, month, day, hour, minute, second);
+          nextButton.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+              currentIndex++;
+              setActiveSlide(currentIndex);
+            }
+          });
+          
+          prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+              currentIndex--;
+              setActiveSlide(currentIndex);
+            }
+          });
+          
+          indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+              currentIndex = index;
+              setActiveSlide(currentIndex);
+            });
+          });
+          
+          let autoAdvance = setInterval(() => {
+            if (currentIndex < slides.length - 1) {
+              currentIndex++;
+              setActiveSlide(currentIndex);
             } else {
-              const year = dateStr.substring(0, 4);
-              const month = dateStr.substring(4, 6) - 1;
-              const day = dateStr.substring(6, 8);
-              
-              return new Date(year, month, day);
+              currentIndex = 0;
+              setActiveSlide(currentIndex);
             }
-          }
+          }, 5000);
           
-          function updateEventsCarousel(events) {
-            const eventsTrack = document.getElementById('events-track');
-            const eventsNav = document.getElementById('events-nav');
-            const eventsContainer = document.getElementById('events-carousel');
-            
-            eventsTrack.innerHTML = '';
-            eventsNav.innerHTML = '';
-            
-            if (events.length === 0) {
-              eventsContainer.classList.add('hidden');
-              return;
-            }
-            
-            eventsContainer.classList.remove('hidden');
-            
-            events.forEach((event, index) => {
-              const slide = document.createElement('li');
-              slide.className = 'carousel-slide';
-              
-              const eventDate = new Date(event.start);
-              const options = { 
-                weekday: 'short', 
-                year: 'numeric', 
-                month: 'short', 
-                day: 'numeric',
-                hour: 'numeric',
-                minute: '2-digit'
-              };
-              const formattedDate = event.formattedDate || eventDate.toLocaleDateString('en-US', options);
-              
-              let description = event.description || '';
-              if (description.length > 200) {
-                description = description.substring(0, 200) + '...';
-              }
-              
-              let buttonHtml;
-              if (event.link) {
-                buttonHtml = `<a href="${event.link}" class="event-button" target="_blank" onclick="handleEventRegistration(event, '${event.link}')">Register Now</a>`;
-              } else {
-                buttonHtml = `<a href="#registration-form" class="event-button" onclick="scrollToRegistration()">Register Now</a>`;
-              }
-              
-              slide.innerHTML = `
-                <div class="event-card">
-                  <div class="event-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
-                  <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
-                  ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
-                  ${description ? `<p class="event-description">${description}</p>` : ''}
-                  ${buttonHtml}
-                </div>
-              `;
-              
-              eventsTrack.appendChild(slide);
-              
-              const indicator = document.createElement('button');
-              indicator.className = 'carousel-indicator';
-              indicator.dataset.index = index;
-              eventsNav.appendChild(indicator);
-            });
-            
-            initCarouselFunctionality();
-          }
+          const carousel = document.querySelector('.carousel');
+          carousel.addEventListener('mouseenter', () => {
+            clearInterval(autoAdvance);
+          });
           
-          function initCarouselFunctionality() {
-            const track = document.getElementById('events-track');
-            const nav = document.getElementById('events-nav');
-            const slides = Array.from(track.children);
-            const indicators = Array.from(nav.children);
-            const nextButton = document.querySelector('.carousel-button.next');
-            const prevButton = document.querySelector('.carousel-button.prev');
-            
-            if (slides.length <= 1) {
-              nextButton.style.display = 'none';
-              prevButton.style.display = 'none';
-              nav.style.display = 'none';
-              return;
-            }
-            
-            let currentIndex = 0;
-            
-            function setActiveSlide(index) {
-              indicators.forEach(indicator => {
-                indicator.classList.remove('current-slide');
-              });
-              if (indicators[index]) {
-                indicators[index].classList.add('current-slide');
-              }
-              
-              track.style.transform = `translateX(-${index * 100}%)`;
-              
-              prevButton.style.display = index === 0 ? 'none' : 'flex';
-              nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
-            }
-            
-            nextButton.addEventListener('click', () => {
-              if (currentIndex < slides.length - 1) {
-                currentIndex++;
-                setActiveSlide(currentIndex);
-              }
-            });
-            
-            prevButton.addEventListener('click', () => {
-              if (currentIndex > 0) {
-                currentIndex--;
-                setActiveSlide(currentIndex);
-              }
-            });
-            
-            indicators.forEach((indicator, index) => {
-              indicator.addEventListener('click', () => {
-                currentIndex = index;
-                setActiveSlide(currentIndex);
-              });
-            });
-            
-            let autoAdvance = setInterval(() => {
+          carousel.addEventListener('mouseleave', () => {
+            autoAdvance = setInterval(() => {
               if (currentIndex < slides.length - 1) {
                 currentIndex++;
                 setActiveSlide(currentIndex);
@@ -4420,42 +3825,19 @@
                 setActiveSlide(currentIndex);
               }
             }, 5000);
-            
-            const carousel = document.querySelector('.carousel');
-            carousel.addEventListener('mouseenter', () => {
-              clearInterval(autoAdvance);
-            });
-            
-            carousel.addEventListener('mouseleave', () => {
-              autoAdvance = setInterval(() => {
-                if (currentIndex < slides.length - 1) {
-                  currentIndex++;
-                  setActiveSlide(currentIndex);
-                } else {
-                  currentIndex = 0;
-                  setActiveSlide(currentIndex);
-                }
-              }, 5000);
-            });
-            
-            setActiveSlide(0);
-          }
+          });
           
-          fetchCalendarEvents();
-          
-          setInterval(fetchCalendarEvents, 60 * 60 * 1000);
+          setActiveSlide(0);
         }
         
         function initPage() {
           window.scrollTo(0, 0);
           
           updateCTASection();
-          initVideoSection();
           initForm();
           initRegistrationFlow();
           initNavButtons();
           initSmartNavigation();
-          initMapsLinks();
           initEventsCarousel();
           
           window.addEventListener('scroll', setActiveSection);
@@ -4469,50 +3851,11 @@
       }
     });
 
-    // NEW FUNCTIONS TO FIX THE CALENDAR BUTTON ISSUE
-    function handleEventRegistration(event, url) {
-      event.preventDefault();
-      
-      // Check if this is a Facebook event URL
-      if (url.includes('facebook.com') || url.includes('fb.me') || url.includes('fb.com')) {
-        // Try to open in Facebook app first
-        const fbAppUrl = url.replace('https://www.facebook.com/', 'fb://facewebmodal/f?href=');
-        window.location.href = fbAppUrl;
-        
-        // Fallback to web URL if app doesn't open
-        setTimeout(() => {
-          if (!document.hidden) {
-            window.open(url, '_blank');
-          }
-        }, 500);
-      } else {
-        // For non-Facebook URLs, just open in new tab
-        window.open(url, '_blank');
-      }
-    }
-    
     function scrollToRegistration() {
       document.getElementById('registration-form').scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
-    }
-    
-    // Fix for the extractFirstURL function to better handle Facebook event URLs
-    function extractFirstURL(text) {
-      if (!text) return null;
-      
-      // First, try to find Facebook event URLs specifically
-      const fbEventRegex = /(https?:\/\/[^\s<]*facebook\.com\/events\/[^\s<]+|https?:\/\/[^\s<]*fb\.me\/[^\s<]+)/gi;
-      const fbMatch = text.match(fbEventRegex);
-      if (fbMatch) {
-        return fbMatch[0];
-      }
-      
-      // Then try to find any URL
-      const urlRegex = /(https?:\/\/[^\s<]+)/gi;
-      const match = text.match(urlRegex);
-      return match ? match[0] : null;
     }
   </script>
 </body>
