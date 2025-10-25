@@ -602,8 +602,16 @@
             background: linear-gradient(135deg, #000000, #69c9d0);
         }
         
+        .estilo-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light)) !important;
+        }
+        
         .serrata-icon {
             background: linear-gradient(135deg, var(--primary-darker), var(--primary)) !important;
+        }
+        
+        .tiktok-class-icon {
+            background: linear-gradient(135deg, #000000, #69c9d0) !important;
         }
         
         .private-icon {
@@ -2826,14 +2834,14 @@
           <p class="logo-tagline">Move. Connect. Feel Alive.</p>
           <h1 id="main-title">Serrata Dance Studio</h1>
           <div class="divider"></div>
-          <p class="tagline" id="tagline">Professional Salsa & Bachata Instruction | Events & Parties | Transforming Passion into Movement</p>
+          <p class="tagline" id="tagline">Professional Salsa & Bachata Instruction | Events & Parties</p>
         </div>
         
         <div class="content">
           <h2 class="section-title" id="connect-title">Connect With Us</h2>
           <div class="links-grid">
-            <a href="https://www.facebook.com/serrataestudio" 
-               target="_blank"
+            <a href="fb://profile/danielp_bachata" 
+               onclick="return openSocialApp(event, 'https://www.facebook.com/share/16xiMgtqdq/?mibextid=wwXIfr')"
                class="link-card facebook">
               <div class="social-icon-container facebook-icon-container">
                 <div class="social-gradient"></div>
@@ -2842,13 +2850,13 @@
                 </div>
               </div>
               <div class="link-text">
-                <div class="link-title">Serrata Estudio</div>
-                <div class="link-subtitle" id="facebook-sub">Facebook Page</div>
+                <div class="link-title">Serrata Dance Studio</div>
+                <div class="link-subtitle" id="facebook-sub">Facebook Profile</div>
               </div>
             </a>
             
-            <a href="https://www.instagram.com/serrataestudio" 
-               target="_blank"
+            <a href="instagram://user?username=danielp_bachata" 
+               onclick="return openSocialApp(event, 'https://www.instagram.com/danielp_bachata')"
                class="link-card instagram">
               <div class="social-icon-container instagram-icon-container">
                 <div class="social-gradient"></div>
@@ -2858,12 +2866,12 @@
               </div>
               <div class="link-text">
                 <div class="link-title">Instagram</div>
-                <div class="link-subtitle">@serrataestudio</div>
+                <div class="link-subtitle">@serratadancestudio</div>
               </div>
             </a>
             
-            <a href="https://www.tiktok.com/@serrataestudio" 
-               target="_blank"
+            <a href="snssdk1233://user/profile/danielp_bachata" 
+               onclick="return openSocialApp(event, 'https://www.tiktok.com/@danielp_bachata')"
                class="link-card tiktok">
               <div class="social-icon-container tiktok-icon-container">
                 <div class="social-gradient"></div>
@@ -2873,7 +2881,7 @@
               </div>
               <div class="link-text">
                 <div class="link-title">TikTok</div>
-                <div class="link-subtitle">@serrataestudio</div>
+                <div class="link-subtitle">@serratadancestudio</div>
               </div>
             </a>
           </div>
@@ -2881,6 +2889,39 @@
           <div class="date-section" id="current-date-discreet">
             <strong id="today-label">Today is:</strong> <span id="date-text"></span>
           </div>
+          
+          <section class="tiktok-video-section" id="video-library">
+            <div class="video-header">
+              <h2 class="video-title">Dance Video Library</h2>
+              <p class="video-subtitle">Use navigation buttons to browse videos. Tap to play.</p>
+            </div>
+            
+            <div class="video-categories">
+              <button class="category-btn active" data-category="all">All Videos</button>
+              <button class="category-btn" data-category="salsa">Salsa Tutorials</button>
+              <button class="category-btn" data-category="bachata">Bachata Tutorials</button>
+              <button class="category-btn bachata-counts" data-category="bachata-counts">Bachata Counts/Beat</button>
+            </div>
+            
+            <div class="tiktok-video-feed">
+              <div class="video-feed-container">
+                <div class="video-feed" id="video-feed">
+                </div>
+              </div>
+              
+              <div class="video-nav">
+                <button class="nav-arrow prev-video">
+                  <i class="fas fa-chevron-up"></i>
+                </button>
+                <button class="nav-arrow next-video">
+                  <i class="fas fa-chevron-down"></i>
+                </button>
+              </div>
+              
+              <div class="video-indicators" id="video-indicators">
+              </div>
+            </div>
+          </section>
           
           <h2 class="section-title" id="upcoming-title">Join Our Classes</h2>
           
@@ -2918,7 +2959,7 @@
                          class="location-address-link" 
                          title="Directions to Serrata Estudio" 
                          aria-label="Serrata Estudio on Google Maps"
-                         target="_blank">
+                         onclick="return openMaps(event, 'comgooglemaps://?q=7157+Frankford+Ave+Philadelphia+PA+19135', 'geo:0,0?q=7157+Frankford+Ave+Philadelphia+PA+19135')">
                         <i class="fas fa-map-marker-alt"></i>
                         <span class="address-text">7157 Frankford Ave, Philadelphia, PA 19135</span>
                       </a>
@@ -2926,6 +2967,18 @@
                   </div>
                 </div>
                 <div class="schedule-list">
+                  <!-- ADDED: Monday classes -->
+                  <div class="schedule-day-group" data-day="Monday">
+                    <div class="schedule-day-header">Monday Classes</div>
+                    <div class="schedule-class">
+                      <span class="class-time">6:30pm</span>
+                      <span class="class-name"><span class="salsa-text">Salsa</span></span>
+                    </div>
+                    <div class="schedule-class">
+                      <span class="class-time">7:30pm</span>
+                      <span class="class-name"><span class="bachata-text">Bachata</span></span>
+                    </div>
+                  </div>
                   <div class="schedule-day-group" data-day="Tuesday">
                     <div class="schedule-day-header">Tuesday – 4-Week Intro Program</div>
                     <div class="schedule-class">
@@ -3051,7 +3104,7 @@
           </div>
 
           <div class="events-carousel-container" id="events-carousel">
-            <h2 class="section-title">Upcoming Events & Parties</h2>
+            <h2 class="section-title">Upcoming Events</h2>
             <div class="carousel">
               <button class="carousel-button prev">
                 <i class="fas fa-chevron-left"></i>
@@ -3059,42 +3112,9 @@
               <div class="carousel-track-container">
                 <ul class="carousel-track" id="events-track">
                   <li class="carousel-slide">
-                    <div class="event-card">
-                      <div class="event-date"><i class="far fa-calendar-alt"></i> Every Friday Night</div>
-                      <h3 class="event-title">Serrata Social Dance Party</h3>
-                      <div class="event-location"><i class="fas fa-map-marker-alt"></i> Serrata Estudio, Philadelphia</div>
-                      <p class="event-description">Join us every Friday for our signature social dance party. Enjoy salsa, bachata, and merengue music with dancers of all levels. No partner needed!</p>
-                      <div class="event-url">
-                        <i class="fas fa-link"></i>
-                        <a href="https://www.facebook.com/serrataestudio" target="_blank">Follow us on Facebook for updates</a>
-                      </div>
-                      <button class="event-button" onclick="window.open('https://www.facebook.com/serrataestudio', '_blank')">View Event</button>
-                    </div>
-                  </li>
-                  <li class="carousel-slide">
-                    <div class="event-card">
-                      <div class="event-date"><i class="far fa-calendar-alt"></i> Monthly Special Event</div>
-                      <h3 class="event-title">Bachata Night Live</h3>
-                      <div class="event-location"><i class="fas fa-map-marker-alt"></i> Serrata Estudio, Philadelphia</div>
-                      <p class="event-description">Experience the hottest bachata night in Philadelphia with live music, professional performances, and social dancing until late.</p>
-                      <div class="event-url">
-                        <i class="fas fa-link"></i>
-                        <a href="https://www.instagram.com/serrataestudio" target="_blank">Check Instagram for dates</a>
-                      </div>
-                      <button class="event-button" onclick="window.open('https://www.instagram.com/serrataestudio', '_blank')">View Event</button>
-                    </div>
-                  </li>
-                  <li class="carousel-slide">
-                    <div class="event-card">
-                      <div class="event-date"><i class="far fa-calendar-alt"></i> Seasonal Event</div>
-                      <h3 class="event-title">Salsa & Bachata Festival</h3>
-                      <div class="event-location"><i class="fas fa-map-marker-alt"></i> Serrata Estudio, Philadelphia</div>
-                      <p class="event-description">Our annual festival featuring workshops with international instructors, performances, parties, and competitions.</p>
-                      <div class="event-url">
-                        <i class="fas fa-link"></i>
-                        <a href="https://www.serrataestudio.com" target="_blank">Visit our website for details</a>
-                      </div>
-                      <button class="event-button" onclick="scrollToRegistration()">Register Interest</button>
+                    <div class="events-loading">
+                      <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                      <p>Loading events from calendar...</p>
                     </div>
                   </li>
                 </ul>
@@ -3108,15 +3128,15 @@
           
           <h2 class="section-title" id="payment-title">Payment Options</h2>
           <div class="links-grid">
-            <a href="https://venmo.com/serrataestudio" 
-               target="_blank" 
+            <a href="venmo://account?username=Rebecca_Rose_Bachata" 
+               onclick="return openVenmo(event, 'https://venmo.com/u/Rebecca_Rose_Bachata')" 
                class="link-card venmo">
               <div class="link-icon">
                 <i class="fab fa-vimeo-v"></i>
               </div>
               <div class="link-text">
                 <div class="link-title">Venmo</div>
-                <div class="link-subtitle" id="venmo-sub">@serrataestudio</div>
+                <div class="link-subtitle" id="venmo-sub">Serrata Dance Studio</div>
               </div>
             </a>
             
@@ -3133,13 +3153,13 @@
           
           <h2 class="section-title" id="contact-title">Contact Us</h2>
           <div class="links-grid">
-            <a href="mailto:info@serrataestudio.com" class="link-card contact" target="_blank">
+            <a href="mailto:contact@serratadancestudio.com" class="link-card contact" target="_blank">
               <div class="link-icon contact-icon">
                 <i class="fas fa-envelope"></i>
               </div>
               <div class="link-text">
-                <div class="link-title" id="contact-title-text">Studio Inquiries</div>
-                <div class="link-subtitle" id="contact-subtitle">Classes, events and partnerships</div>
+                <div class="link-title" id="contact-title-text">Professional Inquiries</div>
+                <div class="link-subtitle" id="contact-subtitle">Bookings and partnerships</div>
               </div>
             </a>
           </div>
@@ -3158,7 +3178,7 @@
             
             <div class="signature-container">
               <div class="signature-line" id="signature-line" 
-                   ondblclick="window.open('https://serrataestudio.com', '_blank')"
+                   ondblclick="window.open('https://dancefirststep.github.io/class-schedule-/', '_blank')"
                    style="cursor: pointer;"></div>
             </div>
           </footer>
@@ -3255,7 +3275,7 @@
         clearInterval(timerInterval);
         hideWelcomePage();
         setTimeout(function() {
-          document.getElementById('upcoming-title').scrollIntoView({ 
+          document.getElementById('video-library').scrollIntoView({ 
             behavior: 'smooth', 
             block: 'start'
           });
@@ -3298,9 +3318,9 @@
         const translations = {
           en: {
             mainTitle: "Serrata Dance Studio",
-            tagline: "Professional Salsa & Bachata Instruction | Events & Parties | Transforming Passion into Movement",
+            tagline: "Professional Salsa & Bachata Instruction | Events & Parties",
             connectTitle: "Connect With Us",
-            facebookSub: "Facebook Page",
+            facebookSub: "Facebook Profile",
             todayLabel: "Today is:",
             upcomingTitle: "Join Our Classes",
             registerCta: "Register Now",
@@ -3315,20 +3335,20 @@
             thankYouText: "We're excited to dance with you! Your spot is being saved.",
             registerAgainText: "Register Another Person",
             paymentTitle: "Payment Options",
-            venmoSub: "@serrataestudio",
+            venmoSub: "Serrata Dance Studio",
             cashTitle: "Cash",
             cashSub: "Pay at the studio",
             contactTitle: "Contact Us",
-            contactTitleText: "Studio Inquiries",
-            contactSubtitle: "Classes, events and partnerships",
+            contactTitleText: "Professional Inquiries",
+            contactSubtitle: "Bookings and partnerships",
             copyright: "© 2025 Serrata Dance Studio | Events & Parties",
             quote: "Dance is the hidden language of the soul"
           },
           es: {
             mainTitle: "Serrata Dance Studio",
-            tagline: "Instrucción Profesional de Salsa y Bachata | Eventos y Fiestas | Transformando Pasión en Movimiento",
+            tagline: "Instrucción Profesional de Salsa y Bachata | Eventos y Fiestas",
             connectTitle: "Conéctate Con Nosotros",
-            facebookSub: "Página de Facebook",
+            facebookSub: "Perfil de Facebook",
             todayLabel: "Hoy es:",
             upcomingTitle: "Únete a Nuestras Clases",
             registerCta: "Regístrate Ahora",
@@ -3343,12 +3363,12 @@
             thankYouText: "¡Estamos emocionados de bailar contigo! Tu lugar está siendo reservado.",
             registerAgainText: "Registrar Otra Persona",
             paymentTitle: "Opciones de Pago",
-            venmoSub: "@serrataestudio",
+            venmoSub: "Serrata Dance Studio",
             cashTitle: "Efectivo",
             cashSub: "Paga en el estudio",
             contactTitle: "Contáctanos",
-            contactTitleText: "Consultas del Estudio",
-            contactSubtitle: "Clases, eventos y colaboraciones",
+            contactTitleText: "Consultas Profesionales",
+            contactSubtitle: "Reservas y colaboraciones",
             copyright: "© 2025 Serrata Dance Studio | Eventos y Fiestas",
             quote: "El baile es el lenguaje oculto del alma"
           }
@@ -3419,8 +3439,357 @@
           setLanguage(userLanguage);
         }
         
-        // Class schedule data
+        // Video section initialization
+        const videoFeed = document.getElementById('video-feed');
+        const videoIndicators = document.getElementById('video-indicators');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const prevVideoBtn = document.querySelector('.prev-video');
+        const nextVideoBtn = document.querySelector('.next-video');
+        
+        // Video data
+        const videoData = [
+          {
+            id: 0,
+            title: "Bachata Counts/Beat",
+            description: "Master the rhythm and timing of Bachata",
+            duration: "",
+            level: "",
+            views: "1.5K",
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/rAVYL74OgKM/maxresdefault.jpg",
+            videoId: "rAVYL74OgKM"
+          },
+          {
+            id: 1,
+            title: "Bachata Counts/Beat Part 1",
+            description: "Learn the basic counts and beat structure of Bachata",
+            duration: "",
+            level: "",
+            views: "1.2K",
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/OWLylEYSroA/maxresdefault.jpg",
+            videoId: "OWLylEYSroA"
+          },
+          {
+            id: 2,
+            title: "Bachata Counts/Beat Part 2",
+            description: "Advanced counting techniques for Bachata music",
+            duration: "",
+            level: "",
+            views: "980",
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/PPnVKETxf6I/maxresdefault.jpg",
+            videoId: "PPnVKETxf6I"
+          },
+          {
+            id: 3,
+            title: "Bachata Counts/Beat Part 3",
+            description: "Mastering the timing and rhythm of Bachata",
+            duration: "",
+            level: "",
+            views: "1.5K",
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/J5SEMr4vmTM/maxresdefault.jpg",
+            videoId: "J5SEMr4vmTM"
+          },
+          {
+            id: 4,
+            title: "Bachata Counts/Beat Part 4",
+            description: "Understanding musical phrasing in Bachata",
+            duration: "",
+            level: "",
+            views: "890",
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/ZE0Zgv5gCGo/maxresdefault.jpg",
+            videoId: "ZE0Zgv5gCGo"
+          },
+          {
+            id: 5,
+            title: "Bachata Counts/Beat Part 5",
+            description: "Advanced beat recognition and timing exercises",
+            duration: "",
+            level: "",
+            views: "1.1K",
+            category: ["bachata-counts"],
+            thumbnail: "https://img.youtube.com/vi/NcpGLZVhKDc/maxresdefault.jpg",
+            videoId: "NcpGLZVhKDc"
+          }
+        ];
+        
+        let currentCategory = 'all';
+        let currentVideoIndex = 0;
+        let currentPlayingVideo = null;
+        let activeVideoIframe = null;
+        let videoObserver;
+        
+        function pauseAllVideos() {
+          if (activeVideoIframe) {
+            const iframeSrc = activeVideoIframe.src;
+            activeVideoIframe.src = iframeSrc.replace('&autoplay=1', '');
+            activeVideoIframe = null;
+          }
+          currentPlayingVideo = null;
+        }
+        
+        function initVideoObserver() {
+          videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (!entry.isIntersecting) {
+                pauseAllVideos();
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          videoObserver.observe(document.querySelector('.tiktok-video-feed'));
+        }
+        
+        function renderVideos(category = 'all') {
+          videoFeed.innerHTML = '';
+          videoIndicators.innerHTML = '';
+          
+          const filteredVideos = category === 'all' 
+            ? videoData 
+            : videoData.filter(video => video.category.includes(category));
+          
+          if (filteredVideos.length === 0) {
+            videoFeed.innerHTML = `
+              <div class="video-item">
+                <div class="video-placeholder">
+                  <div class="video-placeholder-content">
+                    <h3 class="video-placeholder-title">No videos found</h3>
+                    <p class="video-placeholder-description">Try selecting a different category</p>
+                  </div>
+                </div>
+              </div>
+            `;
+            return;
+          }
+          
+          filteredVideos.forEach((video, index) => {
+            const videoItem = document.createElement('div');
+            videoItem.className = 'video-item';
+            videoItem.setAttribute('data-video-id', video.id);
+            videoItem.innerHTML = `
+              <div class="video-player">
+                <div class="video-placeholder">
+                  <img src="${video.thumbnail}" alt="${video.title}" loading="lazy">
+                  <div class="video-placeholder-content">
+                    <button class="play-button" data-video-id="${video.videoId}">
+                      <i class="fas fa-play"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="video-info-overlay">
+                <h3 class="video-item-title">${video.title}</h3>
+                <div class="video-meta">
+                  <span class="video-views"><i class="fas fa-eye"></i> ${video.views}</span>
+                </div>
+              </div>
+            `;
+            
+            videoFeed.appendChild(videoItem);
+            
+            const indicator = document.createElement('button');
+            indicator.className = 'video-indicator';
+            indicator.dataset.index = index;
+            videoIndicators.appendChild(indicator);
+          });
+          
+          setActiveVideo(0);
+        }
+        
+        function setActiveVideo(index) {
+          if (activeVideoIframe) {
+            const iframeSrc = activeVideoIframe.src;
+            activeVideoIframe.src = iframeSrc.replace('&autoplay=1', '');
+            activeVideoIframe = null;
+          }
+          
+          const videoItems = document.querySelectorAll('.video-item');
+          const indicators = document.querySelectorAll('.video-indicator');
+          
+          videoItems.forEach(item => {
+            item.classList.remove('active');
+          });
+          
+          indicators.forEach(indicator => {
+            indicator.classList.remove('active');
+          });
+          
+          if (videoItems[index]) {
+            videoItems[index].classList.add('active');
+          }
+          
+          if (indicators[index]) {
+            indicators[index].classList.add('active');
+          }
+          
+          videoFeed.style.transform = `translateY(-${index * 100}%)`;
+          
+          currentVideoIndex = index;
+        }
+        
+        function playVideo(videoId, videoItem) {
+          const videoPlayer = videoItem.querySelector('.video-player');
+          const videoInfoOverlay = videoItem.querySelector('.video-info-overlay');
+          
+          const existingOverlay = videoPlayer.querySelector('.youtube-overlay');
+          if (existingOverlay) {
+            existingOverlay.remove();
+          }
+          
+          currentPlayingVideo = videoId;
+          
+          videoInfoOverlay.classList.add('hidden');
+          
+          videoPlayer.innerHTML = `
+            <div class="youtube-overlay" id="youtube-overlay-${videoId}">
+              <div style="text-align: center;">
+                <div class="spinner" style="margin: 0 auto 15px;"></div>
+                <div>Loading video...</div>
+              </div>
+            </div>
+            <iframe 
+              src="https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&showinfo=0&playsinline=1&enablejsapi=1"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          `;
+          
+          activeVideoIframe = videoPlayer.querySelector('iframe');
+          
+          setTimeout(() => {
+            const overlay = document.getElementById(`youtube-overlay-${videoId}`);
+            if (overlay) {
+              overlay.classList.add('hidden');
+              setTimeout(() => {
+                if (overlay.parentNode) {
+                  overlay.parentNode.removeChild(overlay);
+                }
+              }, 500);
+            }
+          }, 2000);
+        }
+        
+        function initVideoSection() {
+          renderVideos();
+          initVideoObserver();
+          
+          categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+              categoryButtons.forEach(btn => btn.classList.remove('active'));
+              this.classList.add('active');
+              
+              currentCategory = this.getAttribute('data-category');
+              renderVideos(currentCategory);
+            });
+          });
+          
+          prevVideoBtn.addEventListener('click', () => {
+            if (currentVideoIndex > 0) {
+              setActiveVideo(currentVideoIndex - 1);
+            }
+          });
+          
+          nextVideoBtn.addEventListener('click', () => {
+            const videoItems = document.querySelectorAll('.video-item');
+            if (currentVideoIndex < videoItems.length - 1) {
+              setActiveVideo(currentVideoIndex + 1);
+            }
+          });
+          
+          videoIndicators.addEventListener('click', (e) => {
+            if (e.target.classList.contains('video-indicator')) {
+              const index = parseInt(e.target.dataset.index);
+              setActiveVideo(index);
+            }
+          });
+          
+          videoFeed.addEventListener('click', (e) => {
+            if (e.target.closest('.play-button')) {
+              const playButton = e.target.closest('.play-button');
+              const videoId = playButton.dataset.videoId;
+              const videoItem = playButton.closest('.video-item');
+              playVideo(videoId, videoItem);
+            }
+          });
+          
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              if (currentVideoIndex > 0) {
+                setActiveVideo(currentVideoIndex - 1);
+              }
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              const videoItems = document.querySelectorAll('.video-item');
+              if (currentVideoIndex < videoItems.length - 1) {
+                setActiveVideo(currentVideoIndex + 1);
+              }
+            }
+          });
+        }
+
+        // Form functionality
+        const participantContainer = document.getElementById('participant-container');
+        const addParticipantBtn = document.getElementById('add-participant');
+        const removeParticipantBtn = document.getElementById('remove-participant');
+        
+        let participantCount = 1;
+        const maxParticipants = 4;
+        
+        addParticipantBtn.addEventListener('click', function() {
+          if (participantCount < maxParticipants) {
+            participantCount++;
+            
+            const newParticipant = document.createElement('div');
+            newParticipant.className = 'participant-fields name-field';
+            newParticipant.innerHTML = `
+              <div class="participant-form-group">
+                <input type="text" class="form-input" placeholder="${translations[currentLanguage].namePlaceholder}" required>
+              </div>
+            `;
+            
+            participantContainer.appendChild(newParticipant);
+            
+            removeParticipantBtn.disabled = false;
+            
+            if (participantCount === maxParticipants) {
+              addParticipantBtn.disabled = true;
+            }
+          }
+        });
+        
+        removeParticipantBtn.addEventListener('click', function() {
+          if (participantCount > 1) {
+            const lastField = participantContainer.lastChild;
+            participantContainer.removeChild(lastField);
+            participantCount--;
+            
+            if (participantCount === 1) {
+              removeParticipantBtn.disabled = true;
+            }
+            
+            addParticipantBtn.disabled = false;
+          }
+        });
+        
+        // Class schedule data - UPDATED: Added Monday classes to Serrata
         const classSchedule = [
+          { 
+            day: "Monday", 
+            dayIndex: 1,
+            studio: "Serrata Estudio",
+            classes: [
+              "6:30pm Salsa",
+              "7:30pm Bachata"
+            ],
+            locationId: "serrata-card",
+            startTime: 1830,
+            lastClassEndTime: 2030
+          },
           { 
             day: "Tuesday", 
             dayIndex: 2,
@@ -3667,6 +4036,14 @@
             });
           });
           
+          document.getElementById('btn-videos').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.getElementById('video-library').scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start'
+            });
+          });
+          
           document.getElementById('btn-schedule').addEventListener('click', (e) => {
             e.preventDefault();
             document.getElementById('schedule-title').scrollIntoView({ 
@@ -3687,6 +4064,7 @@
         function setActiveSection() {
           const sections = [
             {id: 'connect-title', btn: 'btn-social'},
+            {id: 'video-library', btn: 'btn-videos'},
             {id: 'schedule-title', btn: 'btn-schedule'},
             {id: 'payment-title', btn: 'btn-payments'}
           ];
@@ -3715,6 +4093,7 @@
           
           let lastScrollTop = 0;
           const hideThreshold = 100;
+          let touchStartY = 0;
           
           function handleScroll() {
             const currentScrollY = window.scrollY;
@@ -3733,7 +4112,115 @@
             setActiveSection();
           }
           
+          function handleTouchStart(e) {
+            if (window.scrollY === 0) {
+              touchStartY = e.touches[0].clientY;
+            }
+          }
+          
+          function handleTouchMove(e) {
+            if (window.scrollY === 0 && touchStartY) {
+              const currentY = e.touches[0].clientY;
+              const diff = currentY - touchStartY;
+              
+              if (diff > 50) {
+                logoContainer.classList.add('highlight');
+              }
+            }
+          }
+          
+          function handleTouchEnd() {
+            touchStartY = 0;
+            logoContainer.classList.remove('highlight');
+          }
+          
           window.addEventListener('scroll', handleScroll);
+          document.addEventListener('touchstart', handleTouchStart);
+          document.addEventListener('touchmove', handleTouchMove);
+          document.addEventListener('touchend', handleTouchEnd);
+        }
+        
+        function openSocialApp(e, webUrl) {
+          e.preventDefault();
+          const appUrl = e.currentTarget.getAttribute('href');
+          
+          window.location = appUrl;
+          setTimeout(function() {
+            if (!document.hidden) {
+              window.location.href = webUrl;
+            }
+          }, 500);
+          return false;
+        }
+        
+        function openVenmo(e, webUrl) {
+          e.preventDefault();
+          const appUrl = e.currentTarget.getAttribute('href');
+          
+          window.location = appUrl;
+          setTimeout(function() {
+            if (!document.hidden) {
+              window.location.href = webUrl;
+            }
+          }, 500);
+          return false;
+        }
+        
+        function openMaps(e, iosUrl, androidUrl) {
+          e.preventDefault();
+          const mapsUrl = e.currentTarget.href;
+          
+          const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+          const isFacebookApp = /FBAN|FBAV|FBSN/i.test(userAgent);
+          
+          if (isFacebookApp) {
+            const prompt = document.createElement('div');
+            prompt.className = 'notification notification-info';
+            prompt.innerHTML = `
+              <i class="fas fa-external-link-alt"></i> 
+              ${currentLanguage === 'es' ? 'Abre en navegador externo para ver mapa' : 'Open in external browser for maps'}
+              <button class="open-external">OK</button>
+            `;
+            document.body.appendChild(prompt);
+            
+            prompt.querySelector('.open-external').addEventListener('click', () => {
+              window.open(mapsUrl, '_blank');
+              prompt.remove();
+            });
+            
+            return false;
+          }
+          
+          const isIOS = /iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
+          
+          if (isIOS) {
+            window.location = iosUrl;
+          } else {
+            window.location = androidUrl;
+          }
+          
+          setTimeout(() => {
+            if (!document.hidden) {
+              window.location.href = mapsUrl;
+            }
+          }, 500);
+          
+          return false;
+        }
+        
+        function initMapsLinks() {
+          document.querySelectorAll('a.location-address-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+              const studioName = this.title.replace('Directions to ', '');
+              const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+              
+              if (isIOS) {
+                openMaps(e, `maps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
+              } else {
+                openMaps(e, `comgooglemaps://?q=${encodeURIComponent(studioName)}`, `geo:0,0?q=${encodeURIComponent(studioName)}`);
+              }
+            });
+          });
         }
         
         function bookPrivateLesson() {
@@ -3747,76 +4234,350 @@
           }, 500);
         }
 
-        // Initialize events carousel
+        // ENHANCED: Improved URL extraction function for Facebook events with 16-digit IDs
+        function extractEventURL(event) {
+          // Check multiple fields for URLs in order of priority
+          const fieldsToCheck = [
+            event.url,
+            event.description,
+            event.summary,
+            event.location
+          ];
+          
+          for (const field of fieldsToCheck) {
+            if (field) {
+              // First try to find Facebook event URLs with 13-20 digit IDs
+              const facebookEventURL = extractFacebookEventURL(field);
+              if (facebookEventURL) return facebookEventURL;
+              
+              // Fallback to general URL extraction
+              const generalURL = extractFirstURL(field);
+              if (generalURL) return generalURL;
+            }
+          }
+          
+          return null;
+        }
+
+        // ENHANCED: Specialized function to extract Facebook event URLs with 13-20 digit IDs
+        function extractFacebookEventURL(text) {
+          if (!text) return null;
+          
+          // Enhanced regex pattern to match Facebook event URLs with 13-20 digit IDs
+          const facebookEventPattern = /(https?:\/\/(?:www\.)?(?:facebook|fb)\.com\/events\/[^\s<]*\/\d{13,20}\/?[^\s<]*)/gi;
+          const matches = text.match(facebookEventPattern);
+          
+          if (matches && matches.length > 0) {
+            // Return the first matching Facebook event URL
+            return matches[0];
+          }
+          
+          // Also try to find URLs containing 13-20 digit numbers (Facebook event IDs)
+          const digitPattern = /(https?:\/\/[^\s<]*\d{13,20}[^\s<]*)/gi;
+          const digitMatches = text.match(digitPattern);
+          
+          if (digitMatches && digitMatches.length > 0) {
+            // Filter to only Facebook URLs to avoid false positives
+            const facebookUrls = digitMatches.filter(url => 
+              url.includes('facebook.com') || url.includes('fb.com')
+            );
+            if (facebookUrls.length > 0) {
+              return facebookUrls[0];
+            }
+          }
+          
+          return null;
+        }
+
+        // ENHANCED: Improved general URL extraction
+        function extractFirstURL(text) {
+          if (!text) return null;
+          
+          // Enhanced regex to handle various URL formats
+          const urlRegex = /(https?:\/\/[^\s<]+[a-zA-Z0-9\/\-_#&?=%+])/g;
+          const matches = text.match(urlRegex);
+          
+          return matches && matches.length > 0 ? matches[0] : null;
+        }
+
+        // ENHANCED: Improved events carousel initialization with better URL handling
         function initEventsCarousel() {
-          const track = document.getElementById('events-track');
-          const nav = document.getElementById('events-nav');
-          const slides = Array.from(track.children);
-          const indicators = Array.from(nav.children);
-          const nextButton = document.querySelector('.carousel-button.next');
-          const prevButton = document.querySelector('.carousel-button.prev');
-          
-          if (slides.length <= 1) {
-            nextButton.style.display = 'none';
-            prevButton.style.display = 'none';
-            nav.style.display = 'none';
-            return;
+          async function fetchCalendarEvents() {
+            const icalUrl = 'https://calendar.google.com/calendar/ical/42ea635b03e7b52add3eac2994bb884a3ef3c2f1403a0003ded9fbb4d5ebcce1%40group.calendar.google.com/private-eae60ffc005caa94a28d3d5405872d97/basic.ics';
+            
+            try {
+              const eventsTrack = document.getElementById('events-track');
+              eventsTrack.innerHTML = `
+                <li class="carousel-slide">
+                  <div class="events-loading">
+                    <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                    <p>Loading events from calendar...</p>
+                  </div>
+                </li>
+              `;
+              
+              const proxyUrl = 'https://corsproxy.io/?';
+              const response = await fetch(proxyUrl + encodeURIComponent(icalUrl));
+              
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              
+              const icalData = await response.text();
+              
+              const events = parseICalData(icalData);
+              
+              const staticEvent = {
+                summary: "Zoom Private Classes Available",
+                start: new Date(),
+                end: new Date(new Date().setFullYear(new Date().getFullYear() + 1)),
+                location: "Online via Zoom",
+                description: "Book your private Zoom class at your convenience. Available by appointment.",
+                formattedDate: "Available Now"
+              };
+              
+              events.unshift(staticEvent);
+              
+              updateEventsCarousel(events);
+            } catch (error) {
+              console.error('Error fetching calendar events:', error);
+              
+              const eventsTrack = document.getElementById('events-track');
+              eventsTrack.innerHTML = `
+                <li class="carousel-slide">
+                  <div class="events-error">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+                    <p>Failed to load events from calendar.</p>
+                    <button class="refresh-button" onclick="initEventsCarousel().fetchCalendarEvents()">
+                      <i class="fas fa-sync-alt"></i> Try Again
+                    </button>
+                  </div>
+                </li>
+              `;
+            }
           }
           
-          let currentIndex = 0;
-          
-          function setActiveSlide(index) {
-            indicators.forEach(indicator => {
-              indicator.classList.remove('current-slide');
-            });
-            if (indicators[index]) {
-              indicators[index].classList.add('current-slide');
+          function parseICalData(icalData) {
+            const events = [];
+            const lines = icalData.split('\n');
+            let currentEvent = null;
+            let inEvent = false;
+            let inDescription = false;
+            let descriptionLines = [];
+            
+            for (let i = 0; i < lines.length; i++) {
+              const line = lines[i].trim();
+              
+              if (line === 'BEGIN:VEVENT') {
+                inEvent = true;
+                currentEvent = {};
+              } else if (line === 'END:VEVENT') {
+                inEvent = false;
+                inDescription = false;
+                
+                if (descriptionLines.length > 0) {
+                  currentEvent.description = descriptionLines.join('\n')
+                    .replace(/\\,/g, ',')
+                    .replace(/\\;/g, ';')
+                    .replace(/\\n/g, '\n')
+                    .trim();
+                  descriptionLines = [];
+                }
+                
+                if (currentEvent && currentEvent.summary && currentEvent.start) {
+                  const eventDate = new Date(currentEvent.start);
+                  const now = new Date();
+                  
+                  if (eventDate >= now) {
+                    // ENHANCED: Use improved URL extraction
+                    currentEvent.link = extractEventURL(currentEvent);
+                    events.push(currentEvent);
+                  }
+                }
+                currentEvent = null;
+              } else if (inEvent && currentEvent !== null) {
+                if (line.startsWith('SUMMARY:')) {
+                  currentEvent.summary = line.substring(8).replace(/\\,/g, ',').replace(/\\;/g, ';');
+                } else if (line.startsWith('DTSTART:')) {
+                  const dateStr = line.substring(8);
+                  currentEvent.start = parseICalDate(dateStr);
+                } else if (line.startsWith('DTEND:')) {
+                  const dateStr = line.substring(6);
+                  currentEvent.end = parseICalDate(dateStr);
+                } else if (line.startsWith('LOCATION:')) {
+                  currentEvent.location = line.substring(9).replace(/\\,/g, ',').replace(/\\;/g, ';');
+                } else if (line.startsWith('DESCRIPTION:')) {
+                  inDescription = true;
+                  descriptionLines.push(line.substring(12));
+                } else if (inDescription && line.startsWith(' ')) {
+                  descriptionLines.push(line.substring(1));
+                } else if (line.startsWith('URL:')) {
+                  currentEvent.url = line.substring(4).replace(/\\,/g, ',').replace(/\\;/g, ';');
+                } else if (line.indexOf(':') !== -1) {
+                  inDescription = false;
+                }
+              }
             }
             
-            track.style.transform = `translateX(-${index * 100}%)`;
+            events.sort((a, b) => new Date(a.start) - new Date(b.start));
             
-            prevButton.style.display = index === 0 ? 'none' : 'flex';
-            nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
+            return events.slice(0, 5);
           }
           
-          nextButton.addEventListener('click', () => {
-            if (currentIndex < slides.length - 1) {
-              currentIndex++;
-              setActiveSlide(currentIndex);
-            }
-          });
-          
-          prevButton.addEventListener('click', () => {
-            if (currentIndex > 0) {
-              currentIndex--;
-              setActiveSlide(currentIndex);
-            }
-          });
-          
-          indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => {
-              currentIndex = index;
-              setActiveSlide(currentIndex);
-            });
-          });
-          
-          let autoAdvance = setInterval(() => {
-            if (currentIndex < slides.length - 1) {
-              currentIndex++;
-              setActiveSlide(currentIndex);
+          function parseICalDate(dateStr) {
+            if (dateStr.includes('T')) {
+              const year = dateStr.substring(0, 4);
+              const month = dateStr.substring(4, 6) - 1;
+              const day = dateStr.substring(6, 8);
+              const hour = dateStr.substring(9, 11) || 0;
+              const minute = dateStr.substring(11, 13) || 0;
+              const second = dateStr.substring(13, 15) || 0;
+              
+              if (dateStr.endsWith('Z')) {
+                return new Date(Date.UTC(year, month, day, hour, minute, second));
+              }
+              
+              return new Date(year, month, day, hour, minute, second);
             } else {
-              currentIndex = 0;
-              setActiveSlide(currentIndex);
+              const year = dateStr.substring(0, 4);
+              const month = dateStr.substring(4, 6) - 1;
+              const day = dateStr.substring(6, 8);
+              
+              return new Date(year, month, day);
             }
-          }, 5000);
+          }
           
-          const carousel = document.querySelector('.carousel');
-          carousel.addEventListener('mouseenter', () => {
-            clearInterval(autoAdvance);
-          });
+          // ENHANCED: Improved events carousel update function with better URL display
+          function updateEventsCarousel(events) {
+            const eventsTrack = document.getElementById('events-track');
+            const eventsNav = document.getElementById('events-nav');
+            const eventsContainer = document.getElementById('events-carousel');
+            
+            eventsTrack.innerHTML = '';
+            eventsNav.innerHTML = '';
+            
+            if (events.length === 0) {
+              eventsContainer.classList.add('hidden');
+              return;
+            }
+            
+            eventsContainer.classList.remove('hidden');
+            
+            events.forEach((event, index) => {
+              const slide = document.createElement('li');
+              slide.className = 'carousel-slide';
+              
+              const eventDate = new Date(event.start);
+              const options = { 
+                weekday: 'short', 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric',
+                hour: 'numeric',
+                minute: '2-digit'
+              };
+              const formattedDate = event.formattedDate || eventDate.toLocaleDateString('en-US', options);
+              
+              let description = event.description || '';
+              if (description.length > 200) {
+                description = description.substring(0, 200) + '...';
+              }
+              
+              // ENHANCED: Use improved URL extraction
+              const eventURL = extractEventURL(event);
+              let urlHtml = '';
+              let buttonHtml = '';
+              
+              if (eventURL) {
+                // Display the full URL in the carousel with better styling
+                urlHtml = `
+                  <div class="event-url">
+                    <i class="fas fa-link"></i>
+                    <a href="${eventURL}" target="_blank" onclick="event.stopPropagation();" style="word-break: break-all; font-size: 0.9rem; max-width: 100%;">
+                      ${eventURL}
+                    </a>
+                  </div>
+                `;
+                buttonHtml = `<button class="event-button" onclick="handleEventRegistration(event, '${eventURL}')">View Event</button>`;
+              } else {
+                buttonHtml = `<button class="event-button" onclick="scrollToRegistration()">Register Now</button>`;
+              }
+              
+              slide.innerHTML = `
+                <div class="event-card">
+                  <div class="event-date"><i class="far fa-calendar-alt"></i> ${formattedDate}</div>
+                  <h3 class="event-title">${event.summary || 'Dance Event'}</h3>
+                  ${event.location ? `<div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>` : ''}
+                  ${description ? `<p class="event-description">${description}</p>` : ''}
+                  ${urlHtml}
+                  ${buttonHtml}
+                </div>
+              `;
+              
+              eventsTrack.appendChild(slide);
+              
+              const indicator = document.createElement('button');
+              indicator.className = 'carousel-indicator';
+              indicator.dataset.index = index;
+              eventsNav.appendChild(indicator);
+            });
+            
+            initCarouselFunctionality();
+          }
           
-          carousel.addEventListener('mouseleave', () => {
-            autoAdvance = setInterval(() => {
+          function initCarouselFunctionality() {
+            const track = document.getElementById('events-track');
+            const nav = document.getElementById('events-nav');
+            const slides = Array.from(track.children);
+            const indicators = Array.from(nav.children);
+            const nextButton = document.querySelector('.carousel-button.next');
+            const prevButton = document.querySelector('.carousel-button.prev');
+            
+            if (slides.length <= 1) {
+              nextButton.style.display = 'none';
+              prevButton.style.display = 'none';
+              nav.style.display = 'none';
+              return;
+            }
+            
+            let currentIndex = 0;
+            
+            function setActiveSlide(index) {
+              indicators.forEach(indicator => {
+                indicator.classList.remove('current-slide');
+              });
+              if (indicators[index]) {
+                indicators[index].classList.add('current-slide');
+              }
+              
+              track.style.transform = `translateX(-${index * 100}%)`;
+              
+              prevButton.style.display = index === 0 ? 'none' : 'flex';
+              nextButton.style.display = index === slides.length - 1 ? 'none' : 'flex';
+            }
+            
+            nextButton.addEventListener('click', () => {
+              if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                setActiveSlide(currentIndex);
+              }
+            });
+            
+            prevButton.addEventListener('click', () => {
+              if (currentIndex > 0) {
+                currentIndex--;
+                setActiveSlide(currentIndex);
+              }
+            });
+            
+            indicators.forEach((indicator, index) => {
+              indicator.addEventListener('click', () => {
+                currentIndex = index;
+                setActiveSlide(currentIndex);
+              });
+            });
+            
+            let autoAdvance = setInterval(() => {
               if (currentIndex < slides.length - 1) {
                 currentIndex++;
                 setActiveSlide(currentIndex);
@@ -3825,19 +4586,42 @@
                 setActiveSlide(currentIndex);
               }
             }, 5000);
-          });
+            
+            const carousel = document.querySelector('.carousel');
+            carousel.addEventListener('mouseenter', () => {
+              clearInterval(autoAdvance);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+              autoAdvance = setInterval(() => {
+                if (currentIndex < slides.length - 1) {
+                  currentIndex++;
+                  setActiveSlide(currentIndex);
+                } else {
+                  currentIndex = 0;
+                  setActiveSlide(currentIndex);
+                }
+              }, 5000);
+            });
+            
+            setActiveSlide(0);
+          }
           
-          setActiveSlide(0);
+          fetchCalendarEvents();
+          
+          setInterval(fetchCalendarEvents, 60 * 60 * 1000);
         }
         
         function initPage() {
           window.scrollTo(0, 0);
           
           updateCTASection();
+          initVideoSection();
           initForm();
           initRegistrationFlow();
           initNavButtons();
           initSmartNavigation();
+          initMapsLinks();
           initEventsCarousel();
           
           window.addEventListener('scroll', setActiveSection);
@@ -3851,6 +4635,26 @@
       }
     });
 
+    // ENHANCED: Improved event registration handler
+    function handleEventRegistration(event, url) {
+      event.preventDefault();
+      
+      if (url.includes('facebook.com') || url.includes('fb.me') || url.includes('fb.com')) {
+        // Try to open in Facebook app first
+        const fbAppUrl = url.replace('https://www.facebook.com/', 'fb://facewebmodal/f?href=');
+        window.location.href = fbAppUrl;
+        
+        // Fallback to web URL
+        setTimeout(() => {
+          if (!document.hidden) {
+            window.open(url, '_blank');
+          }
+        }, 500);
+      } else {
+        window.open(url, '_blank');
+      }
+    }
+    
     function scrollToRegistration() {
       document.getElementById('registration-form').scrollIntoView({
         behavior: 'smooth',
